@@ -1,0 +1,157 @@
+# Project information
+site_name: Statistik og Dataanalyse for Softwareteknologi
+site_url: https://rbrooksdk.github.io/STA_26
+site_author: VIA University College
+site_description: Kursusside for Statistik og Dataanalyse for Softwareteknologi ved VIA University College
+docs_dir: .
+site_dir: ../site
+# Repository information
+repo_name: Github
+repo_url: https://github.com/RBrooksDK/STA_26
+
+# Copyright
+copyright: Copyright &copy; 2026 VIA University College
+
+# Configurations
+theme:
+  name: material
+  language: da
+  default_theme: default
+  # custom_dir: overrides
+  favicon: figures/vialogo_white.png
+  logo: figures/vialogo.png
+  icon:
+    repo: fontawesome/brands/github
+    annotation: material/chevron-right-circle
+  features:
+    - announce.dismiss
+    - content.code.annotate
+    - content.code.copy
+    # - content.code.select
+    # - content.footnote.tooltips
+    # - content.tabs.link
+    - content.tooltips
+    # - header.autohide
+    - navigation.expand
+    - navigation.footer
+    - navigation.indexes
+    - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.instant.progress
+    - navigation.prune
+    # - navigation.sections
+    - navigation.tabs
+    # - navigation.tabs.sticky
+    - navigation.top
+    - navigation.tracking
+    - search.highlight
+    - search.share
+    - search.suggest
+    - toc.follow
+    # - toc.integrate
+  palette:
+    - scheme: default
+      accent: orange
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to dark mode
+    - scheme: slate
+      primary: custom
+      accent: orange
+      toggle:
+        icon: material/toggle-switch-off
+        name: Switch to light mode
+  font:
+    text: "VIA Type"
+    code: "Roboto Mono"
+
+plugins:
+  - same-dir
+  - blog
+  - search
+  - mkdocs_quiz:
+      lang: da
+
+# Extensions
+markdown_extensions:
+  - admonition
+  - abbr
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+      toc_depth: 3
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.snippets:
+      auto_append:
+        - includes/mkdocs.md
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+  - https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js
+
+extra:
+  status:
+    new: Ny
+    deprecated: Udfaset
+  analytics:
+    provider: google
+    property: !ENV GOOGLE_ANALYTICS_KEY
+  social:
+    - icon: material/email
+      link: mailto:rib@via.dk
+    - icon: fontawesome/brands/github
+      link: https://github.com/RBrooksDK/
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/rbrooks-dk/
+
+extra_css:
+  - stylesheets/extra.css
+
+nav:
+  - Hjem: README.md
+  - Sessioner:
+    - Sessions/README.md
+    - "01 Repetition af sandsynlighedsteori og stokastiske variable": 01_Repetition_af_sandsynlighedsteori_og_stokastiske_variable/README.md
+    - "02 Diskrete fordelinger I: uniform, Bernoulli og binomialfordeling": 02_Diskrete_fordelinger_I_uniform_Bernoulli_og_binomialfordeling/README.md
+    - "03 Diskrete fordelinger II: hypergeometrisk, geometrisk, negativ binomial- og Poissonfordeling": 03_Diskrete_fordelinger_II_hypergeometrisk_geometrisk_negativ_binomial_og_Poissonfordeling/README.md
+    - "04 Kontinuerte fordelinger I: normalfordelingen": 04_Kontinuerte_fordelinger_I_normalfordelingen/README.md
+    - "05 Kontinuerte fordelinger II: eksponentialfordelingen": 05_Kontinuerte_fordelinger_II_eksponentialfordelingen/README.md
+    - "06 Fordelinger af stikprøvestørrelser (sampling distributions)": 06_Fordelinger_af_stikproevestoerrelser_sampling_distributions/README.md
+    - "07 Intervalestimation og konfidensintervaller": 07_Intervalestimation_og_konfidensintervaller/README.md
+    - "08 Hypotesetest": 08_Hypotesetest/README.md
+    - "09 Simpel lineær regression": 09_Simpel_lineaer_regression/README.md
+    - "10 Variansanalyse (ANOVA)": 10_Variansanalyse_ANOVA/README.md
+    - "11 Goodness-of-fit og analyse af kategoriske data": 11_Goodness_of_fit_og_analyse_af_kategoriske_data/README.md
+    - "12 Spørgetime og eksamensforberedelse": 12_Spoergetime_og_eksamensforberedelse/README.md
+  - Generelle ressourcer STA: https://viaucdk-my.sharepoint.com/
+  - Eksamen: pages/exam.md
+  - FAQ: pages/faq.md
+  - Om: https://rbrooksdk.github.io
