@@ -71,6 +71,7 @@ Alle kapitler og øvelser, der refereres til, er fra 6. udgave. Sørg for at hav
 ---
 
 Wiseflow-koden til alle flows, der bruges under kurset, er altid 0000. Dette er dog ikke koden til selve eksamenen i juni.
+
 ---
 
 ## Historiske noter
