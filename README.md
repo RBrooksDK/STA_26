@@ -77,19 +77,3 @@ Wiseflow-koden til alle flows, der bruges under kurset, er altid 0000. Dette er 
 ## Historiske noter
 
 Kursuset er helt nyt og der er endnu ingen historik.
-
-## Licens og kreditering
-
-Dele af tutorials på dette site er tilpasset fra materiale af **Ethan Weed** fra  
-*Learning Statistics with Python*, tilgængelig på:
-
-[https://ethanweed.github.io/pythonbook/landingpage.html](https://ethanweed.github.io/pythonbook/landingpage.html)
-
-Originalmaterialet er udgivet under **Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0)**.
-
-Materialet er modificeret, omstruktureret og tilpasset til dette kursus’ kontekst, herunder ændringer i eksempler, forklaringer og kodens opbygning.
-
-Medmindre andet er angivet, distribueres alle tutorials på denne side under samme licens:
-
-**Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)**  
-[https://creativecommons.org/licenses/by-sa/4.0/](https://creativecommons.org/licenses/by-sa/4.0/)
