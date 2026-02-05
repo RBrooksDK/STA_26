@@ -69,6 +69,7 @@ plugins:
   - same-dir
   - blog
   - search
+  - mkdocs-jupyter
   - mkdocs_quiz:
       lang: da
 
@@ -139,7 +140,9 @@ nav:
   - Hjem: README.md
   - Sessioner:
     - Sessions/README.md
-    - "01 Repetition af sandsynlighedsteori og stokastiske variable": 01_Repetition_af_sandsynlighedsteori_og_stokastiske_variable/README.md
+    - "01 Repetition af sandsynlighedsteori og stokastiske variable":
+      - 01_Repetition_af_sandsynlighedsteori_og_stokastiske_variable/README.md
+      - "Tutorial 1 (notebook)": 01_Repetition_af_sandsynlighedsteori_og_stokastiske_variable/Tutorial_1_notebook.ipynb
     - "02 Diskrete fordelinger I: uniform, Bernoulli og binomialfordeling": 02_Diskrete_fordelinger_I_uniform_Bernoulli_og_binomialfordeling/README.md
     - "03 Diskrete fordelinger II: hypergeometrisk, geometrisk, negativ binomial- og Poissonfordeling": 03_Diskrete_fordelinger_II_hypergeometrisk_geometrisk_negativ_binomial_og_Poissonfordeling/README.md
     - "04 Kontinuerte fordelinger I: normalfordelingen": 04_Kontinuerte_fordelinger_I_normalfordelingen/README.md
