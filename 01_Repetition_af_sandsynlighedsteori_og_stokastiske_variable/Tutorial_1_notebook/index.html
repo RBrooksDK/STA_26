@@ -719,6 +719,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="4. Fra stokastisk variabel til data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#import-af-data-fra-csv-og-excel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Import af data fra CSV og Excel
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1322,6 +1339,23 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="4. Fra stokastisk variabel til data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#import-af-data-fra-csv-og-excel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Import af data fra CSV og Excel
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2460,6 +2494,119 @@ df.head()</div>
 </div>
 </div>
 </div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=eb78c40a">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="zeroclipboard-container">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-5">
+<div>
+<span class="notice" hidden="">Copied!</span>
+<svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
+<path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+<path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+</clipboard-copy>
+</div>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># Eksempel med navngivne rækker (index) og kolonner</span>
+<span class="n">df_pendling</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="p">[</span><span class="mi">310</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">20</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">45</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">35</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">95</span><span class="p">,</span> <span class="mi">15</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">180</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">55</span><span class="p">]</span>
+    <span class="p">],</span>
+    <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">"Salg"</span><span class="p">,</span> <span class="s2">"Udvikling"</span><span class="p">,</span> <span class="s2">"Support"</span><span class="p">,</span> <span class="s2">"Logistik"</span><span class="p">],</span>
+    <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">"Bil"</span><span class="p">,</span> <span class="s2">"Offentlig"</span><span class="p">,</span> <span class="s2">"Cykel"</span><span class="p">]</span>
+<span class="p">)</span>
+
+<span class="n">df_pendling</span>
+</pre></div>
+<div class="clipboard-copy-txt" id="cell-5"># Eksempel med navngivne rækker (index) og kolonner
+df_pendling = pd.DataFrame(
+    [
+        [310, 70, 20],
+        [45, 120, 35],
+        [10, 95, 15],
+        [180, 25, 55]
+    ],
+    index=["Salg", "Udvikling", "Support", "Logistik"],
+    columns=["Bil", "Offentlig", "Cykel"]
+)
+
+df_pendling</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[5]:</div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>Bil</th>
+<th>Offentlig</th>
+<th>Cykel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>Salg</th>
+<td>310</td>
+<td>70</td>
+<td>20</td>
+</tr>
+<tr>
+<th>Udvikling</th>
+<td>45</td>
+<td>120</td>
+<td>35</td>
+</tr>
+<tr>
+<th>Support</th>
+<td>10</td>
+<td>95</td>
+<td>15</td>
+</tr>
+<tr>
+<th>Logistik</th>
+<td>180</td>
+<td>25</td>
+<td>55</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c43d8dda">
 <div class="jp-Cell-inputWrapper" tabindex="0">
@@ -2468,6 +2615,131 @@ df.head()</div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>Dette er ofte den datastruktur, vi vil arbejde med i resten af kurset – uanset om data kommer fra CSV-filer, databaser eller er organiseret på andre måder.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=f0a4c332">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="import-af-data-fra-csv-og-excel">Import af data fra CSV og Excel<a class="anchor-link" href="#import-af-data-fra-csv-og-excel">¶</a></h3><p>Hvis du ser fejlen <code>FileNotFoundError</code>, betyder det normalt, at filerne ikke ligger i den mappe, som notebooken kører fra.</p>
+<p>Til CSV behøver du normalt ingen ekstra pakker. Til Excel (<code>.xlsx</code>) bruger Pandas typisk <code>openpyxl</code> som engine.</p>
+<p>Kør derfor evt. installations-cellen nedenfor først, og tjek derefter at <code>data.csv</code> og <code>alldata.xlsx</code> findes i din aktuelle working directory.</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=3fb415a9">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="zeroclipboard-container">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-6">
+<div>
+<span class="notice" hidden="">Copied!</span>
+<svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
+<path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+<path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+</clipboard-copy>
+</div>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># Kun nødvendigt hvis du mangler Excel-engine til .xlsx</span>
+<span class="c1"># Kør cellen, hvis read_excel giver en fejl om manglende openpyxl</span>
+<span class="c1"># %pip install openpyxl</span>
+</pre></div>
+<div class="clipboard-copy-txt" id="cell-6"># Kun nødvendigt hvis du mangler Excel-engine til .xlsx
+# Kør cellen, hvis read_excel giver en fejl om manglende openpyxl
+# %pip install openpyxl</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell" id="cell-id=5bd3d39f">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="zeroclipboard-container">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-7">
+<div>
+<span class="notice" hidden="">Copied!</span>
+<svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
+<path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+<path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+</clipboard-copy>
+</div>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="c1"># CSV-fil</span>
+<span class="n">df_csv</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"data.csv"</span><span class="p">)</span>
+
+<span class="c1"># Excel-fil</span>
+<span class="n">df_excel</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">"alldata.xlsx"</span><span class="p">)</span>
+
+<span class="n">df_csv</span><span class="o">.</span><span class="n">head</span><span class="p">(),</span> <span class="n">df_excel</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+<div class="clipboard-copy-txt" id="cell-7"># CSV-fil
+df_csv = pd.read_csv("data.csv")
+
+# Excel-fil
+df_excel = pd.read_excel("alldata.xlsx")
+
+df_csv.head(), df_excel.head()</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child jp-OutputArea-executeResult">
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[7]:</div>
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
+<pre>(   Duration  Pulse  Maxpulse  Calories
+ 0        60    110       130     409.1
+ 1        60    117       145     479.0
+ 2        60    103       135     340.0
+ 3        45    109       175     282.4
+ 4        45    117       148     406.0,
+    530  531  533  534  535  537  538  540  541  543  ...  9a  9b  10a  10b  \
+ 0   -1   -2    1   -2    2    1   -2    1    1    2  ...   2   0    1   -2   
+ 1    2    2   -1   -2   -1   -2    1   -2    2   -2  ...  -2   0   -1    2   
+ 2    2    1   -2   -2    1   -2    1   -1    1   -1  ...  -1  -2    0    2   
+ 3    2    1   -2   -1    1    1    1    1    1   -2  ...  -2   2    2    2   
+ 4    1    1   -2    2   -2    1   -2    1    2   -2  ...  -2   0   -1    0   
+ 
+    11a  11b  12a  12b               storkreds  alder  
+ 0   -2    1    1    1    Københavns Storkreds     78  
+ 1    1   -2    0    0          Fyns Storkreds     64  
+ 2    0   -1    1   -2     Bornholms Storkreds     37  
+ 3    2   -1    2    0  Nordjyllands Storkreds     28  
+ 4   -2    0    2   -2    Københavns Storkreds     58  
+ 
+ [5 rows x 53 columns])</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=a6f66b05">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <hr/>
 <h2 id="5-deskriptiv-statistik">5. Deskriptiv statistik<a class="anchor-link" href="#5-deskriptiv-statistik">¶</a></h2><p>Deskriptiv statistik bruges til at opsummere og forstå data, før vi foretager statistisk inferens.</p>
 <p>Vi har allerede set på gennemsnit, varians og standardafvigelse i afsnit 3. Her fokuserer vi i stedet på median, typetal (mode) og percentiler.</p>
@@ -2481,10 +2753,10 @@ df.head()</div>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [13]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
-<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-5">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-8">
 <div>
 <span class="notice" hidden="">Copied!</span>
 <svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
@@ -2499,7 +2771,7 @@ df.head()</div>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Medianen er: </span><span class="si">{</span><span class="n">median</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Typetal (mode) er: </span><span class="si">{</span><span class="s1">', '</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span><span class="w"> </span><span class="n">mode</span><span class="o">.</span><span class="n">values</span><span class="p">))</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-5">median = df["kast"].median()
+<div class="clipboard-copy-txt" id="cell-8">median = df["kast"].median()
 mode = df["kast"].mode()
 print(f"Medianen er: {median}")
 print(f"Typetal (mode) er: {', '.join(map(str, mode.values))}")</div>
@@ -2546,10 +2818,10 @@ Og hvis du i stedet arbejder med numpy så bruger du <code>np.percentile</code> 
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
-<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-6">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-9">
 <div>
 <span class="notice" hidden="">Copied!</span>
 <svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
@@ -2562,7 +2834,7 @@ Og hvis du i stedet arbejder med numpy så bruger du <code>np.percentile</code> 
 <div class="highlight-ipynb hl-python"><pre><span></span><span class="n">percentiler</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"kast"</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">])</span>
 <span class="n">percentiler</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-6">percentiler = df["kast"].quantile([0.1, 0.25, 0.5, 0.75, 0.9])
+<div class="clipboard-copy-txt" id="cell-9">percentiler = df["kast"].quantile([0.1, 0.25, 0.5, 0.75, 0.9])
 percentiler</div>
 </div>
 </div>
@@ -2573,7 +2845,7 @@ percentiler</div>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[6]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[9]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>0.10    1.0
 0.25    2.0
@@ -2608,10 +2880,10 @@ Name: kast, dtype: float64</pre>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
-<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-7">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-10">
 <div>
 <span class="notice" hidden="">Copied!</span>
 <svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
@@ -2626,7 +2898,7 @@ Name: kast, dtype: float64</pre>
 
 <span class="n">pandas_p90</span><span class="p">,</span> <span class="n">numpy_p90</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-7">pandas_p90 = df["kast"].quantile(0.90)
+<div class="clipboard-copy-txt" id="cell-10">pandas_p90 = df["kast"].quantile(0.90)
 numpy_p90 = np.percentile(df["kast"], 90)
 
 pandas_p90, numpy_p90</div>
@@ -2639,7 +2911,7 @@ pandas_p90, numpy_p90</div>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[7]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[10]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>(np.float64(6.0), np.float64(6.0))</pre>
 </div>
@@ -2666,10 +2938,10 @@ Og hvis du i stedet arbejder med numpy så kan du finde kvartilerne med <code>np
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [11]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
-<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-8">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-11">
 <div>
 <span class="notice" hidden="">Copied!</span>
 <svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
@@ -2686,7 +2958,7 @@ Og hvis du i stedet arbejder med numpy så kan du finde kvartilerne med <code>np
 
 <span class="n">q1</span><span class="p">,</span> <span class="n">q2</span><span class="p">,</span> <span class="n">q3</span><span class="p">,</span> <span class="n">iqr</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-8">q1 = df["kast"].quantile(0.25)
+<div class="clipboard-copy-txt" id="cell-11">q1 = df["kast"].quantile(0.25)
 q2 = df["kast"].quantile(0.50)
 q3 = df["kast"].quantile(0.75)
 iqr = q3 - q1
@@ -2701,7 +2973,7 @@ q1, q2, q3, iqr</div>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[8]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[11]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>(np.float64(2.0), np.float64(4.0), np.float64(5.0), np.float64(3.0))</pre>
 </div>
@@ -2726,10 +2998,10 @@ q1, q2, q3, iqr</div>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
-<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-9">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-12">
 <div>
 <span class="notice" hidden="">Copied!</span>
 <svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
@@ -2744,7 +3016,7 @@ q1, q2, q3, iqr</div>
 
 <span class="n">q1_np</span><span class="p">,</span> <span class="n">q2_np</span><span class="p">,</span> <span class="n">q3_np</span><span class="p">,</span> <span class="n">iqr_np</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-9">q1_np, q2_np, q3_np = np.percentile(df["kast"], [25, 50, 75])
+<div class="clipboard-copy-txt" id="cell-12">q1_np, q2_np, q3_np = np.percentile(df["kast"], [25, 50, 75])
 iqr_np = q3_np - q1_np
 
 q1_np, q2_np, q3_np, iqr_np</div>
@@ -2757,7 +3029,7 @@ q1_np, q2_np, q3_np, iqr_np</div>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[9]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[12]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>(np.float64(2.0), np.float64(4.0), np.float64(5.0), np.float64(3.0))</pre>
 </div>
@@ -2783,10 +3055,10 @@ q1_np, q2_np, q3_np, iqr_np</div>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [13]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
-<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-10">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-13">
 <div>
 <span class="notice" hidden="">Copied!</span>
 <svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
@@ -2802,7 +3074,7 @@ q1_np, q2_np, q3_np, iqr_np</div>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Histogram for terningekast"</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-10">plt.hist(df["kast"], bins=6, edgecolor="black")
+<div class="clipboard-copy-txt" id="cell-13">plt.hist(df["kast"], bins=6, edgecolor="black")
 plt.xlabel("Udfald")
 plt.ylabel("Frekvens")
 plt.title("Histogram for terningekast")
@@ -2843,10 +3115,10 @@ plt.show()</div>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [11]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [14]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
-<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-11">
+<clipboard-copy ,="" aria-label="Copy to Clipboard" for="cell-14">
 <div>
 <span class="notice" hidden="">Copied!</span>
 <svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
@@ -2862,7 +3134,7 @@ plt.show()</div>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Histogram for normalfordelte data"</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-11">normal_data = np.random.normal(loc=0, scale=1, size=1000)
+<div class="clipboard-copy-txt" id="cell-14">normal_data = np.random.normal(loc=0, scale=1, size=1000)
 
 plt.hist(normal_data, bins=30, edgecolor="black")
 plt.title("Histogram for normalfordelte data")
