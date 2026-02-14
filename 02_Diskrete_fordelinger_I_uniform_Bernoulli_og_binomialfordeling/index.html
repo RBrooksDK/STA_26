@@ -1236,7 +1236,116 @@ Indsæt bogreferencer og opgavelister her.
     ol { list-style-type: lower-alpha; }
 </style>
 
-<p><em>Øvelser indsættes.</em></p>
+<p>Disse øvelser skal I kunne lave uden Python. I må gerne bruge Wolfram Alpha (se eventuelt tutorial til denne session).</p>
+<h4 id="velse-1">Øvelse 1<a class="headerlink" href="#velse-1" title="Permanent link">&para;</a></h4>
+<p>A computer system uses passwords that are exactly six
+characters and each character is one of the 26 letters (a–z) or
+10 integers (0–9). Suppose that 10,000 users of the system have
+unique passwords. A hacker randomly selects (with replacement)
+100,000 passwords from the potential set, and a match to a user’s
+password is called a hit.</p>
+<ol>
+<li>What is the distribution of the number of hits?</li>
+<li>What is the probability of no hits?</li>
+<li>What are the mean and variance of the number of hits?</li>
+</ol>
+<details class="answer">
+<summary>&nbsp;</summary>
+<ol>
+<li>The distribution of the number of hits is Binomial with <span class="arithmatex">\(n = 10^5\)</span> and <span class="arithmatex">\(p=\frac{10^5}{36^6}\)</span></li>
+<li><span class="arithmatex">\(P(X=0) = 0.6317\)</span></li>
+<li><span class="arithmatex">\(\mu = \sigma^2 = 0.4594\)</span></li>
+</ol>
+</details>
+<h4 id="velse-2">Øvelse 2<a class="headerlink" href="#velse-2" title="Permanent link">&para;</a></h4>
+<p>Because all airline passengers do not show up for
+their reserved seat, an airline sells 125 tickets for a flight that holds
+only 120 passengers. The probability that a passenger does not
+show up is 0.10, and the passengers behave independently.</p>
+<ol>
+<li>What is the probability that every passenger who shows up can take the flight?</li>
+<li>What is the probability that the flight departs with empty seats?</li>
+</ol>
+<details class="answer">
+<summary>&nbsp;</summary>
+<ol>
+<li><span class="arithmatex">\(p = 0.9961 \)</span></li>
+<li><span class="arithmatex">\(p = 0.9886\)</span></li>
+</ol>
+</details>
+<h4 id="velse-3">Øvelse 3<a class="headerlink" href="#velse-3" title="Permanent link">&para;</a></h4>
+<p>A congested computer network has a 1% chance of losing a data packet that must be resent, and packet losses are independent events. An e-mail message requires 100 packets.</p>
+<ol>
+<li>What is the probability that at least one packet is resent?</li>
+<li>What is the probability that two or more packets are resent?</li>
+<li>What are the mean and standard deviation of the number of packets that are resent?</li>
+<li>If there are 10 messages and each contains 100 packets, what is the probability that at least one message requires that two or more packets be resent?</li>
+</ol>
+<details class="answer">
+<summary>&nbsp;</summary>
+<ol>
+<li><span class="arithmatex">\(P(X \geq 1)=0.634\)</span></li>
+<li><span class="arithmatex">\(P(X \geq 2)=0.2642\)</span></li>
+<li><span class="arithmatex">\(\mu = 1, \sigma = 0.995\)</span></li>
+<li><span class="arithmatex">\(P(Y \geq 1)=0.9535\)</span></li>
+</ol>
+</details>
+<h4 id="velse-4">Øvelse 4<a class="headerlink" href="#velse-4" title="Permanent link">&para;</a></h4>
+<p>The probability that a patient recovers from a rare blood disease is 0.4. If 15 people are known to have contracted this disease, what is the probability that:</p>
+<ol>
+<li>At least 10 survive</li>
+<li>From 3 to 8 survive</li>
+<li>Exactly 5 survive</li>
+<li>Find the mean and variance.</li>
+</ol>
+<details class="answer">
+<summary>&nbsp;</summary>
+<ol>
+<li><span class="arithmatex">\(P(X \geq 10) \approx 0.0338\)</span></li>
+<li><span class="arithmatex">\(P(3 \leq X \leq 8) \approx 0.8778\)</span></li>
+<li><span class="arithmatex">\(P(X=5) \approx 0.1859\)</span></li>
+<li><span class="arithmatex">\(\mu = 6, \sigma^2 = 3.6\)</span></li>
+</ol>
+</details>
+<h4 id="velse-5">Øvelse 5<a class="headerlink" href="#velse-5" title="Permanent link">&para;</a></h4>
+<p>Let <span class="arithmatex">\(X\)</span> and <span class="arithmatex">\(Y\)</span> be two independent discrete random variables with the following PMFs:</p>
+<p>For <span class="arithmatex">\(X\)</span>:</p>
+<div class="arithmatex">\[
+P_X(k) =
+\begin{cases}
+\frac{1}{10} &amp; \text{for } k=0 \\
+\frac{2}{10} &amp; \text{for } k=1 \\
+\frac{3}{10} &amp; \text{for } k=2 \\
+\frac{4}{10} &amp; \text{for } k=3 \\
+0 &amp; \text{otherwise}
+\end{cases}
+\]</div>
+<p>For <span class="arithmatex">\(Y\)</span>:</p>
+<div class="arithmatex">\[
+P_Y(k) =
+\begin{cases}
+\frac{1}{5} &amp; \text{for } k=0 \\
+\frac{1}{5} &amp; \text{for } k=1 \\
+\frac{2}{5} &amp; \text{for } k=2 \\
+\frac{1}{5} &amp; \text{for } k=3 \\
+0 &amp; \text{otherwise}
+\end{cases}
+\]</div>
+<ol>
+<li>Find <span class="arithmatex">\(P(X&lt;2 \text{ and } Y&lt;2)\)</span>.</li>
+<li>Find <span class="arithmatex">\(P(X \ge 2 \text{ or } Y \ge 2)\)</span>.</li>
+<li>Find <span class="arithmatex">\(P(X \ge 2 \mid Y \ge 2)\)</span>.</li>
+<li>Find <span class="arithmatex">\(P(X &lt; Y)\)</span>.</li>
+</ol>
+<details class="answer">
+<summary>&nbsp;</summary>
+<ol>
+<li>0.12</li>
+<li>0.88</li>
+<li>0.70</li>
+<li>0.26</li>
+</ol>
+</details>
 
 
 
