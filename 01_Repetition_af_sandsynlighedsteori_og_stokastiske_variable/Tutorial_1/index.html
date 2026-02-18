@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../../figures/vialogo_white.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
     
     
       
@@ -829,7 +829,6 @@
 </ul>
 <p><strong>Notebook-version:</strong></p>
 <ul>
-<li><a href="Tutorial_1_notebook/">Åbn notebook som side</a></li>
 <li><a href="https://raw.githubusercontent.com/RBrooksDK/STA_26/main/01_Repetition_af_sandsynlighedsteori_og_stokastiske_variable/Tutorial_1_notebook.ipynb">Download notebook (.ipynb)</a></li>
 </ul>
 <hr />
@@ -853,7 +852,7 @@
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">terningekast</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
 </span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">terningekast</span><span class="p">[:</span><span class="mi">10</span><span class="p">]</span>
 </span></code></pre></div>
-<p>Her genererer vi en række tilfældige terningekast og gemmer resultaterne i variablen <code>terningekast</code>. Hver værdi svarer til ét udfald af den stokastiske variabel <span class="arithmatex">\( X \)</span>, som angiver antallet af øjne ved et kast med en fair seks-sidet terning.</p>
+<p>Her genererer vi en række tilfældige terningekast og gemmer resultaterne i variablen <code>terningekast</code>. Hver værdi svarer til ét udfald af den stokastiske variabel <span class="arithmatex">\(X\)</span>, som angiver antallet af øjne ved et kast med en fair seks-sidet terning.</p>
 <ul>
 <li><code>np.random.seed(42)</code> sørger for, at vi får de samme tilfældige tal hver gang vi kører koden. Tallet 42 er blot et vilkårligt valgt "seed" – du kan bruge et hvilket som helst andet tal, men med samme seed får du replikerbare resultater.</li>
 <li><code>np.random.randint(1, 7, size=1000)</code> laver 1000 tilfældige heltal mellem 1 og 6 (inklusiv 1, eksklusiv 7 – derfor står der 7). Det svarer altså til at kaste en terning 1000 gange.</li>
@@ -864,17 +863,28 @@
 <h2 id="3-forventningsvrdi-og-varians">3. Forventningsværdi og varians<a class="headerlink" href="#3-forventningsvrdi-og-varians" title="Permanent link">&para;</a></h2>
 <p>Ifølge teorien er forventningsværdien middelværdien af en stokastisk variabel, mens variansen beskriver spredningen omkring denne middelværdi.</p>
 <p>Vi beregner disse direkte fra vores simulerede data.</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">middelværdi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">terningekast</span><span class="p">)</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">varians</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">terningekast</span><span class="p">)</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">std_afvigelse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">terningekast</span><span class="p">)</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="n">middelværdi</span><span class="p">,</span> <span class="n">varians</span><span class="p">,</span> <span class="n">std_afvigelse</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Beregning af populationsparametre (antager alle kast udgør hele populationen)</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">middelværdi_population</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">terningekast</span><span class="p">)</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="n">varians_population</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">terningekast</span><span class="p">)</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="n">std_afvigelse_population</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">terningekast</span><span class="p">)</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="c1"># Beregning af stikprøveparametre (antager kastene er en stikprøve)</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="n">middelværdi_stikprøve</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">terningekast</span><span class="p">)</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="n">varians_stikprøve</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">terningekast</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="n">std_afvigelse_stikprøve</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">terningekast</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Population: middelværdi =&quot;</span><span class="p">,</span> <span class="n">middelværdi_population</span><span class="p">,</span> 
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>      <span class="s2">&quot;, varians =&quot;</span><span class="p">,</span> <span class="n">varians_population</span><span class="p">,</span> 
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>      <span class="s2">&quot;, std_afvigelse =&quot;</span><span class="p">,</span> <span class="n">std_afvigelse_population</span><span class="p">)</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Stikprøve: varians =&quot;</span><span class="p">,</span> <span class="n">varians_stikprøve</span><span class="p">,</span> 
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>      <span class="s2">&quot;, std_afvigelse =&quot;</span><span class="p">,</span> <span class="n">std_afvigelse_stikprøve</span><span class="p">)</span>
 </span></code></pre></div>
 <p>Sammenlign disse værdier med de teoretiske resultater for et fair terningekast:</p>
 <ul>
 <li>Forventningsværdi: 3.5</li>
-<li>Varians: <span class="arithmatex">\( \frac{35}{12} \approx 2.92 \)</span></li>
+<li>Varians: <span class="arithmatex">\(\frac{35}{12} \approx 2.92\)</span></li>
 </ul>
+<p>Læg også mærke til forskellen mellem populationsvarians og stikprøvevarians. I eksemplet her er forskellen mellem de to mål meget lille, fordi vi har en stor stikprøve (1000 kast). Jo større stikprøven er, jo tættere ligger stikprøvevariansen typisk på populationsvariansen.</p>
 <hr />
 <h2 id="4-fra-stokastisk-variabel-til-data">4. Fra stokastisk variabel til data<a class="headerlink" href="#4-fra-stokastisk-variabel-til-data" title="Permanent link">&para;</a></h2>
 <p>Når vi arbejder med rigtige data, optræder stokastiske variable som kolonner i et datasæt. Vi lægger derfor vores data i en Pandas DataFrame.</p>
@@ -884,25 +894,28 @@
 </span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
 </span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </span></code></pre></div>
-<p>Vi kan også oprette en DataFrame med både rækkenavne (<code>index</code>) og kolonnenavne (<code>columns</code>):</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">df_pendling</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>    <span class="p">[</span>
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>        <span class="p">[</span><span class="mi">310</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">20</span><span class="p">],</span>
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>        <span class="p">[</span><span class="mi">45</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">35</span><span class="p">],</span>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>        <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">95</span><span class="p">,</span> <span class="mi">15</span><span class="p">],</span>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>        <span class="p">[</span><span class="mi">180</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">55</span><span class="p">]</span>
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>    <span class="p">],</span>
-</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>    <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Salg&quot;</span><span class="p">,</span> <span class="s2">&quot;Udvikling&quot;</span><span class="p">,</span> <span class="s2">&quot;Support&quot;</span><span class="p">,</span> <span class="s2">&quot;Logistik&quot;</span><span class="p">],</span>
-</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>    <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Bil&quot;</span><span class="p">,</span> <span class="s2">&quot;Offentlig&quot;</span><span class="p">,</span> <span class="s2">&quot;Cykel&quot;</span><span class="p">]</span>
-</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="p">)</span>
-</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>
-</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="n">df_pendling</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Eksempel med navngivne rækker (index) og kolonner</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">df_pendling</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>    <span class="p">[</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>        <span class="p">[</span><span class="mi">310</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">20</span><span class="p">],</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>        <span class="p">[</span><span class="mi">45</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">35</span><span class="p">],</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>        <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">95</span><span class="p">,</span> <span class="mi">15</span><span class="p">],</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>        <span class="p">[</span><span class="mi">180</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">55</span><span class="p">]</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>    <span class="p">],</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>    <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Salg&quot;</span><span class="p">,</span> <span class="s2">&quot;Udvikling&quot;</span><span class="p">,</span> <span class="s2">&quot;Support&quot;</span><span class="p">,</span> <span class="s2">&quot;Logistik&quot;</span><span class="p">],</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>    <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Bil&quot;</span><span class="p">,</span> <span class="s2">&quot;Offentlig&quot;</span><span class="p">,</span> <span class="s2">&quot;Cykel&quot;</span><span class="p">]</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="p">)</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="n">df_pendling</span>
 </span></code></pre></div>
-<p>Dette er præcis den datastruktur, vi vil arbejde med i resten af kurset – uanset om data kommer fra CSV-filer eller databaser.</p>
+<p>Dette er ofte den datastruktur, vi vil arbejde med i resten af kurset – uanset om data kommer fra CSV-filer, databaser eller er organiseret på andre måder.</p>
 <h3 id="import-af-data-fra-csv-og-excel">Import af data fra CSV og Excel<a class="headerlink" href="#import-af-data-fra-csv-og-excel" title="Permanent link">&para;</a></h3>
-<p>Når data allerede ligger i filer, kan vi læse dem direkte ind i Pandas:</p>
-<p>Hvis du får en fejl om manglende <code>openpyxl</code>, kan du installere pakken sådan her:</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="o">%</span><span class="n">pip</span> <span class="n">install</span> <span class="n">openpyxl</span>
+<p>Hvis du ser fejlen <code>FileNotFoundError</code>, betyder det normalt, at filerne ikke ligger i den mappe, som notebooken kører fra.</p>
+<p>Til CSV behøver du normalt ingen ekstra pakker. Til Excel (<code>.xlsx</code>) bruger Pandas typisk <code>openpyxl</code> som engine.</p>
+<p>Kør derfor evt. installations-cellen nedenfor først, og tjek derefter at <code>data.csv</code> og <code>alldata.xlsx</code> findes i din aktuelle working directory.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Kun nødvendigt hvis du mangler Excel-engine til .xlsx</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="c1"># Kør cellen, hvis read_excel giver en fejl om manglende openpyxl</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="c1"># %pip install openpyxl</span>
 </span></code></pre></div>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># CSV-fil</span>
 </span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">df_csv</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data.csv&quot;</span><span class="p">)</span>
@@ -919,8 +932,8 @@
 <h3 id="median-og-typetal-mode">Median og typetal (mode)<a class="headerlink" href="#median-og-typetal-mode" title="Permanent link">&para;</a></h3>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">median</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;kast&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
 </span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">mode</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;kast&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mode</span><span class="p">()</span>
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="n">median</span><span class="p">,</span> <span class="n">mode</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Medianen er: </span><span class="si">{</span><span class="n">median</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Typetal (mode) er: </span><span class="si">{</span><span class="s1">&#39;, &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span><span class="w"> </span><span class="n">mode</span><span class="o">.</span><span class="n">values</span><span class="p">))</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </span></code></pre></div>
 <ul>
 <li><strong>Medianen</strong> er 50%-percentilen og er robust over for outliers</li>
@@ -939,6 +952,7 @@ Og hvis du i stedet arbejder med numpy så bruger du <code>np.percentile</code> 
 <li>I Pandas bruges <code>quantile</code> og forventer tal mellem 0 og 1.</li>
 <li>I NumPy bruges <code>percentile</code> og forventer tal mellem 0 og 100.</li>
 </ul>
+<p>De viser det samme, bare i forskellig skala.</p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">pandas_p90</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;kast&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.90</span><span class="p">)</span>
 </span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="n">numpy_p90</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">percentile</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;kast&quot;</span><span class="p">],</span> <span class="mi">90</span><span class="p">)</span>
 </span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>

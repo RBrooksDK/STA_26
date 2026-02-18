@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../../figures/vialogo_white.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
     
     
       
@@ -677,10 +677,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#wolframalpha-natural-syntaks" class="md-nav__link">
+  <a href="#wolframalpha" class="md-nav__link">
     <span class="md-ellipsis">
       
-        WolframAlpha (Natural syntaks)
+        WolframAlpha
       
     </span>
   </a>
@@ -705,10 +705,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#wolframalpha-natural-syntaks_1" class="md-nav__link">
+  <a href="#wolframalpha_1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        WolframAlpha (Natural syntaks)
+        WolframAlpha
       
     </span>
   </a>
@@ -733,10 +733,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#wolframalpha-natural-syntaks_2" class="md-nav__link">
+  <a href="#wolframalpha_2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        WolframAlpha (Natural syntaks)
+        WolframAlpha
       
     </span>
   </a>
@@ -761,10 +761,10 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#wolframalpha-natural-syntaks_3" class="md-nav__link">
+  <a href="#wolframalpha_3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        WolframAlpha (Natural syntaks)
+        WolframAlpha
       
     </span>
   </a>
@@ -1545,7 +1545,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </style>
 <!-- End of mermaid configuration --><div class="jupyter-wrapper">
 <div class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=4d28fbe7">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=cf2fb6f9">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -1556,7 +1556,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=124b9eb8">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=5ebd3388">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -1642,7 +1642,7 @@ import numpy as np</div>
 <span class="n">p_no_hits</span> <span class="o">=</span> <span class="n">binom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"2. P(X=0) = </span><span class="si">{</span><span class="n">p_no_hits</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 
-<span class="c1"># 3. Middelværdi og varians</span>
+<span class="c1"># 3. Middelværdi (Expected Value) og varians</span>
 <span class="n">mean</span> <span class="o">=</span> <span class="n">n</span> <span class="o">*</span> <span class="n">p</span>
 <span class="n">var</span> <span class="o">=</span> <span class="n">n</span> <span class="o">*</span> <span class="n">p</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">p</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"3. E[X] = </span><span class="si">{</span><span class="n">mean</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">, Var(X) = </span><span class="si">{</span><span class="n">var</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
@@ -1657,7 +1657,7 @@ print(f"1. Fordeling: X ~ Binomial(n={n}, p={p:.6e})")
 p_no_hits = binom.pmf(0, n, p)
 print(f"2. P(X=0) = {p_no_hits:.4f}")
 
-# 3. Middelværdi og varians
+# 3. Middelværdi (Expected Value) og varians
 mean = n * p
 var = n * p * (1 - p)
 print(f"3. E[X] = {mean:.4f}, Var(X) = {var:.4f}")</div>
@@ -1688,11 +1688,20 @@ print(f"3. E[X] = {mean:.4f}, Var(X) = {var:.4f}")</div>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="wolframalpha-natural-syntaks">WolframAlpha (Natural syntaks)<a class="anchor-link" href="#wolframalpha-natural-syntaks">¶</a></h3><pre><code>P(X = 0) for X ~ Binomial(100000, 10000/36^6)
+<h3 id="wolframalpha">WolframAlpha<a class="anchor-link" href="#wolframalpha">¶</a></h3><ul>
+<li><strong>PMF</strong>:</li>
+</ul>
+<pre><code>P(X=0) BinomialDistribution(100000, 10000/36^6)
 </code></pre>
-<pre><code>mean of X for X ~ Binomial(100000, 10000/36^6)
+<ul>
+<li><strong>Middelværdi (Expected Value)</strong>:</li>
+</ul>
+<pre><code>mean BinomialDistribution(100000, 10000/36^6)
 </code></pre>
-<pre><code>variance of X for X ~ Binomial(100000, 10000/36^6)
+<ul>
+<li><strong>Varians</strong>:</li>
+</ul>
+<pre><code>variance BinomialDistribution(100000, 10000/36^6)
 </code></pre>
 </div>
 </div>
@@ -1785,9 +1794,15 @@ print(f"2. P(tomme pladser) = P(X ≥ 6) = {p_empty_seats:.4f}")</div>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="wolframalpha-natural-syntaks">WolframAlpha (Natural syntaks)<a class="anchor-link" href="#wolframalpha-natural-syntaks">¶</a></h3><pre><code>P(X &gt;= 5) for X ~ Binomial(125, 0.10)
+<h3 id="wolframalpha">WolframAlpha<a class="anchor-link" href="#wolframalpha">¶</a></h3><ul>
+<li><strong>Sandsynlighed for at alle kan komme med</strong>:</li>
+</ul>
+<pre><code>P(X&gt;=5) BinomialDistribution(125, 0.10)
 </code></pre>
-<pre><code>P(X &gt;= 6) for X ~ Binomial(125, 0.10)
+<ul>
+<li><strong>Sandsynlighed for tomme sæder</strong>:</li>
+</ul>
+<pre><code>P(X&gt;=6) BinomialDistribution(125, 0.10)
 </code></pre>
 </div>
 </div>
@@ -1841,7 +1856,7 @@ print(f"2. P(tomme pladser) = P(X ≥ 6) = {p_empty_seats:.4f}")</div>
 <span class="n">p_two_or_more</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">binom</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"2. P(X ≥ 2) = </span><span class="si">{</span><span class="n">p_two_or_more</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 
-<span class="c1"># 3. Middelværdi og standardafvigelse</span>
+<span class="c1"># 3. Middelværdi (Expected Value) og standardafvigelse</span>
 <span class="n">mean</span> <span class="o">=</span> <span class="n">n</span> <span class="o">*</span> <span class="n">p</span>
 <span class="n">std</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="n">p</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">p</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"3. E[X] = </span><span class="si">{</span><span class="n">mean</span><span class="si">}</span><span class="s2">, σ = </span><span class="si">{</span><span class="n">std</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
@@ -1864,7 +1879,7 @@ print(f"1. P(X ≥ 1) = {p_at_least_one:.4f}")
 p_two_or_more = 1 - binom.cdf(1, n, p)
 print(f"2. P(X ≥ 2) = {p_two_or_more:.4f}")
 
-# 3. Middelværdi og standardafvigelse
+# 3. Middelværdi (Expected Value) og standardafvigelse
 mean = n * p
 std = np.sqrt(n * p * (1 - p))
 print(f"3. E[X] = {mean}, σ = {std:.3f}")
@@ -1902,16 +1917,28 @@ print(f"4. P(mindst én besked kræver 2+ genafsending) = {p_at_least_one_msg:.4
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="wolframalpha-natural-syntaks">WolframAlpha (Natural syntaks)<a class="anchor-link" href="#wolframalpha-natural-syntaks">¶</a></h3><pre><code>P(X &gt;= 1) for X ~ Binomial(100, 0.01)
+<h3 id="wolframalpha">WolframAlpha<a class="anchor-link" href="#wolframalpha">¶</a></h3><ul>
+<li><strong>$P(X \geq 1)$</strong>:</li>
+</ul>
+<pre><code>P(X&gt;=1) BinomialDistribution(100, 0.01)
 </code></pre>
-<pre><code>P(X &gt;= 2) for X ~ Binomial(100, 0.01)
+<ul>
+<li><strong>$P(X \geq 2)$</strong>:</li>
+</ul>
+<pre><code>P(X&gt;=2) BinomialDistribution(100, 0.01)
 </code></pre>
-<pre><code>mean of X for X ~ Binomial(100, 0.01)
+<ul>
+<li><strong>Middelværdi (Expected Value)</strong>:</li>
+</ul>
+<pre><code>mean BinomialDistribution(100, 0.01)
 </code></pre>
-<pre><code>standard deviation of X for X ~ Binomial(100, 0.01)
+<ul>
+<li><strong>Standardafvigelse</strong>:</li>
+</ul>
+<pre><code>standard deviation BinomialDistribution(100, 0.01)
 </code></pre>
-<p>For spørgsmål 4: Først beregn P(X ≥ 2) ovenfor (≈ 0.2642). Derefter:</p>
-<pre><code>P(Y &gt;= 1) for Y ~ Binomial(10, 0.2642)
+<p>For spørgsmål 4: Først beregn $P(X \geq 2)$ ovenfor ($\approx 0.2642$). Derefter:</p>
+<pre><code>P(Y&gt;=1) BinomialDistribution(10, 0.2642)
 </code></pre>
 </div>
 </div>
@@ -1969,7 +1996,7 @@ print(f"4. P(mindst én besked kræver 2+ genafsending) = {p_at_least_one_msg:.4
 <span class="n">p_exactly_5</span> <span class="o">=</span> <span class="n">binom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"3. P(X = 5) = </span><span class="si">{</span><span class="n">p_exactly_5</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 
-<span class="c1"># 4. Middelværdi og varians</span>
+<span class="c1"># 4. Middelværdi (Expected Value) og varians</span>
 <span class="n">mean</span> <span class="o">=</span> <span class="n">n</span> <span class="o">*</span> <span class="n">p</span>
 <span class="n">var</span> <span class="o">=</span> <span class="n">n</span> <span class="o">*</span> <span class="n">p</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">p</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"4. E[X] = </span><span class="si">{</span><span class="n">mean</span><span class="si">}</span><span class="s2">, Var(X) = </span><span class="si">{</span><span class="n">var</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
@@ -1990,7 +2017,7 @@ print(f"2. P(3 ≤ X ≤ 8) = {p_3_to_8:.4f}")
 p_exactly_5 = binom.pmf(5, n, p)
 print(f"3. P(X = 5) = {p_exactly_5:.4f}")
 
-# 4. Middelværdi og varians
+# 4. Middelværdi (Expected Value) og varians
 mean = n * p
 var = n * p * (1 - p)
 print(f"4. E[X] = {mean}, Var(X) = {var}")</div>
@@ -2022,15 +2049,30 @@ print(f"4. E[X] = {mean}, Var(X) = {var}")</div>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="wolframalpha-natural-syntaks">WolframAlpha (Natural syntaks)<a class="anchor-link" href="#wolframalpha-natural-syntaks">¶</a></h3><pre><code>P(X &gt;= 10) for X ~ Binomial(15, 0.4)
+<h3 id="wolframalpha">WolframAlpha<a class="anchor-link" href="#wolframalpha">¶</a></h3><ul>
+<li><strong>$P(X \geq 10)$</strong>:</li>
+</ul>
+<pre><code>P(X&gt;=10) BinomialDistribution(15, 0.4)
 </code></pre>
-<pre><code>P(3 &lt;= X &lt;= 8) for X ~ Binomial(15, 0.4)
+<ul>
+<li><strong>$P(3 \leq X \leq 8)$</strong>:</li>
+</ul>
+<pre><code>P(3&lt;=X&lt;=8) BinomialDistribution(15, 0.4)
 </code></pre>
-<pre><code>P(X = 5) for X ~ Binomial(15, 0.4)
+<ul>
+<li><strong>$P(X = 5)$</strong>:</li>
+</ul>
+<pre><code>P(X=5) BinomialDistribution(15, 0.4)
 </code></pre>
-<pre><code>mean of X for X ~ Binomial(15, 0.4)
+<ul>
+<li><strong>Middelværdi (Expected Value)</strong>:</li>
+</ul>
+<pre><code>mean BinomialDistribution(15, 0.4)
 </code></pre>
-<pre><code>variance of X for X ~ Binomial(15, 0.4)
+<ul>
+<li><strong>Varians</strong>:</li>
+</ul>
+<pre><code>variance BinomialDistribution(15, 0.4)
 </code></pre>
 </div>
 </div>

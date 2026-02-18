@@ -21,7 +21,7 @@
       
       
       <link rel="icon" href="../../figures/vialogo_white.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.2">
     
     
       
@@ -671,30 +671,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#1-begreber-pmf-cdf-og-calculator-sprog" class="md-nav__link">
+  <a href="#1-begreber-pmf-og-cdf" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. Begreber: PMF, CDF og "Calculator-sprog"
+        1. Begreber: PMF og CDF
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="1. Begreber: PMF, CDF og &#34;Calculator-sprog&#34;">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#vigtigt-hvorfor-hedder-det-binompdf-pa-lommeregneren" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        VIGTIGT: Hvorfor hedder det "binomPDF" på lommeregneren?
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -844,10 +827,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#53-wolframalpha-de-3-versioner" class="md-nav__link">
+  <a href="#53-wolframalpha" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5.3 WolframAlpha (De 3 versioner)
+        5.3 WolframAlpha
       
     </span>
   </a>
@@ -939,9 +922,9 @@ Vi arbejder systematisk med tre fundamentale diskrete fordelinger:</p>
 <li><strong>Bernoulli</strong> (ét forsøg: succes/fiasko)</li>
 <li><strong>Binomial</strong> (antal succeser i <span class="arithmatex">\(n\)</span> forsøg)</li>
 </ol>
-<p>Vi lærer at beregne <strong>PMF</strong>, <strong>CDF</strong>, <strong>Middelværdi</strong> og <strong>Varians</strong> i både Python og WolframAlpha.</p>
+<p>Vi lærer at beregne <strong>PMF</strong>, <strong>CDF</strong>, <strong>Middelværdi (Expected Value)</strong> og <strong>Varians</strong> i både Python og WolframAlpha.</p>
 <hr />
-<h2 id="1-begreber-pmf-cdf-og-calculator-sprog">1. Begreber: PMF, CDF og "Calculator-sprog"<a class="headerlink" href="#1-begreber-pmf-cdf-og-calculator-sprog" title="Permanent link">&para;</a></h2>
+<h2 id="1-begreber-pmf-og-cdf">1. Begreber: PMF og CDF<a class="headerlink" href="#1-begreber-pmf-og-cdf" title="Permanent link">&para;</a></h2>
 <p>Før vi regner, skal vi forstå notationen. En diskret stokastisk variabel <span class="arithmatex">\(X\)</span> kan beskrives på to måder:</p>
 <table>
 <thead>
@@ -962,18 +945,11 @@ Vi arbejder systematisk med tre fundamentale diskrete fordelinger:</p>
 <tr>
 <td style="text-align: left;"><strong>Cumulative Distribution Function</strong></td>
 <td style="text-align: left;"><strong>CDF</strong></td>
-<td style="text-align: left;"><span class="arithmatex">\(P(X \le k)\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(P(X \leq k)\)</span></td>
 <td style="text-align: left;">Hvad er sandsynligheden for <strong><span class="arithmatex">\(k\)</span> eller mindre</strong>?</td>
 </tr>
 </tbody>
 </table>
-<h3 id="vigtigt-hvorfor-hedder-det-binompdf-pa-lommeregneren">VIGTIGT: Hvorfor hedder det "binomPDF" på lommeregneren?<a class="headerlink" href="#vigtigt-hvorfor-hedder-det-binompdf-pa-lommeregneren" title="Permanent link">&para;</a></h3>
-<p>Mange studerende bliver forvirrede over kommandoen <code>binompdf</code> (fra TI-84), fordi <strong>PDF</strong> normalt står for <em>Probability Density Function</em> (kontinuert), mens Binomial er diskret (<em>Mass Function</em>).</p>
-<ul>
-<li><strong>Forklaring:</strong> Lommeregner-producenterne (TI) valgte at bruge navnet <code>pdf</code> til alle fordelinger for at gøre menuerne ensartede.</li>
-<li>Når du bruger <code>binompdf</code> syntaksen i WolframAlpha eller på en TI-84, beregner du teknisk set <strong>PMF</strong> (<span class="arithmatex">\(P(X=k)\)</span>).</li>
-<li>Tilsvarende beregner <code>binomcdf</code> den kumulative sum (<span class="arithmatex">\(P(X \le k)\)</span>).</li>
-</ul>
 <hr />
 <h2 id="2-python-setup">2. Python Setup<a class="headerlink" href="#2-python-setup" title="Permanent link">&para;</a></h2>
 <p>Vi bruger <code>scipy.stats</code> til fordelingerne.</p>
@@ -992,7 +968,7 @@ Vi arbejder systematisk med tre fundamentale diskrete fordelinger:</p>
 Eksempel: Et terningekast <span class="arithmatex">\(X \sim \text{Uniform}(1,6)\)</span>.</p>
 <ul>
 <li><strong>PMF:</strong> <span class="arithmatex">\(P(X=k) = \frac{1}{b-a+1}\)</span></li>
-<li><strong>Middelværdi:</strong> <span class="arithmatex">\(E[X] = \frac{a+b}{2}\)</span></li>
+<li><strong>Middelværdi (Expected Value):</strong> <span class="arithmatex">\(E[X] = \frac{a+b}{2}\)</span></li>
 <li><strong>Varians:</strong> <span class="arithmatex">\(\text{Var}(X) = \frac{(b-a+1)^2 - 1}{12}\)</span></li>
 </ul>
 <h3 id="32-python-scipystats">3.2 Python (scipy.stats)<a class="headerlink" href="#32-python-scipystats" title="Permanent link">&para;</a></h3>
@@ -1012,7 +988,7 @@ Eksempel: Et terningekast <span class="arithmatex">\(X \sim \text{Uniform}(1,6)\
 </span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Metode 2 (X=3): </span><span class="si">{</span><span class="n">prob_3</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Metode 2 (CDF X&lt;=4): </span><span class="si">{</span><span class="n">prob_le_4</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>
-</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="c1"># Middelværdi, Varians og Standardafvigelse</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="c1"># Middelværdi (Expected Value), Varians og Standardafvigelse</span>
 </span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Mean: </span><span class="si">{</span><span class="n">randint</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">)</span><span class="si">}</span><span class="s2">, Var: </span><span class="si">{</span><span class="n">randint</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">)</span><span class="si">}</span><span class="s2">, Std: </span><span class="si">{</span><span class="n">randint</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </span></code></pre></div>
 <h3 id="33-wolframalpha">3.3 WolframAlpha<a class="headerlink" href="#33-wolframalpha" title="Permanent link">&para;</a></h3>
@@ -1020,42 +996,27 @@ Eksempel: Et terningekast <span class="arithmatex">\(X \sim \text{Uniform}(1,6)\
 <ul>
 <li><strong>PMF <span class="arithmatex">\(P(X=3)\)</span></strong>:</li>
 </ul>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>P(X=3) for X ~ DiscreteUniform(1,6)
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>P(X=3) DiscreteUniform(1,6)
 </span></code></pre></div>
 <ul>
-<li><strong>CDF <span class="arithmatex">\(P(X \le 4)\)</span></strong>:</li>
+<li><strong>CDF <span class="arithmatex">\(P(X \leq 4)\)</span></strong>:</li>
 </ul>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>P(X&lt;=4) for X ~ DiscreteUniform(1,6)
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>P(X&lt;=4) DiscreteUniform(1,6)
 </span></code></pre></div>
 <ul>
-<li><strong>Middelværdi</strong>:</li>
+<li><strong>Middelværdi (Expected Value)</strong>:</li>
 </ul>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>mean of X for X ~ DiscreteUniform(1,6)
-</span></code></pre></div>
-<ul>
-<li><strong>Middelværdi (kort)</strong>:</li>
-</ul>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>mean discrete uniform distribution 1, 6
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>mean DiscreteUniformDistribution{1,6}
 </span></code></pre></div>
 <ul>
 <li><strong>Varians</strong>:</li>
 </ul>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>variance of X for X ~ DiscreteUniform(1,6)
-</span></code></pre></div>
-<ul>
-<li><strong>Varians (kort)</strong>:</li>
-</ul>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>variance discrete uniform distribution 1, 6
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>variance DiscreteUniformDistribution{1,6}
 </span></code></pre></div>
 <ul>
 <li><strong>Standardafvigelse</strong>:</li>
 </ul>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>standard deviation of X for X ~ DiscreteUniform(1,6)
-</span></code></pre></div>
-<ul>
-<li><strong>Standardafvigelse (kort)</strong>:</li>
-</ul>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>standard deviation discrete uniform distribution 1, 6
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>standard deviation DiscreteUniform(1,6)
 </span></code></pre></div>
 <hr />
 <h2 id="4-bernoulli-fordelingen">4. Bernoulli Fordelingen<a class="headerlink" href="#4-bernoulli-fordelingen" title="Permanent link">&para;</a></h2>
@@ -1064,63 +1025,43 @@ Eksempel: Et terningekast <span class="arithmatex">\(X \sim \text{Uniform}(1,6)\
 Parameteren <span class="arithmatex">\(p\)</span> er sandsynligheden for succes.</p>
 <ul>
 <li><strong>PMF:</strong> <span class="arithmatex">\(P(X=1) = p, \quad P(X=0) = 1-p\)</span></li>
-<li><strong>Middelværdi:</strong> <span class="arithmatex">\(E[X] = p\)</span></li>
+<li><strong>Middelværdi (Expected Value):</strong> <span class="arithmatex">\(E[X] = p\)</span></li>
 <li><strong>Varians:</strong> <span class="arithmatex">\(\text{Var}(X) = p(1-p)\)</span></li>
 </ul>
 <h3 id="42-python">4.2 Python<a class="headerlink" href="#42-python" title="Permanent link">&para;</a></h3>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">p</span> <span class="o">=</span> <span class="mf">0.4</span>
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
-</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="c1"># --- Metode 1: Objekt ---</span>
-</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="n">X</span> <span class="o">=</span> <span class="n">bernoulli</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
-</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Objekt P(X=1): </span><span class="si">{</span><span class="n">X</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>
-</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="c1"># --- Metode 2: Direkte ---</span>
-</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="c1"># Syntaks: bernoulli.pmf(k, p)</span>
-</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Direkte P(X=1): </span><span class="si">{</span><span class="n">bernoulli</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Direkte Mean:   </span><span class="si">{</span><span class="n">bernoulli</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Direkte Var:    </span><span class="si">{</span><span class="n">bernoulli</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Direkte Std:    </span><span class="si">{</span><span class="n">bernoulli</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">p</span> <span class="o">=</span> <span class="mf">0.4</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="c1"># --- Metode 1: Objekt ---</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="n">X</span> <span class="o">=</span> <span class="n">bernoulli</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Objekt P(X=1): </span><span class="si">{</span><span class="n">X</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="c1"># --- Metode 2: Direkte ---</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="c1"># Syntaks: bernoulli.pmf(k, p)</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Direkte P(X=1): </span><span class="si">{</span><span class="n">bernoulli</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Direkte Mean:   </span><span class="si">{</span><span class="n">bernoulli</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Direkte Var:    </span><span class="si">{</span><span class="n">bernoulli</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Direkte Std:    </span><span class="si">{</span><span class="n">bernoulli</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </span></code></pre></div>
 <h3 id="43-wolframalpha">4.3 WolframAlpha<a class="headerlink" href="#43-wolframalpha" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>PMF (Natural)</strong>:</li>
+<li><strong>PMF</strong>:</li>
 </ul>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>P(X=1) for X ~ Bernoulli(0.4)
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>P(X=1) BernoulliDistribution(0.4)
 </span></code></pre></div>
 <ul>
-<li><strong>PMF (Logical)</strong>:</li>
+<li><strong>Middelværdi (Expected Value)</strong>:</li>
 </ul>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>Bernoulli p=0.4, x=1
-</span></code></pre></div>
-<ul>
-<li><strong>Middelværdi</strong>:</li>
-</ul>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>mean of X for X ~ Bernoulli(0.4)
-</span></code></pre></div>
-<ul>
-<li><strong>Middelværdi (kort)</strong>:</li>
-</ul>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>mean bernoulli distribution 0.4
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>mean BernoulliDistribution(0.4)
 </span></code></pre></div>
 <ul>
 <li><strong>Varians</strong>:</li>
 </ul>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>variance of X for X ~ Bernoulli(0.4)
-</span></code></pre></div>
-<ul>
-<li><strong>Varians (kort)</strong>:</li>
-</ul>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>variance bernoulli distribution 0.4
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>variance BernoulliDistribution(0.4)
 </span></code></pre></div>
 <ul>
 <li><strong>Standardafvigelse</strong>:</li>
 </ul>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>standard deviation of X for X ~ Bernoulli(0.4)
-</span></code></pre></div>
-<ul>
-<li><strong>Standardafvigelse (kort)</strong>:</li>
-</ul>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>standard deviation bernoulli distribution 0.4
+<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>standard deviation BernoulliDistribution(0.4)
 </span></code></pre></div>
 <hr />
 <h2 id="5-binomialfordelingen-hovedfokus">5. Binomialfordelingen (Hovedfokus)<a class="headerlink" href="#5-binomialfordelingen-hovedfokus" title="Permanent link">&para;</a></h2>
@@ -1129,162 +1070,118 @@ Parameteren <span class="arithmatex">\(p\)</span> er sandsynligheden for succes.
 <span class="arithmatex">\(X \sim \text{Binomial}(n, p)\)</span>.</p>
 <ul>
 <li><strong>PMF:</strong> <span class="arithmatex">\(P(X=k) = \binom{n}{k} p^k (1-p)^{n-k}\)</span></li>
-<li><strong>Middelværdi:</strong> <span class="arithmatex">\(E[X] = np\)</span></li>
+<li><strong>Middelværdi (Expected Value):</strong> <span class="arithmatex">\(E[X] = np\)</span></li>
 <li><strong>Varians:</strong> <span class="arithmatex">\(\text{Var}(X) = np(1-p)\)</span></li>
 </ul>
 <h3 id="52-python-beregning">5.2 Python Beregning<a class="headerlink" href="#52-python-beregning" title="Permanent link">&para;</a></h3>
-<p>Eksempel: <span class="arithmatex">\(n=10\)</span> forsøg, <span class="arithmatex">\(p=0.4\)</span> sandsynlighed. Vi vil finde <span class="arithmatex">\(P(X=3)\)</span> og <span class="arithmatex">\(P(X \le 2)\)</span>.</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="n">n</span> <span class="o">=</span> <span class="mi">10</span>
-</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="n">p</span> <span class="o">=</span> <span class="mf">0.4</span>
-</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>
-</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="c1"># --- Metode 1: Objekt (Anbefalet til &quot;X ~ ...&quot;) ---</span>
-</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="n">X</span> <span class="o">=</span> <span class="n">binom</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
-</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="n">pmf_val</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-</span><span id="__span-19-7"><a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a><span class="n">cdf_val</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</span><span id="__span-19-8"><a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Objekt:  PMF(3)=</span><span class="si">{</span><span class="n">pmf_val</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">, CDF(2)=</span><span class="si">{</span><span class="n">cdf_val</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</span><span id="__span-19-9"><a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a>
-</span><span id="__span-19-10"><a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a><span class="c1"># --- Metode 2: Direkte (Klassisk / One-liner) ---</span>
-</span><span id="__span-19-11"><a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a><span class="c1"># Syntaks: binom.pmf(k, n, p)  og  binom.cdf(k, n, p)</span>
-</span><span id="__span-19-12"><a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a><span class="c1"># Bemærk rækkefølgen: Først k (x-værdien), så parametrene n, p</span>
-</span><span id="__span-19-13"><a id="__codelineno-19-13" name="__codelineno-19-13" href="#__codelineno-19-13"></a>
-</span><span id="__span-19-14"><a id="__codelineno-19-14" name="__codelineno-19-14" href="#__codelineno-19-14"></a><span class="n">pmf_direct</span> <span class="o">=</span> <span class="n">binom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
-</span><span id="__span-19-15"><a id="__codelineno-19-15" name="__codelineno-19-15" href="#__codelineno-19-15"></a><span class="n">cdf_direct</span> <span class="o">=</span> <span class="n">binom</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
-</span><span id="__span-19-16"><a id="__codelineno-19-16" name="__codelineno-19-16" href="#__codelineno-19-16"></a>
-</span><span id="__span-19-17"><a id="__codelineno-19-17" name="__codelineno-19-17" href="#__codelineno-19-17"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Direkte: PMF(3)=</span><span class="si">{</span><span class="n">pmf_direct</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">, CDF(2)=</span><span class="si">{</span><span class="n">cdf_direct</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</span><span id="__span-19-18"><a id="__codelineno-19-18" name="__codelineno-19-18" href="#__codelineno-19-18"></a>
-</span><span id="__span-19-19"><a id="__codelineno-19-19" name="__codelineno-19-19" href="#__codelineno-19-19"></a><span class="c1"># Interval P(2 &lt;= X &lt;= 5)</span>
-</span><span id="__span-19-20"><a id="__codelineno-19-20" name="__codelineno-19-20" href="#__codelineno-19-20"></a><span class="n">interval</span> <span class="o">=</span> <span class="n">binom</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span> <span class="o">-</span> <span class="n">binom</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
-</span><span id="__span-19-21"><a id="__codelineno-19-21" name="__codelineno-19-21" href="#__codelineno-19-21"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Interval [2,5]: </span><span class="si">{</span><span class="n">interval</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</span><span id="__span-19-22"><a id="__codelineno-19-22" name="__codelineno-19-22" href="#__codelineno-19-22"></a>
-</span><span id="__span-19-23"><a id="__codelineno-19-23" name="__codelineno-19-23" href="#__codelineno-19-23"></a><span class="c1"># Middelværdi, Varians og Standardafvigelse</span>
-</span><span id="__span-19-24"><a id="__codelineno-19-24" name="__codelineno-19-24" href="#__codelineno-19-24"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Mean: </span><span class="si">{</span><span class="n">X</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">, Var: </span><span class="si">{</span><span class="n">X</span><span class="o">.</span><span class="n">var</span><span class="p">()</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">, Std: </span><span class="si">{</span><span class="n">X</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<p>Eksempel: <span class="arithmatex">\(n=10\)</span> forsøg, <span class="arithmatex">\(p=0.4\)</span> sandsynlighed. Vi vil finde <span class="arithmatex">\(P(X=3)\)</span> og <span class="arithmatex">\(P(X \leq 2)\)</span>.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="n">n</span> <span class="o">=</span> <span class="mi">10</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="n">p</span> <span class="o">=</span> <span class="mf">0.4</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="c1"># --- Metode 1: Objekt (Anbefalet til &quot;X ~ ...&quot;) ---</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="n">X</span> <span class="o">=</span> <span class="n">binom</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="n">pmf_val</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="n">cdf_val</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Objekt:  PMF(3)=</span><span class="si">{</span><span class="n">pmf_val</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">, CDF(2)=</span><span class="si">{</span><span class="n">cdf_val</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="c1"># --- Metode 2: Direkte (Klassisk / One-liner) ---</span>
+</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="c1"># Syntaks: binom.pmf(k, n, p)  og  binom.cdf(k, n, p)</span>
+</span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="c1"># Bemærk rækkefølgen: Først k (x-værdien), så parametrene n, p</span>
+</span><span id="__span-12-13"><a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a>
+</span><span id="__span-12-14"><a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a><span class="n">pmf_direct</span> <span class="o">=</span> <span class="n">binom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+</span><span id="__span-12-15"><a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a><span class="n">cdf_direct</span> <span class="o">=</span> <span class="n">binom</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+</span><span id="__span-12-16"><a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a>
+</span><span id="__span-12-17"><a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Direkte: PMF(3)=</span><span class="si">{</span><span class="n">pmf_direct</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">, CDF(2)=</span><span class="si">{</span><span class="n">cdf_direct</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-12-18"><a id="__codelineno-12-18" name="__codelineno-12-18" href="#__codelineno-12-18"></a>
+</span><span id="__span-12-19"><a id="__codelineno-12-19" name="__codelineno-12-19" href="#__codelineno-12-19"></a><span class="c1"># Interval P(2 &lt;= X &lt;= 5)</span>
+</span><span id="__span-12-20"><a id="__codelineno-12-20" name="__codelineno-12-20" href="#__codelineno-12-20"></a><span class="n">interval</span> <span class="o">=</span> <span class="n">binom</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span> <span class="o">-</span> <span class="n">binom</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+</span><span id="__span-12-21"><a id="__codelineno-12-21" name="__codelineno-12-21" href="#__codelineno-12-21"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Interval [2,5]: </span><span class="si">{</span><span class="n">interval</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-12-22"><a id="__codelineno-12-22" name="__codelineno-12-22" href="#__codelineno-12-22"></a>
+</span><span id="__span-12-23"><a id="__codelineno-12-23" name="__codelineno-12-23" href="#__codelineno-12-23"></a><span class="c1"># Middelværdi (Expected Value), Varians og Standardafvigelse</span>
+</span><span id="__span-12-24"><a id="__codelineno-12-24" name="__codelineno-12-24" href="#__codelineno-12-24"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Mean: </span><span class="si">{</span><span class="n">X</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">, Var: </span><span class="si">{</span><span class="n">X</span><span class="o">.</span><span class="n">var</span><span class="p">()</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">, Std: </span><span class="si">{</span><span class="n">X</span><span class="o">.</span><span class="n">std</span><span class="p">()</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </span></code></pre></div>
-<h3 id="53-wolframalpha-de-3-versioner">5.3 WolframAlpha (De 3 versioner)<a class="headerlink" href="#53-wolframalpha-de-3-versioner" title="Permanent link">&para;</a></h3>
-<p>Her er de tre syntakser. Vælg den, der giver mest mening for dig.</p>
-<h4 id="a-beregn-pmf-px-3">A. Beregn PMF: <span class="arithmatex">\(P(X = 3)\)</span><a class="headerlink" href="#a-beregn-pmf-px-3" title="Permanent link">&para;</a></h4>
+<h3 id="53-wolframalpha">5.3 WolframAlpha<a class="headerlink" href="#53-wolframalpha" title="Permanent link">&para;</a></h3>
+<p>Her er syntaksen for de centrale beregninger.</p>
 <ul>
-<li><strong>Natural (Anbefalet)</strong>:</li>
+<li><strong>PMF</strong>:</li>
 </ul>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>P(X = 3) for X ~ Binomial(10, 0.4)
-</span></code></pre></div>
-<ul>
-<li><strong>Logical (Kortest)</strong>:</li>
-</ul>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>binomial 10, 0.4, x=3
+<div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>P(X=3) BinomialDistribution(10, 0.4)
 </span></code></pre></div>
 <ul>
-<li><strong>Calculator (TI-84 stil)</strong>:</li>
+<li><strong>CDF</strong>:</li>
 </ul>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>binompdf(10, 0.4, 3)
-</span></code></pre></div>
-<h4 id="b-beregn-cdf-px-le-3">B. Beregn CDF: <span class="arithmatex">\(P(X \le 3)\)</span><a class="headerlink" href="#b-beregn-cdf-px-le-3" title="Permanent link">&para;</a></h4>
-<ul>
-<li><strong>Natural</strong>:</li>
-</ul>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>P(X &lt;= 3) for X ~ Binomial(10, 0.4)
+<div class="language-text highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>P(X &lt;= 3) BinomialDistribution(10, 0.4)
 </span></code></pre></div>
 <ul>
-<li><strong>Logical</strong>:</li>
+<li><strong>Survival function</strong> (1 − CDF):</li>
 </ul>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>binomial 10, 0.4, x&lt;=3
+<div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>P(X &gt; 3) BinomialDistribution(10, 0.4)
 </span></code></pre></div>
 <ul>
-<li><strong>Calculator</strong> (bemærk <strong>cdf</strong>):</li>
+<li><strong>Interval</strong>:</li>
 </ul>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>binomcdf(10, 0.4, 3)
-</span></code></pre></div>
-<h4 id="c-beregn-interval-p2-le-x-le-5">C. Beregn Interval: <span class="arithmatex">\(P(2 \le X \le 5)\)</span><a class="headerlink" href="#c-beregn-interval-p2-le-x-le-5" title="Permanent link">&para;</a></h4>
-<ul>
-<li><strong>Natural</strong>:</li>
-</ul>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>P(2 &lt;= X &lt;= 5) for X ~ Binomial(10, 0.4)
+<div class="language-text highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>P(2 &lt;= X &lt;= 5) BinomialDistribution(10, 0.4)
 </span></code></pre></div>
 <ul>
-<li><strong>Logical</strong>:</li>
+<li><strong>Middelværdi (Expected Value)</strong>:</li>
 </ul>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>binomial 10, 0.4, 2&lt;=x&lt;=5
-</span></code></pre></div>
-<ul>
-<li><strong>Calculator</strong> (kræver manuel subtraktion):</li>
-</ul>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>binomcdf(10, 0.4, 5) - binomcdf(10, 0.4, 1)
-</span></code></pre></div>
-<h4 id="d-middelvrdi-varians-og-standardafvigelse">D. Middelværdi, varians og standardafvigelse<a class="headerlink" href="#d-middelvrdi-varians-og-standardafvigelse" title="Permanent link">&para;</a></h4>
-<ul>
-<li><strong>Middelværdi</strong>:</li>
-</ul>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>mean of X for X ~ Binomial(10, 0.4)
-</span></code></pre></div>
-<ul>
-<li><strong>Middelværdi (kort)</strong>:</li>
-</ul>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>mean binomial distribution 10, 0.4
+<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>mean BinomialDistribution(10, 0.4)
 </span></code></pre></div>
 <ul>
 <li><strong>Varians</strong>:</li>
 </ul>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>variance of X for X ~ Binomial(10, 0.4)
-</span></code></pre></div>
-<ul>
-<li><strong>Varians (kort)</strong>:</li>
-</ul>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>variance binomial distribution 10, 0.4
+<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>variance BinomialDistribution(10, 0.4)
 </span></code></pre></div>
 <ul>
 <li><strong>Standardafvigelse</strong>:</li>
 </ul>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>standard deviation of X for X ~ Binomial(10, 0.4)
-</span></code></pre></div>
-<ul>
-<li><strong>Standardafvigelse (kort)</strong>:</li>
-</ul>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>standard deviation binomial distribution 10, 0.4
+<div class="language-text highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>standard deviation BinomialDistribution(10, 0.4)
 </span></code></pre></div>
 <hr />
 <h2 id="6-visualisering-python">6. Visualisering (Python)<a class="headerlink" href="#6-visualisering-python" title="Permanent link">&para;</a></h2>
 <p>Det er ofte nemmere at forstå fordelingen ved at se den grafisk.</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="n">n</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">0.4</span>
-</span><span id="__span-35-2"><a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a><span class="c1"># Vi bruger her objekt-metoden, da det er nemmest til plots</span>
-</span><span id="__span-35-3"><a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a><span class="n">X</span> <span class="o">=</span> <span class="n">binom</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
-</span><span id="__span-35-4"><a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a><span class="n">x_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-</span><span id="__span-35-5"><a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a><span class="n">pmf_values</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">x_values</span><span class="p">)</span>
-</span><span id="__span-35-6"><a id="__codelineno-35-6" name="__codelineno-35-6" href="#__codelineno-35-6"></a>
-</span><span id="__span-35-7"><a id="__codelineno-35-7" name="__codelineno-35-7" href="#__codelineno-35-7"></a><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-</span><span id="__span-35-8"><a id="__codelineno-35-8" name="__codelineno-35-8" href="#__codelineno-35-8"></a><span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x_values</span><span class="p">,</span> <span class="n">pmf_values</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
-</span><span id="__span-35-9"><a id="__codelineno-35-9" name="__codelineno-35-9" href="#__codelineno-35-9"></a><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Binomial Fordeling (n=</span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s1">, p=</span><span class="si">{</span><span class="n">p</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">)</span>
-</span><span id="__span-35-10"><a id="__codelineno-35-10" name="__codelineno-35-10" href="#__codelineno-35-10"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Antal succeser (x)&#39;</span><span class="p">)</span>
-</span><span id="__span-35-11"><a id="__codelineno-35-11" name="__codelineno-35-11" href="#__codelineno-35-11"></a><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Sandsynlighed P(X=x)&#39;</span><span class="p">)</span>
-</span><span id="__span-35-12"><a id="__codelineno-35-12" name="__codelineno-35-12" href="#__codelineno-35-12"></a><span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">x_values</span><span class="p">)</span>
-</span><span id="__span-35-13"><a id="__codelineno-35-13" name="__codelineno-35-13" href="#__codelineno-35-13"></a><span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
-</span><span id="__span-35-14"><a id="__codelineno-35-14" name="__codelineno-35-14" href="#__codelineno-35-14"></a><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="n">n</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">0.4</span>
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="c1"># Vi bruger her objekt-metoden, da det er nemmest til plots</span>
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="n">X</span> <span class="o">=</span> <span class="n">binom</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="n">x_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="n">pmf_values</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">x_values</span><span class="p">)</span>
+</span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>
+</span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+</span><span id="__span-20-8"><a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a><span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x_values</span><span class="p">,</span> <span class="n">pmf_values</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+</span><span id="__span-20-9"><a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Binomial Fordeling (n=</span><span class="si">{</span><span class="n">n</span><span class="si">}</span><span class="s1">, p=</span><span class="si">{</span><span class="n">p</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">)</span>
+</span><span id="__span-20-10"><a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Antal succeser (x)&#39;</span><span class="p">)</span>
+</span><span id="__span-20-11"><a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Sandsynlighed P(X=x)&#39;</span><span class="p">)</span>
+</span><span id="__span-20-12"><a id="__codelineno-20-12" name="__codelineno-20-12" href="#__codelineno-20-12"></a><span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">x_values</span><span class="p">)</span>
+</span><span id="__span-20-13"><a id="__codelineno-20-13" name="__codelineno-20-13" href="#__codelineno-20-13"></a><span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+</span><span id="__span-20-14"><a id="__codelineno-20-14" name="__codelineno-20-14" href="#__codelineno-20-14"></a><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </span></code></pre></div>
 <hr />
 <h2 id="7-simulation-teori-vs-praksis">7. Simulation: Teori vs. Praksis<a class="headerlink" href="#7-simulation-teori-vs-praksis" title="Permanent link">&para;</a></h2>
 <p>I statistikken bruger vi teori til at forudsige virkeligheden. Med simulation kan vi teste, om "loven om store tal" holder.
 Her slår vi plat/krone 10 gange (<span class="arithmatex">\(n=10\)</span>) og tæller antal kroner. Dette eksperiment gentager vi 10.000 gange.</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="c1"># Setup</span>
-</span><span id="__span-36-2"><a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a><span class="n">n</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">0.5</span>  <span class="c1"># Fair mønt</span>
-</span><span id="__span-36-3"><a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a><span class="n">simulations</span> <span class="o">=</span> <span class="mi">10000</span>
-</span><span id="__span-36-4"><a id="__codelineno-36-4" name="__codelineno-36-4" href="#__codelineno-36-4"></a>
-</span><span id="__span-36-5"><a id="__codelineno-36-5" name="__codelineno-36-5" href="#__codelineno-36-5"></a><span class="c1"># Kør simulation (generer 10.000 forsøg)</span>
-</span><span id="__span-36-6"><a id="__codelineno-36-6" name="__codelineno-36-6" href="#__codelineno-36-6"></a><span class="c1"># rvs = Random Variates (tilfældige udfald)</span>
-</span><span id="__span-36-7"><a id="__codelineno-36-7" name="__codelineno-36-7" href="#__codelineno-36-7"></a><span class="c1"># Kan også skrives som objekt: X.rvs(size=...)</span>
-</span><span id="__span-36-8"><a id="__codelineno-36-8" name="__codelineno-36-8" href="#__codelineno-36-8"></a><span class="n">sim_data</span> <span class="o">=</span> <span class="n">binom</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">simulations</span><span class="p">)</span>
-</span><span id="__span-36-9"><a id="__codelineno-36-9" name="__codelineno-36-9" href="#__codelineno-36-9"></a>
-</span><span id="__span-36-10"><a id="__codelineno-36-10" name="__codelineno-36-10" href="#__codelineno-36-10"></a><span class="c1"># Beregn empirisk middelværdi</span>
-</span><span id="__span-36-11"><a id="__codelineno-36-11" name="__codelineno-36-11" href="#__codelineno-36-11"></a><span class="n">empirisk_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">sim_data</span><span class="p">)</span>
-</span><span id="__span-36-12"><a id="__codelineno-36-12" name="__codelineno-36-12" href="#__codelineno-36-12"></a><span class="n">teoretisk_mean</span> <span class="o">=</span> <span class="n">n</span> <span class="o">*</span> <span class="n">p</span>
-</span><span id="__span-36-13"><a id="__codelineno-36-13" name="__codelineno-36-13" href="#__codelineno-36-13"></a>
-</span><span id="__span-36-14"><a id="__codelineno-36-14" name="__codelineno-36-14" href="#__codelineno-36-14"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Teoretisk middelværdi: </span><span class="si">{</span><span class="n">teoretisk_mean</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</span><span id="__span-36-15"><a id="__codelineno-36-15" name="__codelineno-36-15" href="#__codelineno-36-15"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Empirisk middelværdi (fra sim): </span><span class="si">{</span><span class="n">empirisk_mean</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</span><span id="__span-36-16"><a id="__codelineno-36-16" name="__codelineno-36-16" href="#__codelineno-36-16"></a>
-</span><span id="__span-36-17"><a id="__codelineno-36-17" name="__codelineno-36-17" href="#__codelineno-36-17"></a><span class="c1"># Plot histogram af simulationen vs teoretisk kurve</span>
-</span><span id="__span-36-18"><a id="__codelineno-36-18" name="__codelineno-36-18" href="#__codelineno-36-18"></a><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">sim_data</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">rwidth</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Simulation&#39;</span><span class="p">)</span>
-</span><span id="__span-36-19"><a id="__codelineno-36-19" name="__codelineno-36-19" href="#__codelineno-36-19"></a><span class="c1"># Her bruger vi den direkte metode til den røde teoretiske kurve</span>
-</span><span id="__span-36-20"><a id="__codelineno-36-20" name="__codelineno-36-20" href="#__codelineno-36-20"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="n">binom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">),</span> <span class="s1">&#39;ro&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Teori&#39;</span><span class="p">)</span>
-</span><span id="__span-36-21"><a id="__codelineno-36-21" name="__codelineno-36-21" href="#__codelineno-36-21"></a><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-</span><span id="__span-36-22"><a id="__codelineno-36-22" name="__codelineno-36-22" href="#__codelineno-36-22"></a><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Simulation vs. Teori&quot;</span><span class="p">)</span>
-</span><span id="__span-36-23"><a id="__codelineno-36-23" name="__codelineno-36-23" href="#__codelineno-36-23"></a><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="c1"># Setup</span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="n">n</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">0.5</span>  <span class="c1"># Fair mønt</span>
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="n">simulations</span> <span class="o">=</span> <span class="mi">10000</span>
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="c1"># Kør simulation (generer 10.000 forsøg)</span>
+</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="c1"># rvs = Random Variates (tilfældige udfald)</span>
+</span><span id="__span-21-7"><a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a><span class="c1"># Kan også skrives som objekt: X.rvs(size=...)</span>
+</span><span id="__span-21-8"><a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a><span class="n">sim_data</span> <span class="o">=</span> <span class="n">binom</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">simulations</span><span class="p">)</span>
+</span><span id="__span-21-9"><a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a>
+</span><span id="__span-21-10"><a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a><span class="c1"># Beregn empirisk middelværdi</span>
+</span><span id="__span-21-11"><a id="__codelineno-21-11" name="__codelineno-21-11" href="#__codelineno-21-11"></a><span class="n">empirisk_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">sim_data</span><span class="p">)</span>
+</span><span id="__span-21-12"><a id="__codelineno-21-12" name="__codelineno-21-12" href="#__codelineno-21-12"></a><span class="n">teoretisk_mean</span> <span class="o">=</span> <span class="n">n</span> <span class="o">*</span> <span class="n">p</span>
+</span><span id="__span-21-13"><a id="__codelineno-21-13" name="__codelineno-21-13" href="#__codelineno-21-13"></a>
+</span><span id="__span-21-14"><a id="__codelineno-21-14" name="__codelineno-21-14" href="#__codelineno-21-14"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Teoretisk middelværdi: </span><span class="si">{</span><span class="n">teoretisk_mean</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-21-15"><a id="__codelineno-21-15" name="__codelineno-21-15" href="#__codelineno-21-15"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Empirisk middelværdi (fra sim): </span><span class="si">{</span><span class="n">empirisk_mean</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-21-16"><a id="__codelineno-21-16" name="__codelineno-21-16" href="#__codelineno-21-16"></a>
+</span><span id="__span-21-17"><a id="__codelineno-21-17" name="__codelineno-21-17" href="#__codelineno-21-17"></a><span class="c1"># Plot histogram af simulationen vs teoretisk kurve</span>
+</span><span id="__span-21-18"><a id="__codelineno-21-18" name="__codelineno-21-18" href="#__codelineno-21-18"></a><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">sim_data</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">rwidth</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Simulation&#39;</span><span class="p">)</span>
+</span><span id="__span-21-19"><a id="__codelineno-21-19" name="__codelineno-21-19" href="#__codelineno-21-19"></a><span class="c1"># Her bruger vi den direkte metode til den røde teoretiske kurve</span>
+</span><span id="__span-21-20"><a id="__codelineno-21-20" name="__codelineno-21-20" href="#__codelineno-21-20"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="n">binom</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="n">n</span><span class="p">,</span> <span class="n">p</span><span class="p">),</span> <span class="s1">&#39;ro&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Teori&#39;</span><span class="p">)</span>
+</span><span id="__span-21-21"><a id="__codelineno-21-21" name="__codelineno-21-21" href="#__codelineno-21-21"></a><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</span><span id="__span-21-22"><a id="__codelineno-21-22" name="__codelineno-21-22" href="#__codelineno-21-22"></a><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Simulation vs. Teori&quot;</span><span class="p">)</span>
+</span><span id="__span-21-23"><a id="__codelineno-21-23" name="__codelineno-21-23" href="#__codelineno-21-23"></a><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </span></code></pre></div>
 <h3 id="hvad-ser-vi">Hvad ser vi?<a class="headerlink" href="#hvad-ser-vi" title="Permanent link">&para;</a></h3>
 <p>Når antallet af simulationer er højt (f.eks. 10.000), vil søjlerne (den empiriske data) næsten præcist matche de røde prikker (teorien). Det bekræfter, at vores model virker.</p>
@@ -1295,7 +1192,7 @@ Her slår vi plat/krone 10 gange (<span class="arithmatex">\(n=10\)</span>) og t
 <li><strong>Skelne mellem PMF og CDF</strong> og vide, at lommeregnerens <code>binompdf</code>/<code>binomcdf</code> svarer til PMF/CDF.</li>
 <li><strong>Diskret uniform fordeling:</strong> Beregne PMF, CDF, middelværdi, varians og standardafvigelse i både Python (<code>randint</code>) og WolframAlpha.</li>
 <li><strong>Bernoulli-fordeling:</strong> Beregne PMF, middelværdi, varians og standardafvigelse i både Python (<code>bernoulli</code>) og WolframAlpha.</li>
-<li><strong>Binomialfordeling:</strong> Beregne PMF (<span class="arithmatex">\(P(X=k)\)</span>), CDF (<span class="arithmatex">\(P(X \le k)\)</span>), interval-sandsynlighed (<span class="arithmatex">\(P(a \le X \le b)\)</span>), middelværdi, varians og standardafvigelse i både Python (<code>binom</code>) og WolframAlpha.</li>
+<li><strong>Binomialfordeling:</strong> Beregne PMF (<span class="arithmatex">\(P(X=k)\)</span>), CDF (<span class="arithmatex">\(P(X \leq k)\)</span>), interval-sandsynlighed (<span class="arithmatex">\(P(a \leq X \leq b)\)</span>), middelværdi, varians og standardafvigelse i både Python (<code>binom</code>) og WolframAlpha.</li>
 <li><strong>Visualisere</strong> en diskret fordeling (fx binomial-PMF) som søjlediagram i Python med Matplotlib.</li>
 <li><strong>Simulere</strong> binomialforsøg i Python (<code>binom.rvs</code>) og sammenligne empirisk frekvens med den teoretiske fordeling.</li>
 </ul>
