@@ -903,6 +903,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#video-materiale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Video Materiale:
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#sessionbeskrivelse" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1269,6 +1280,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#video-materiale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Video Materiale:
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#sessionbeskrivelse" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1330,25 +1352,45 @@
 <h1 align="center">Fordelinger af stikprøvestørrelser (sampling distributions)</h1>
 
 <h2 id="sessionsmateriale">Sessionsmateriale:<a class="headerlink" href="#sessionsmateriale" title="Permanent link">&para;</a></h2>
-<p>Pensum og materialer indsættes her.</p>
+<p>Ross: Kapitel 6</p>
+<p align="left">
+
+  <a href="Tutorial_6_notebook/">
+    <img src="../figures/Python-logo-notext.svg.png" alt="Python tutorial" width="100" />
+    <br>
+    <strong>Se Tutorial 6: Fordelinger af stikprøvestørrelser</strong>
+  </a>
+</p>
+
+<p><a href="Tutorial_6_notebook.ipynb" download>Download tutorial som notebook (.ipynb)</a></p>
+<p><a href="Tutorial_6/">Se tutorial som markdown</a></p>
 <p><a href="">Recap og øvelser</a></p>
 <p><a href="">Sessionnoter</a></p>
-<p><a href="">Sessionsmateriale</a></p>
+<h2 id="video-materiale">Video Materiale:<a class="headerlink" href="#video-materiale" title="Permanent link">&para;</a></h2>
+<p><strong>Sampling Distributions</strong></p>
+<p>Playliste med 3 videoer, der dækker stikprøvefordelinger.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?si=nfZqrLMzDC6S3oG0&amp;list=PLvxOuBpazmsP7UN00cNZX64N1o_8635ds" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 <hr />
 <h2 id="sessionbeskrivelse">Sessionbeskrivelse<a class="headerlink" href="#sessionbeskrivelse" title="Permanent link">&para;</a></h2>
-<p>Kort akademisk beskrivelse indsættes her.</p>
+<p>I denne session bevæger vi os fra at se på fordelinger af enkeltstående observationer til at undersøge egenskaberne ved stikprøver. Når vi indsamler data i praksis (for eksempel svartider for en server, mængden af fejl i en kodebase eller brugernes adfærd på en platform), beregner vi ofte stikprøvemål som gennemsnit eller varians for at drage konklusioner om hele populationen. Disse stikprøvemål (statistics) er i sig selv stokastiske variable og har derfor deres egne fordelinger – de såkaldte stikprøvefordelinger (sampling distributions).</p>
+<p>Vi introducerer et af de absolut vigtigste resultater inden for sandsynlighedsregning og statistik: <strong>Den Centrale Grænseværdisætning (Central Limit Theorem, CLT)</strong>. Denne sætning fortæller os, at uanset hvordan den oprindelige population er fordelt, vil fordelingen af stikprøvegennemsnittet nærme sig en normalfordeling, når stikprøvestørrelsen bliver tilstrækkeligt stor. Dette gennembrud er fundamentet for meget af den statistiske inferens og hypotesetestning, vi skal arbejde med i resten af kurset. Vi ser desuden på begreber som standardfejl (standard error) som et mål for estimaters usikkerhed.</p>
 <h3 id="centrale-begreber">Centrale begreber<a class="headerlink" href="#centrale-begreber" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Begreb 1 (indsættes)</li>
-<li>Begreb 2 (indsættes)</li>
-<li>Begreb 3 (indsættes)</li>
+<li><strong>Population vs. Stikprøve:</strong> Parametre (f.eks. <span class="arithmatex">\(\mu, \sigma^2\)</span>) over for stikprøve-statistikker (f.eks. <span class="arithmatex">\(\bar{X}, S^2\)</span>)</li>
+<li><strong>Stikprøvefordelinger (Sampling distributions):</strong> Fordelingen af en stikprøve-statistik</li>
+<li><strong>Stikprøvegennemsnittet (<span class="arithmatex">\(\bar{X}\)</span>):</strong> Forventningsværdi og varians for gennemsnittet</li>
+<li><strong>Standardfejl (Standard Error, SE):</strong> Forskellen på standardafvigelse i data og standardfejl på gennemsnittet (<span class="arithmatex">\(\sigma / \sqrt{n}\)</span>)</li>
+<li><strong>Den Centrale Grænseværdisætning (CLT):</strong> Hvorfor og hvornår vi kan antage normalfordeling</li>
 </ul>
 <div class="admonition tip">
 <p class="admonition-title">Læringsmål</p>
 <ul>
-<li>Læringsmål indsættes.</li>
-<li>Læringsmål indsættes.</li>
-<li>Læringsmål indsættes.</li>
+<li>Forstå forskellen mellem en populationsfordeling og en stikprøvefordeling.</li>
+<li>Kunne anvende Den Centrale Grænseværdisætning (CLT) til at tilnærme fordelingen af et stikprøvegennemsnit.</li>
+<li>Forstå begrebet standardfejl (standard error) og forklare, hvordan det adskiller sig fra almindelig standardafvigelse.</li>
+<li>Kunne beregne sandsynligheder relateret til stikprøvegennemsnit ved brug af normalfordelingen.</li>
+<li>Opnå en intuitiv forståelse for, hvordan stikprøvestørrelsen (<span class="arithmatex">\(n\)</span>) påvirker usikkerheden og fordelingen af vores estimater.</li>
 </ul>
 </div>
 <h2 id="velser">Øvelser<a class="headerlink" href="#velser" title="Permanent link">&para;</a></h2>
