@@ -1391,14 +1391,248 @@
 </ul>
 </div>
 <h2 id="velser">Øvelser<a class="headerlink" href="#velser" title="Permanent link">&para;</a></h2>
-<!--
-Indsæt bogreferencer og opgavelister her.
--->
 <style type="text/css">
     ol { list-style-type: lower-alpha; }
 </style>
 
-<p><em>Øvelser indsættes.</em></p>
+<h4 id="velse-1">Øvelse 1<a class="headerlink" href="#velse-1" title="Permanent link">&para;</a></h4>
+<p>Scientists at the Hopkins Memorial Forest in western Massachusetts have been collecting meteorological and environmental data in the forest data for more than 100 years. In the past few years, sulfate content in water samples from Birch Brook has averaged <span class="arithmatex">\(7.48 \mathrm{mg} / \mathrm{L}\)</span> with a standard deviation of <span class="arithmatex">\(1.60 \mathrm{mg} / \mathrm{L}\)</span>.</p>
+<ol>
+<li>What is the standard error of the sulfate in a collection of 10 water samples?</li>
+<li>If 10 students measure the sulfate in their samples, what is the probability that their average sulfate will be between 6.49 and <span class="arithmatex">\(8.47 \mathrm{mg} / \mathrm{L}\)</span> ?</li>
+<li>What do you need to assume for the probability calculated in (b) to be accurate?</li>
+</ol>
+<details class="answer">
+<summary>&nbsp;</summary>
+<ol>
+<li><span class="arithmatex">\(SE = 0.51\)</span></li>
+<li><span class="arithmatex">\(P(6.49 &lt; \bar{X} &lt; 8.47) = 0.95\)</span></li>
+<li>The samples are independent. And that the population is normally distributed, or the sample size is large.</li>
+</ol>
+</details>
+<h4 id="velse-2">Øvelse 2<a class="headerlink" href="#velse-2" title="Permanent link">&para;</a></h4>
+<p>Researchers in the Hopkins Forest (see Øvelse 1) also count the number of maple trees (genus acer) in plots throughout the forest. The following is a histogram of the number of live maples in 1002 plots sampled over the past 20 years. The average number of maples per plot was 19.86 trees with a standard deviation of 23.65 trees.</p>
+<p><img alt="Histogram" src="ex2_hist.png" /></p>
+<ol>
+<li>If we took the mean of a sample of eight plots, what would be the standard error of the mean?</li>
+<li>Using the central limit theorem, what is the probability that the mean of the eight would be within 1 standard error of the mean?</li>
+<li>Why might you think that the probability that you calculated in (b) might not be very accurate?</li>
+</ol>
+<details class="answer">
+<summary>&nbsp;</summary>
+<ol>
+<li><span class="arithmatex">\(SE = 8.36\)</span></li>
+<li><span class="arithmatex">\(0.68\)</span></li>
+<li>The central limit theorem applies when the sample size <span class="arithmatex">\(n\)</span> is large. Here <span class="arithmatex">\(n = 8\)</span> may be too small because the distribution of the counts of maple trees is quite skewed (as seen in the histogram above).</li>
+</ol>
+</details>
+<h4 id="velse-3">Øvelse 3<a class="headerlink" href="#velse-3" title="Permanent link">&para;</a></h4>
+<p>A manufacturer produces piston rings for an automobile engine. It is known that ring diameter is normally distributed with <span class="arithmatex">\(\sigma=0.001\)</span> millimeters. A random sample of 15 rings has a mean diameter of <span class="arithmatex">\(\bar{x}=74.036\)</span> millimeters.</p>
+<ol>
+<li>Construct a <span class="arithmatex">\(99 \%\)</span> two-sided confidence interval on the mean piston ring diameter.</li>
+<li>Construct a <span class="arithmatex">\(99 \%\)</span> lower-confidence bound on the mean piston ring diameter. Compare the lower bound of this confidence interval with the one in part (a).</li>
+</ol>
+<details class="answer">
+<summary>&nbsp;</summary>
+<ol>
+<li>
+<p><span class="arithmatex">\(99 \%\)</span> two-sided CI on the mean piston ring diameter. For <span class="arithmatex">\(\alpha=0.01\)</span>, <span class="arithmatex">\(z_{\alpha / 2}=z_{0.005}=2.58\)</span>, and <span class="arithmatex">\(\bar{x}=74.036\)</span>, <span class="arithmatex">\(\sigma=0.001\)</span>, <span class="arithmatex">\(n=15\)</span>:</p>
+<div class="arithmatex">\[
+\begin{gathered}
+\bar{x}-z_{0.005}\left(\frac{\sigma}{\sqrt{n}}\right) \leq \mu \leq \bar{x}+z_{0.005}\left(\frac{\sigma}{\sqrt{n}}\right) \\
+74.036-2.58\left(\frac{0.001}{\sqrt{15}}\right) \leq \mu \leq 74.036+2.58\left(\frac{0.001}{\sqrt{15}}\right) \\
+74.0353 \leq \mu \leq 74.0367
+\end{gathered}
+\]</div>
+</li>
+<li>
+<p><span class="arithmatex">\(99 \%\)</span> one-sided lower bound on the mean piston ring diameter. For <span class="arithmatex">\(\alpha=0.01\)</span>, <span class="arithmatex">\(z_{\alpha}=z_{0.01}=2.33\)</span> and <span class="arithmatex">\(\bar{x}=74.036\)</span>, <span class="arithmatex">\(\sigma=0.001\)</span>, <span class="arithmatex">\(n=15\)</span>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\bar{x}-z_{0.01} \frac{\sigma}{\sqrt{n}} &amp;\leq \mu \\
+74.036-2.33\left(\frac{0.001}{\sqrt{15}}\right) &amp;\leq \mu \\
+74.0354 &amp;\leq \mu
+\end{aligned}
+\]</div>
+<p>The one-sided lower bound is slightly larger than the lower endpoint of the two-sided interval, because <span class="arithmatex">\(z_{0.01} &lt; z_{0.005}\)</span>.</p>
+</li>
+</ol>
+</details>
+<h4 id="velse-4">Øvelse 4<a class="headerlink" href="#velse-4" title="Permanent link">&para;</a></h4>
+<p>A civil engineer is analyzing the compressive strength of concrete. Compressive strength is normally distributed with <span class="arithmatex">\(\sigma^2=1000(\mathrm{psi})^2\)</span>. A random sample of 12 specimens has a mean compressive strength of <span class="arithmatex">\(\bar{x}=3250\)</span> psi.</p>
+<ol>
+<li>Construct a <span class="arithmatex">\(95 \%\)</span> two-sided confidence interval on mean compressive strength.</li>
+<li>Construct a <span class="arithmatex">\(99 \%\)</span> two-sided confidence interval on mean compressive strength. Compare the width of this confidence interval with the width of the one found in part (a).</li>
+</ol>
+<details class="answer">
+<summary>&nbsp;</summary>
+<ol>
+<li>
+<p><span class="arithmatex">\(95 \%\)</span> two-sided CI on the mean compressive strength. With <span class="arithmatex">\(z_{\alpha/2}=z_{0.025}=1.96\)</span>, <span class="arithmatex">\(\bar{x}=3250\)</span>, <span class="arithmatex">\(\sigma=\sqrt{1000}\approx 31.62\)</span>, <span class="arithmatex">\(n=12\)</span>:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+3250-1.96\left(\frac{31.62}{\sqrt{12}}\right) &amp;\leq \mu \leq 3250+1.96\left(\frac{31.62}{\sqrt{12}}\right) \\
+3232.11 &amp;\leq \mu \leq 3267.89
+\end{aligned}
+\]</div>
+</li>
+<li>
+<p><span class="arithmatex">\(99 \%\)</span> two-sided CI: <span class="arithmatex">\(z_{0.005}=2.58\)</span>.</p>
+<div class="arithmatex">\[
+3250-2.58\left(\frac{31.62}{\sqrt{12}}\right) \leq \mu \leq 3250+2.58\left(\frac{31.62}{\sqrt{12}}\right)
+\]</div>
+<p>i.e. approximately <span class="arithmatex">\(3226.48 \leq \mu \leq 3273.52\)</span>. The <span class="arithmatex">\(99 \%\)</span> interval is wider than the <span class="arithmatex">\(95 \%\)</span> interval, because a higher confidence level requires a larger critical value.</p>
+</li>
+</ol>
+</details>
+<h4 id="velse-5">Øvelse 5<a class="headerlink" href="#velse-5" title="Permanent link">&para;</a></h4>
+<p>An article in Computers &amp; Electrical Engineering ["Parallel Simulation of Cellular Neural Networks" (1996, Vol. 22, pp. 61-84)] considered the speedup of cellular neural networks (CNNs) for a parallel general-purpose computing architecture based on six transputers in different areas. The data follow:</p>
+<div class="center-table">
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">3.775302</th>
+<th style="text-align: left;">3.350679</th>
+<th style="text-align: left;">4.217981</th>
+<th style="text-align: left;">4.030324</th>
+<th style="text-align: left;">4.639692</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">4.139665</td>
+<td style="text-align: left;">4.395575</td>
+<td style="text-align: left;">4.824257</td>
+<td style="text-align: left;">4.268119</td>
+<td style="text-align: left;">4.584193</td>
+</tr>
+<tr>
+<td style="text-align: left;">4.930027</td>
+<td style="text-align: left;">4.315973</td>
+<td style="text-align: left;">4.600101</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<ol>
+<li>Is there evidence to support the assumption that speedup of CNN is normally distributed? Include a graphical display in your answer.</li>
+<li>Construct a <span class="arithmatex">\(95 \%\)</span> two-sided confidence interval on the mean speedup.</li>
+<li>Construct a <span class="arithmatex">\(95 \%\)</span> lower confidence bound on the mean speedup.</li>
+</ol>
+<details class="answer">
+<summary>&nbsp;</summary>
+<ol>
+<li>
+<p>The data appear to be normally distributed based on examination of the normal probability plot below.</p>
+<p><div style="text-align: center;">
+    <img src="ex3.png" width="80%" alt="Normal probability plot for CNN speedup data">
+</div></p>
+</li>
+<li>
+<p><span class="arithmatex">\(95 \%\)</span> confidence interval on mean speed-up:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+&amp; n=13 \quad \bar{x}=4.313 \quad s=0.4328 \quad t_{0.025,12}=2.179 \\
+&amp; \bar{x}-t_{0.025,12}\left(\frac{s}{\sqrt{n}}\right) \leq \mu \leq \bar{x}+t_{0.025,12}\left(\frac{s}{\sqrt{n}}\right) \\
+&amp; 4.051 \leq \mu \leq 4.575
+\end{aligned}
+\]</div>
+</li>
+<li>
+<p><span class="arithmatex">\(95 \%\)</span> lower confidence bound on mean speed-up:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+&amp; n=13 \quad \bar{x}=4.313 \quad s=0.4328 \quad t_{0.05,12}=1.782 \\
+&amp; \bar{x}-t_{0.05,12}\left(\frac{s}{\sqrt{n}}\right) \leq \mu \\
+&amp; 4.099 \leq \mu
+\end{aligned}
+\]</div>
+</li>
+</ol>
+</details>
+<h4 id="velse-6">Øvelse 6<a class="headerlink" href="#velse-6" title="Permanent link">&para;</a></h4>
+<p>An article in Technometrics ["Two-Way Random Effects Analyses and Gauge R\&amp;R Studies" (1999, Vol. 41(3), pp. 202-211)] studied the capability of a gauge by measuring the weight of paper. The data for repeated measurements of one sheet of paper are in the following table. Construct a <span class="arithmatex">\(95 \%\)</span> one-sided upper confidence interval for the standard deviation of these measurements. Check the assumption of normality of the data and comment on the assumptions for the confidence interval.</p>
+<div class="center-table">
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Observations</th>
+<th style="text-align: left;"></th>
+<th style="text-align: left;"></th>
+<th style="text-align: left;"></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">3.481</td>
+<td style="text-align: left;">3.448</td>
+<td style="text-align: left;">3.485</td>
+<td style="text-align: left;">3.475</td>
+<td style="text-align: left;">3.472</td>
+</tr>
+<tr>
+<td style="text-align: left;">3.477</td>
+<td style="text-align: left;">3.472</td>
+<td style="text-align: left;">3.464</td>
+<td style="text-align: left;">3.472</td>
+<td style="text-align: left;">3.470</td>
+</tr>
+<tr>
+<td style="text-align: left;">3.470</td>
+<td style="text-align: left;">3.470</td>
+<td style="text-align: left;">3.477</td>
+<td style="text-align: left;">3.473</td>
+<td style="text-align: left;">3.474</td>
+</tr>
+</tbody>
+</table>
+</div>
+<details class="answer">
+<summary>&nbsp;</summary>
+<p><span class="arithmatex">\(95 \%\)</span> one-sided upper confidence bound for <span class="arithmatex">\(\sigma\)</span> (from <span class="arithmatex">\(\chi^2\)</span> for <span class="arithmatex">\(\sigma^2\)</span>):</p>
+<div class="arithmatex">\[
+\begin{aligned}
+n=15, \quad s&amp;=0.00831 \\
+\chi_{1-\alpha, n-1}^2 &amp;=\chi_{0.95,14}^2=6.53 \\
+\sigma^2 &amp;\leq \frac{(n-1)s^2}{\chi_{0.95,14}^2}=\frac{14(0.00831)^2}{6.53} \\
+\sigma &amp;\leq 0.0122
+\end{aligned}
+\]</div>
+<p>The data do not appear to be normally distributed based on an examination of the normal probability plot in the textbook solution; in that case the <span class="arithmatex">\(\chi^2\)</span>-interval for <span class="arithmatex">\(\sigma\)</span> is not strictly valid.</p>
+</details>
+<h4 id="velse-7">Øvelse 7<a class="headerlink" href="#velse-7" title="Permanent link">&para;</a></h4>
+<p>The 2004 presidential election exit polls from the critical state of Ohio provided the following results. The exit polls had 2020 respondents, 768 of whom were college graduates. Of the college graduates, 412 voted for George Bush.</p>
+<ol>
+<li>Calculate a <span class="arithmatex">\(95 \%\)</span> confidence interval for the proportion of college graduates in Ohio who voted for George Bush.</li>
+<li>Calculate a <span class="arithmatex">\(95 \%\)</span> lower confidence bound for the proportion of college graduates in Ohio who voted for George Bush.</li>
+</ol>
+<details class="answer">
+<summary>&nbsp;</summary>
+<ol>
+<li>
+<p><span class="arithmatex">\(95 \%\)</span> confidence interval for the proportion of college graduates in Ohio that voted for George Bush:</p>
+<div class="arithmatex">\[
+\begin{gathered}
+\hat{p}=\frac{412}{768}=0.536, \quad n=768, \quad z_{\alpha / 2}=1.96 \\
+\hat{p}-z_{\alpha / 2} \sqrt{\frac{\hat{p}(1-\hat{p})}{n}} \leq p \leq \hat{p}+z_{\alpha / 2} \sqrt{\frac{\hat{p}(1-\hat{p})}{n}} \\
+0.501 \leq p \leq 0.571
+\end{gathered}
+\]</div>
+</li>
+<li>
+<p><span class="arithmatex">\(95 \%\)</span> lower confidence bound:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\hat{p}-z_\alpha \sqrt{\frac{\hat{p}(1-\hat{p})}{n}} &amp; \leq p \\
+0.506 &amp; \leq p
+\end{aligned}
+\]</div>
+</li>
+</ol>
+</details>
 
 
 
