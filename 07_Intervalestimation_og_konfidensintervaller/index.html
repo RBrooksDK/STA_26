@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="../figures/vialogo_white.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.5">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
@@ -1362,25 +1362,32 @@
 <h1 align="center">Intervalestimation og konfidensintervaller</h1>
 
 <h2 id="sessionsmateriale">Sessionsmateriale:<a class="headerlink" href="#sessionsmateriale" title="Permanent link">&para;</a></h2>
-<p>Pensum og materialer indsættes her.</p>
+<p>Ross: 7.1, 7.3, 7.4, 7.5.</p>
 <p><a href="">Recap og øvelser</a></p>
 <p><a href="">Sessionnoter</a></p>
 <p><a href="">Sessionsmateriale</a></p>
 <hr />
 <h2 id="sessionbeskrivelse">Sessionbeskrivelse<a class="headerlink" href="#sessionbeskrivelse" title="Permanent link">&para;</a></h2>
-<p>Kort akademisk beskrivelse indsættes her.</p>
+<p>I denne session går vi fra <strong>stikprøvefordelinger</strong> (session 6) til at bruge dem til at sige noget kontrolleret om ukendte <strong>populationsparametre</strong>. Med udgangspunkt i Ross, kapitel 7 (<em>Parameter estimation</em>), afsnit <strong>7.1</strong>, <strong>7.3</strong>, <strong>7.4</strong> og <strong>7.5</strong>, skelner vi mellem <strong>punktestimation</strong> (ét tal som “bedste gæt”, fx stikprøvegennemsnit) og <strong>intervalestimation</strong>, hvor vi angiver et interval, der med en valgt sandsynlighed vil indeholde parameteren, når vi gentager forsøget under samme dataindsamling — det er idéen bag <strong>konfidensintervaller</strong> og det tilhørende <strong>konfidensniveau</strong> (<span class="arithmatex">\(1-\alpha\)</span>).</p>
+<p>I <strong>7.3</strong> arbejder vi med <strong>konfidensintervaller for middelværdien</strong> i normalmodellen: når populationsvariansen er kendt, bruges normalfordelingen (<strong>z-baserede</strong> intervaller); når den er ukendt, bruges typisk <strong>t-fordelingen</strong> med passende frihedsgrader. Vi ser også <strong>prædiktionsintervaller</strong> for en ny observation (ikke det samme som et CI for middelværdien). I <strong>7.4</strong> konstruerer vi intervaller for <strong>forskellen mellem to normalpopulationsmiddelværdier</strong> under de antagelser, bogen angiver. I <strong>7.5</strong> behandler vi <strong>variansen</strong> (og dermed standardafvigelsen) i en normalpopulation via intervaller knyttet til <strong><span class="arithmatex">\(\chi^2\)</span>-fordelingen</strong> for <span class="arithmatex">\((n-1)S^2/\sigma^2\)</span>. Afsnit om <strong>maksimal likelihood</strong> og <strong>eksponentielle livstidsmodeller</strong> springes over.</p>
 <h3 id="centrale-begreber">Centrale begreber<a class="headerlink" href="#centrale-begreber" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Begreb 1 (indsættes)</li>
-<li>Begreb 2 (indsættes)</li>
-<li>Begreb 3 (indsættes)</li>
+<li><strong>Punktestimation vs. intervalestimation:</strong> Estimat/statistik over for interval med konfidensniveau og gentagelsesfortolkning</li>
+<li><strong>Konfidensinterval og konfidensniveau (<span class="arithmatex">\(1-\alpha\)</span>):</strong> Hvad der er (og ikke er) sandsynligt for parameteren efter observerede data</li>
+<li><strong>CI for <span class="arithmatex">\(\mu\)</span> (normalmodel):</strong> z-interval når <span class="arithmatex">\(\sigma\)</span> er kendt; t-interval når <span class="arithmatex">\(\sigma\)</span> estimeres med <span class="arithmatex">\(S\)</span></li>
+<li><strong>Prædiktionsinterval:</strong> Usikkerhed for en <em>ny</em> observation frem for middelværdien</li>
+<li><strong>To stikprøver / differens:</strong> Konfidensinterval for forskel mellem middelværdier under relevante antagelser</li>
+<li><strong>Varians i normalpopulation:</strong> Intervaller baseret på <span class="arithmatex">\(\chi^2\)</span>-fordelingen for <span class="arithmatex">\((n-1)S^2/\sigma^2\)</span></li>
 </ul>
 <div class="admonition tip">
 <p class="admonition-title">Læringsmål</p>
 <ul>
-<li>Læringsmål indsættes.</li>
-<li>Læringsmål indsættes.</li>
-<li>Læringsmål indsættes.</li>
+<li>Kunne forklare forskellen mellem punktestimation og intervalestimation og give en korrekt fortolkning af et konfidensniveau.</li>
+<li>Kunne udlede og beregne konfidensintervaller for populationsmiddelværdien i normaltilfældet (kendt <span class="arithmatex">\(\sigma\)</span>: z; ukendt <span class="arithmatex">\(\sigma\)</span>: t).</li>
+<li>Kunne vælge relevant fordeling (normal, t, <span class="arithmatex">\(\chi^2\)</span>) ud fra model, antagelser og hvilken parameter der estimeres.</li>
+<li>Kunne skelne mellem konfidensinterval for middelværdien og prædiktionsinterval for en enkelt fremtidig observation.</li>
+<li>Kunne opstille og fortolke konfidensintervaller for forskellen mellem middelværdier i to normalpopulationer (som i pensum/antagelser for sessionen).</li>
+<li>Kunne konstruere og fortolke konfidensintervaller for variansen (eller standardafvigelsen) i en normalpopulation.</li>
 </ul>
 </div>
 <h2 id="velser">Øvelser<a class="headerlink" href="#velser" title="Permanent link">&para;</a></h2>
