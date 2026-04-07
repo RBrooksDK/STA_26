@@ -1455,7 +1455,7 @@
 </p>
 
 <p><a href="Tutorial_10_notebook.ipynb" download>Download tutorial som notebook (.ipynb)</a></p>
-<p><a href="Tutorial_10/">Se tutorial som markdown</a> (genereret fra notebook — <strong>ret i <code>.ipynb</code></strong>, kør derefter <code>python sync_tutorial10_md.py</code>).</p>
+<p><a href="Tutorial_10/">Se tutorial som markdown</a></p>
 <p><a href="">Recap og øvelser</a></p>
 <p><a href="">Sessionnoter</a></p>
 <p><a href="">Sessionsmateriale</a></p>
@@ -1464,7 +1464,11 @@
 <p>Når vi skal sammenligne middelværdier for mere end to grupper, bliver mange separate <span class="arithmatex">\(t\)</span>-tests problematiske (øget risiko for type I-fejl). Ensidig variansanalyse (one-way ANOVA) samler spørgsmålet i én omnibus-<span class="arithmatex">\(F\)</span>-test: <span class="arithmatex">\(H_0\)</span>: alle gruppemiddelværdier er ens mod <span class="arithmatex">\(H_1\)</span>: mindst én gruppe adskiller sig.</p>
 <p>Vi gennemgår modellen med fælles fejlvarians, opdeling af den totale variation (mellem grupper vs. inden for grupper), ANOVA-tabellen (<span class="arithmatex">\(F = \mathrm{MSB}/\mathrm{MSW}\)</span>), <span class="arithmatex">\(F\)</span>-fordelingen med de rette frihedsgrader, og hvordan I fortolker resultatet. Under Ross 10.3 ser vi kort på parvise sammenligninger (fx Tukey HSD), når <span class="arithmatex">\(H_0\)</span> er forkastet eller når I vil undersøge hvilke grupper der adskiller sig.</p>
 <ul>
-<li>Python-gennemgang: Tutorial 10 (SciPy, statsmodels — kør <code>pip install statsmodels</code> eller første celle i notebook'en med <code>%pip</code>, hvis import fejler; kort om alternativer).</li>
+<li>Python-gennemgang: <strong>Tutorial 10</strong> (SciPy, statsmodels — kør <code>pip install statsmodels</code> eller første celle i notebook'en med <code>%pip</code>, hvis import fejler; kort om alternativer).</li>
+<li><strong>Øvelse 1:</strong> three resin types, impurity concentration — <a href="Resin_impurities.xlsx">Resin_impurities.xlsx</a>.</li>
+<li><strong>Øvelse 2:</strong> three oscilloscope filters (radar operator) — <a href="Scope_filter_intensity.xlsx">Scope_filter_intensity.xlsx</a>.</li>
+<li><strong>Øvelse 3:</strong> two weight-loss diets (lb) — <a href="Diet_weight_loss.xlsx">Diet_weight_loss.xlsx</a>; ANOVA with <span class="arithmatex">\(k=2\)</span> plus an alternative test.</li>
+<li><strong>Øvelse 4:</strong> complete a partially given <strong>one-way ANOVA</strong> table (four factor levels); replicates, missing SS/MS/DF, <span class="arithmatex">\(P\)</span>-value bounds, conclusion.</li>
 </ul>
 <h3 id="centrale-begreber">Centrale begreber<a class="headerlink" href="#centrale-begreber" title="Permanent link">&para;</a></h3>
 <ul>
@@ -1486,13 +1490,404 @@
 </ul>
 </div>
 <h2 id="velser">Øvelser<a class="headerlink" href="#velser" title="Permanent link">&para;</a></h2>
-<div class="admonition note">
-<p class="admonition-title">Kommer senere</p>
-<p>Øvelser til session 10 tilføjes, når de er klar. Indtil da kan I træne på eksemplerne i <strong>Tutorial 10</strong>.</p>
-</div>
 <style type="text/css">
-    ol { list-style-type: lower-alpha; }
+    ol { list-style-type: decimal; }
 </style>
+
+<p>Gennemgang i Python: <strong>Tutorial 10</strong>.</p>
+<h4 id="velse-1">Øvelse 1<a class="headerlink" href="#velse-1" title="Permanent link">&para;</a></h4>
+<p>A laboratory measures <strong>impurity concentration</strong> in samples from three resin products (Resin I, II, and III). Five independent measurements per resin gave the following values (same numbers as in the spreadsheet):</p>
+<div class="center-table">
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Resin I</th>
+<th style="text-align: center;">Resin II</th>
+<th style="text-align: center;">Resin III</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">.046</td>
+<td style="text-align: center;">.038</td>
+<td style="text-align: center;">.031</td>
+</tr>
+<tr>
+<td style="text-align: center;">.025</td>
+<td style="text-align: center;">.035</td>
+<td style="text-align: center;">.042</td>
+</tr>
+<tr>
+<td style="text-align: center;">.014</td>
+<td style="text-align: center;">.031</td>
+<td style="text-align: center;">.020</td>
+</tr>
+<tr>
+<td style="text-align: center;">.017</td>
+<td style="text-align: center;">.022</td>
+<td style="text-align: center;">.018</td>
+</tr>
+<tr>
+<td style="text-align: center;">.043</td>
+<td style="text-align: center;">.012</td>
+<td style="text-align: center;">.039</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Long-format</strong> data: <a href="Resin_impurities.xlsx">Resin_impurities.xlsx</a> (columns <code>resin</code>, <code>impurity</code>).</p>
+<ol>
+<li>State <span class="arithmatex">\(H_0\)</span> and <span class="arithmatex">\(H_1\)</span> for a one-way ANOVA (one factor: resin type, three levels). Carry out the test at <span class="arithmatex">\(\alpha = 0.05\)</span> and interpret <span class="arithmatex">\(F\)</span> and the <span class="arithmatex">\(p\)</span>-value.</li>
+<li>Use Levene’s test as a rough check of whether the equal variance assumption across groups is plausible.</li>
+<li>Perform Tukey HSD (pairwise comparisons). Relate the result to the outcome of the ANOVA.</li>
+</ol>
+<details class="answer">
+<summary>&nbsp;</summary>
+<p><strong>Sample means:</strong> <span class="arithmatex">\(\bar{y}_{I} \approx 0.0290\)</span>, <span class="arithmatex">\(\bar{y}_{II} \approx 0.0276\)</span>, <span class="arithmatex">\(\bar{y}_{III} \approx 0.0300\)</span>. Grand mean <span class="arithmatex">\(\bar{y}_{\cdot\cdot} \approx 0.0289\)</span>.</p>
+<p><strong>1. ANOVA</strong></p>
+<p><span class="arithmatex">\(H_0\)</span>: <span class="arithmatex">\(\mu_I = \mu_{II} = \mu_{III}\)</span> (the same expected impurity concentration for all three resin types).</p>
+<p><span class="arithmatex">\(H_1\)</span>: not all <span class="arithmatex">\(\mu\)</span> are equal.</p>
+<p>With <span class="arithmatex">\(k=3\)</span> groups and <span class="arithmatex">\(n=5\)</span> observations per group, <span class="arithmatex">\(N=15\)</span>, <span class="arithmatex">\(\mathrm{df}_{\text{between}} = 2\)</span>, <span class="arithmatex">\(\mathrm{df}_{\text{within}} = 12\)</span>.</p>
+<p>Sum of squares (between / within): <span class="arithmatex">\(\mathrm{SSB} \approx 1.45\times 10^{-5}\)</span>, <span class="arithmatex">\(\mathrm{SSW} \approx 1.79\times 10^{-3}\)</span> (and <span class="arithmatex">\(\mathrm{SST} \approx 1.80\times 10^{-3}\)</span>).</p>
+<p>Mean squares: <span class="arithmatex">\(\mathrm{MSB} = \mathrm{SSB}/2 \approx 7.27\times 10^{-6}\)</span>, <span class="arithmatex">\(\mathrm{MSW} = \mathrm{SSW}/12 \approx 1.49\times 10^{-4}\)</span>.</p>
+<div class="arithmatex">\[F = \frac{\mathrm{MSB}}{\mathrm{MSW}} \approx 0.0487\]</div>
+<p>Under <span class="arithmatex">\(H_0\)</span>, <span class="arithmatex">\(F \sim F_{2,12}\)</span>. <span class="arithmatex">\(p\)</span>-value <span class="arithmatex">\(\approx 0.953\)</span> (e.g. <code>scipy.stats.f_oneway</code> or <code>statsmodels</code> <code>anova_lm</code> gives the same numbers).</p>
+<p><strong>Conclusion:</strong> <span class="arithmatex">\(p &gt; 0.05\)</span> — <strong>do not reject</strong> <span class="arithmatex">\(H_0\)</span>. There is <strong>no</strong> significant evidence of a difference in mean impurity among the three resin types in this experiment.</p>
+<p><strong>2. Levene</strong></p>
+<p>Levene’s test (e.g. <code>scipy.stats.levene</code> on the three samples): statistic <span class="arithmatex">\(\approx 0.41\)</span>, <span class="arithmatex">\(p \approx 0.67\)</span>. No strong indication of unequal variances; the <strong>equal variance</strong> assumption is <strong>not</strong> obviously contradicted by the data (interpret cautiously with small <span class="arithmatex">\(n\)</span> per group).</p>
+<p><strong>3. Tukey HSD</strong></p>
+<p><code>pairwise_tukeyhsd</code> (or <code>scipy.stats.tukey_hsd</code>): no pairwise comparison is significant at family-wise <span class="arithmatex">\(\alpha = 0.05\)</span> (all <code>reject</code> are <strong>False</strong>; adjusted <span class="arithmatex">\(p\)</span>-values <span class="arithmatex">\(\gg 0.05\)</span>). This <strong>agrees</strong> with the non-significant omnibus ANOVA — no pair of groups separates.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">stats</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="kn">import</span><span class="w"> </span><span class="nn">statsmodels.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sm</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="kn">from</span><span class="w"> </span><span class="nn">statsmodels.formula.api</span><span class="w"> </span><span class="kn">import</span> <span class="n">ols</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="kn">from</span><span class="w"> </span><span class="nn">statsmodels.stats.multicomp</span><span class="w"> </span><span class="kn">import</span> <span class="n">pairwise_tukeyhsd</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="n">g1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.046</span><span class="p">,</span> <span class="mf">0.025</span><span class="p">,</span> <span class="mf">0.014</span><span class="p">,</span> <span class="mf">0.017</span><span class="p">,</span> <span class="mf">0.043</span><span class="p">])</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="n">g2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.038</span><span class="p">,</span> <span class="mf">0.035</span><span class="p">,</span> <span class="mf">0.031</span><span class="p">,</span> <span class="mf">0.022</span><span class="p">,</span> <span class="mf">0.012</span><span class="p">])</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="n">g3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.031</span><span class="p">,</span> <span class="mf">0.042</span><span class="p">,</span> <span class="mf">0.020</span><span class="p">,</span> <span class="mf">0.018</span><span class="p">,</span> <span class="mf">0.039</span><span class="p">])</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="n">F</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">f_oneway</span><span class="p">(</span><span class="n">g1</span><span class="p">,</span> <span class="n">g2</span><span class="p">,</span> <span class="n">g3</span><span class="p">)</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;F =&quot;</span><span class="p">,</span> <span class="n">F</span><span class="p">,</span> <span class="s2">&quot;p =&quot;</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="nb">print</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">levene</span><span class="p">(</span><span class="n">g1</span><span class="p">,</span> <span class="n">g2</span><span class="p">,</span> <span class="n">g3</span><span class="p">))</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>    <span class="s2">&quot;impurity&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">g1</span><span class="p">,</span> <span class="n">g2</span><span class="p">,</span> <span class="n">g3</span><span class="p">]),</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>    <span class="s2">&quot;resin&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">([</span><span class="s2">&quot;I&quot;</span><span class="p">,</span> <span class="s2">&quot;II&quot;</span><span class="p">,</span> <span class="s2">&quot;III&quot;</span><span class="p">],</span> <span class="mi">5</span><span class="p">),</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="p">})</span>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="n">m</span> <span class="o">=</span> <span class="n">ols</span><span class="p">(</span><span class="s2">&quot;impurity ~ C(resin)&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="nb">print</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">anova_lm</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">typ</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="nb">print</span><span class="p">(</span><span class="n">pairwise_tukeyhsd</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;impurity&quot;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;resin&quot;</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">))</span>
+</span></code></pre></div>
+</details>
+<h4 id="velse-2">Øvelse 2<a class="headerlink" href="#velse-2" title="Permanent link">&para;</a></h4>
+<p>We want to know what type of filter should be used over the screen of a cathode-ray oscilloscope in order to have a radar operator easily pick out targets on the presentation. A test to accomplish this has been set up. A noise is first applied to the scope to make it difficult to pick out a target. A second signal, representing the target, is put into the scope, and its intensity is increased from zero until detected by the observer. The intensity setting at which the observer first notices the target signal is then recorded. This experiment is repeated <strong>20 times with each filter</strong>. The numerical value of each reading listed in the table of data is proportional to the target intensity at the time the operator first detects the target.</p>
+<div class="center-table">
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Filter No. 1</th>
+<th style="text-align: center;">Filter No. 2</th>
+<th style="text-align: center;">Filter No. 3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">90</td>
+<td style="text-align: center;">88</td>
+<td style="text-align: center;">95</td>
+</tr>
+<tr>
+<td style="text-align: center;">87</td>
+<td style="text-align: center;">90</td>
+<td style="text-align: center;">95</td>
+</tr>
+<tr>
+<td style="text-align: center;">93</td>
+<td style="text-align: center;">97</td>
+<td style="text-align: center;">89</td>
+</tr>
+<tr>
+<td style="text-align: center;">96</td>
+<td style="text-align: center;">87</td>
+<td style="text-align: center;">98</td>
+</tr>
+<tr>
+<td style="text-align: center;">94</td>
+<td style="text-align: center;">90</td>
+<td style="text-align: center;">96</td>
+</tr>
+<tr>
+<td style="text-align: center;">88</td>
+<td style="text-align: center;">96</td>
+<td style="text-align: center;">81</td>
+</tr>
+<tr>
+<td style="text-align: center;">90</td>
+<td style="text-align: center;">90</td>
+<td style="text-align: center;">92</td>
+</tr>
+<tr>
+<td style="text-align: center;">84</td>
+<td style="text-align: center;">90</td>
+<td style="text-align: center;">79</td>
+</tr>
+<tr>
+<td style="text-align: center;">101</td>
+<td style="text-align: center;">100</td>
+<td style="text-align: center;">105</td>
+</tr>
+<tr>
+<td style="text-align: center;">96</td>
+<td style="text-align: center;">93</td>
+<td style="text-align: center;">98</td>
+</tr>
+<tr>
+<td style="text-align: center;">90</td>
+<td style="text-align: center;">95</td>
+<td style="text-align: center;">92</td>
+</tr>
+<tr>
+<td style="text-align: center;">82</td>
+<td style="text-align: center;">86</td>
+<td style="text-align: center;">85</td>
+</tr>
+<tr>
+<td style="text-align: center;">93</td>
+<td style="text-align: center;">89</td>
+<td style="text-align: center;">97</td>
+</tr>
+<tr>
+<td style="text-align: center;">90</td>
+<td style="text-align: center;">92</td>
+<td style="text-align: center;">90</td>
+</tr>
+<tr>
+<td style="text-align: center;">96</td>
+<td style="text-align: center;">98</td>
+<td style="text-align: center;">87</td>
+</tr>
+<tr>
+<td style="text-align: center;">87</td>
+<td style="text-align: center;">95</td>
+<td style="text-align: center;">90</td>
+</tr>
+<tr>
+<td style="text-align: center;">99</td>
+<td style="text-align: center;">102</td>
+<td style="text-align: center;">101</td>
+</tr>
+<tr>
+<td style="text-align: center;">101</td>
+<td style="text-align: center;">105</td>
+<td style="text-align: center;">100</td>
+</tr>
+<tr>
+<td style="text-align: center;">79</td>
+<td style="text-align: center;">85</td>
+<td style="text-align: center;">84</td>
+</tr>
+<tr>
+<td style="text-align: center;">98</td>
+<td style="text-align: center;">97</td>
+<td style="text-align: center;">102</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Long-format</strong> data: <a href="Scope_filter_intensity.xlsx">Scope_filter_intensity.xlsx</a> (columns <code>filter</code> with values 1, 2, or 3, and <code>intensity</code>).</p>
+<p>At the 5% significance level, test the hypothesis that the filters are the same (i.e. the same expected detection intensity for the three filter types). You may add Levene’s test and Tukey HSD as in Øvelse 1.</p>
+<details class="answer">
+<summary>&nbsp;</summary>
+<p>Let <span class="arithmatex">\(Y_{ij}\)</span> be the recorded intensity for filter <span class="arithmatex">\(i\)</span> (<span class="arithmatex">\(i=1,2,3\)</span>), replicate <span class="arithmatex">\(j\)</span> (<span class="arithmatex">\(j=1,\ldots,20\)</span>). We assume independent observations and equal variance across filters for the ANOVA.</p>
+<p><strong>Sample means:</strong> <span class="arithmatex">\(\bar{y}_{1\cdot} = 91.7\)</span>, <span class="arithmatex">\(\bar{y}_{2\cdot} = 93.25\)</span>, <span class="arithmatex">\(\bar{y}_{3\cdot} = 92.8\)</span>. Grand mean <span class="arithmatex">\(\bar{y}_{\cdot\cdot} \approx 92.58\)</span>.</p>
+<p><strong>Hypotheses</strong></p>
+<p><span class="arithmatex">\(H_0\)</span>: <span class="arithmatex">\(\mu_1 = \mu_2 = \mu_3\)</span> (the filters are the same with respect to expected detection intensity).</p>
+<p><span class="arithmatex">\(H_1\)</span>: not all <span class="arithmatex">\(\mu_i\)</span> are equal.</p>
+<p><strong>ANOVA:</strong> <span class="arithmatex">\(k=3\)</span>, <span class="arithmatex">\(n=20\)</span> per group, <span class="arithmatex">\(N=60\)</span>, <span class="arithmatex">\(\mathrm{df}_{\text{between}} = 2\)</span>, <span class="arithmatex">\(\mathrm{df}_{\text{within}} = 57\)</span>.</p>
+<p><span class="arithmatex">\(\mathrm{SSB} \approx 25.43\)</span>, <span class="arithmatex">\(\mathrm{SSW} \approx 2265.15\)</span>, <span class="arithmatex">\(\mathrm{SST} \approx 2290.58\)</span>.</p>
+<p><span class="arithmatex">\(\mathrm{MSB} = \mathrm{SSB}/2 \approx 12.72\)</span>, <span class="arithmatex">\(\mathrm{MSW} = \mathrm{SSW}/57 \approx 39.74\)</span>.</p>
+<div class="arithmatex">\[F = \frac{\mathrm{MSB}}{\mathrm{MSW}} \approx 0.32\]</div>
+<p>Under <span class="arithmatex">\(H_0\)</span>, <span class="arithmatex">\(F \sim F_{2,57}\)</span>. <span class="arithmatex">\(p\)</span>-value <span class="arithmatex">\(\approx 0.727\)</span>.</p>
+<p><strong>Conclusion at <span class="arithmatex">\(\alpha = 0.05\)</span>:</strong> <span class="arithmatex">\(p &gt; 0.05\)</span> — <strong>do not reject</strong> <span class="arithmatex">\(H_0\)</span>. The data do <strong>not</strong> support a difference in mean intensity at first detection among the filters; at the 5% level the hypothesis that the <strong>filters are the same</strong> cannot be rejected.</p>
+<p><strong>Levene:</strong> statistic <span class="arithmatex">\(\approx 0.80\)</span>, <span class="arithmatex">\(p \approx 0.46\)</span> — no strong evidence against equal variances.</p>
+<p><strong>Tukey HSD:</strong> no significant pairs (all <code>reject</code> <strong>False</strong>), consistent with the non-significant omnibus test.</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">stats</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="kn">import</span><span class="w"> </span><span class="nn">statsmodels.api</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sm</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="kn">from</span><span class="w"> </span><span class="nn">statsmodels.formula.api</span><span class="w"> </span><span class="kn">import</span> <span class="n">ols</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="kn">from</span><span class="w"> </span><span class="nn">statsmodels.stats.multicomp</span><span class="w"> </span><span class="kn">import</span> <span class="n">pairwise_tukeyhsd</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="n">g1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">90</span><span class="p">,</span> <span class="mi">87</span><span class="p">,</span> <span class="mi">93</span><span class="p">,</span> <span class="mi">96</span><span class="p">,</span> <span class="mi">94</span><span class="p">,</span> <span class="mi">88</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">84</span><span class="p">,</span> <span class="mi">101</span><span class="p">,</span> <span class="mi">96</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">82</span><span class="p">,</span> <span class="mi">93</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">96</span><span class="p">,</span> <span class="mi">87</span><span class="p">,</span> <span class="mi">99</span><span class="p">,</span> <span class="mi">101</span><span class="p">,</span> <span class="mi">79</span><span class="p">,</span> <span class="mi">98</span><span class="p">])</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="n">g2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">88</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">97</span><span class="p">,</span> <span class="mi">87</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">96</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">93</span><span class="p">,</span> <span class="mi">95</span><span class="p">,</span> <span class="mi">86</span><span class="p">,</span> <span class="mi">89</span><span class="p">,</span> <span class="mi">92</span><span class="p">,</span> <span class="mi">98</span><span class="p">,</span> <span class="mi">95</span><span class="p">,</span> <span class="mi">102</span><span class="p">,</span> <span class="mi">105</span><span class="p">,</span> <span class="mi">85</span><span class="p">,</span> <span class="mi">97</span><span class="p">])</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="n">g3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">95</span><span class="p">,</span> <span class="mi">95</span><span class="p">,</span> <span class="mi">89</span><span class="p">,</span> <span class="mi">98</span><span class="p">,</span> <span class="mi">96</span><span class="p">,</span> <span class="mi">81</span><span class="p">,</span> <span class="mi">92</span><span class="p">,</span> <span class="mi">79</span><span class="p">,</span> <span class="mi">105</span><span class="p">,</span> <span class="mi">98</span><span class="p">,</span> <span class="mi">92</span><span class="p">,</span> <span class="mi">85</span><span class="p">,</span> <span class="mi">97</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">87</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">101</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">84</span><span class="p">,</span> <span class="mi">102</span><span class="p">])</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="nb">print</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">f_oneway</span><span class="p">(</span><span class="n">g1</span><span class="p">,</span> <span class="n">g2</span><span class="p">,</span> <span class="n">g3</span><span class="p">))</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="nb">print</span><span class="p">(</span><span class="n">stats</span><span class="o">.</span><span class="n">levene</span><span class="p">(</span><span class="n">g1</span><span class="p">,</span> <span class="n">g2</span><span class="p">,</span> <span class="n">g3</span><span class="p">))</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>    <span class="s2">&quot;intensity&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">g1</span><span class="p">,</span> <span class="n">g2</span><span class="p">,</span> <span class="n">g3</span><span class="p">]),</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>    <span class="s2">&quot;filter&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="mi">20</span><span class="p">),</span>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="p">})</span>
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="n">m</span> <span class="o">=</span> <span class="n">ols</span><span class="p">(</span><span class="s2">&quot;intensity ~ C(filter)&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="nb">print</span><span class="p">(</span><span class="n">sm</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">anova_lm</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">typ</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="nb">print</span><span class="p">(</span><span class="n">pairwise_tukeyhsd</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;intensity&quot;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;filter&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">),</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">))</span>
+</span></code></pre></div>
+</details>
+<h4 id="velse-3">Øvelse 3<a class="headerlink" href="#velse-3" title="Permanent link">&para;</a></h4>
+<p>Twenty overweight individuals were randomly assigned to one of two diets. After 10 weeks, the weight losses (in pounds) were recorded:</p>
+<div class="center-table">
+<table>
+<thead>
+<tr>
+<th>Diet 1</th>
+<th>Diet 2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>22.2</td>
+<td>24.2</td>
+</tr>
+<tr>
+<td>23.4</td>
+<td>16.8</td>
+</tr>
+<tr>
+<td>24.2</td>
+<td>14.6</td>
+</tr>
+<tr>
+<td>16.1</td>
+<td>13.7</td>
+</tr>
+<tr>
+<td>9.4</td>
+<td>19.5</td>
+</tr>
+<tr>
+<td>12.5</td>
+<td>17.6</td>
+</tr>
+<tr>
+<td>18.6</td>
+<td>11.2</td>
+</tr>
+<tr>
+<td>32.2</td>
+<td>9.5</td>
+</tr>
+<tr>
+<td>8.8</td>
+<td>30.1</td>
+</tr>
+<tr>
+<td>7.6</td>
+<td>21.5</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Long-format</strong> data: <a href="Diet_weight_loss.xlsx">Diet_weight_loss.xlsx</a> (columns <code>diet</code> with 1 or 2, and <code>weight_loss</code>).</p>
+<ol>
+<li>Use one-way ANOVA at the 5% level to test whether the two diets have the same expected mean weight loss.</li>
+<li>Suggest another statistical test that could be used to test the same hypothesis. State the null and alternative hypotheses for that test.</li>
+</ol>
+<details class="answer">
+<summary>&nbsp;</summary>
+<p><strong>Sample means:</strong> <span class="arithmatex">\(\bar{y}_{1\cdot} = 17.5\)</span> lb, <span class="arithmatex">\(\bar{y}_{2\cdot} \approx 17.87\)</span> lb (10 subjects per diet).</p>
+<ol>
+<li>
+<p><strong>One-way ANOVA with <span class="arithmatex">\(k=2\)</span>.</strong> The factor is <strong>diet</strong> with two levels. One-way ANOVA is <strong>well defined</strong> for <span class="arithmatex">\(k=2\)</span> as well; here <span class="arithmatex">\(\mathrm{df}_{\text{between}} = 1\)</span>, <span class="arithmatex">\(\mathrm{df}_{\text{within}} = N-k = 18\)</span> (<span class="arithmatex">\(N=20\)</span>).</p>
+<p><span class="arithmatex">\(H_0\)</span>: <span class="arithmatex">\(\mu_1 = \mu_2\)</span> (the same expected mean weight loss for diet 1 and diet 2).</p>
+<p><span class="arithmatex">\(H_1\)</span>: <span class="arithmatex">\(\mu_1 \neq \mu_2\)</span> (as in a two-sided comparison of two means — ANOVA with <span class="arithmatex">\(k=2\)</span> corresponds to a <strong>two-sided</strong> test on the difference).</p>
+<p><span class="arithmatex">\(\mathrm{SSB} \approx 0.6845\)</span>, <span class="arithmatex">\(\mathrm{SSW} \approx 934.68\)</span>, <span class="arithmatex">\(\mathrm{MSB} \approx 0.6845\)</span>, <span class="arithmatex">\(\mathrm{MSW} = \mathrm{SSW}/18 \approx 51.93\)</span>.</p>
+<div class="arithmatex">\[F = \frac{\mathrm{MSB}}{\mathrm{MSW}} \approx 0.0132\]</div>
+<p>Under <span class="arithmatex">\(H_0\)</span>, <span class="arithmatex">\(F \sim F_{1,18}\)</span>. <span class="arithmatex">\(p\)</span>-value <span class="arithmatex">\(\approx 0.910\)</span> (e.g. <code>scipy.stats.f_oneway</code>).</p>
+<p><strong>Conclusion at <span class="arithmatex">\(\alpha = 0.05\)</span>:</strong> <span class="arithmatex">\(p &gt; 0.05\)</span> — <strong>do not reject</strong> <span class="arithmatex">\(H_0\)</span>. No significant difference in mean weight loss between the two diets in this study.</p>
+</li>
+<li>
+<p><strong>Alternative test.</strong> <strong>Two independent samples — pooled <span class="arithmatex">\(t\)</span>-test</strong> (same <strong>equal variance</strong> assumption in the two populations as in ANOVA):</p>
+<ul>
+<li><span class="arithmatex">\(H_0\)</span>: <span class="arithmatex">\(\mu_1 = \mu_2\)</span></li>
+<li><span class="arithmatex">\(H_1\)</span>: <span class="arithmatex">\(\mu_1 \neq \mu_2\)</span> (two-sided)</li>
+</ul>
+<p>The test statistic is the standard <span class="arithmatex">\(t\)</span> with <span class="arithmatex">\(n_1+n_2-2 = 18\)</span> degrees of freedom. For <span class="arithmatex">\(k=2\)</span>, <strong>mathematically</strong> <span class="arithmatex">\(F = t^2\)</span> and the <strong>same <span class="arithmatex">\(p\)</span>-value</strong> as in ANOVA (here <span class="arithmatex">\(t \approx -0.115\)</span>, <span class="arithmatex">\(p \approx 0.910\)</span>).</p>
+<p><strong>Alternative (different assumption):</strong> <strong>Welch’s <span class="arithmatex">\(t\)</span>-test</strong> (<code>equal_var=False</code> in SciPy) — same <span class="arithmatex">\(H_0\)</span> and <span class="arithmatex">\(H_1\)</span> about the means, but <strong>without</strong> requiring equal variances; degrees of freedom are approximated (can yield a slightly different <span class="arithmatex">\(p\)</span> than ANOVA if variances differ).</p>
+</li>
+</ol>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">stats</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="n">d1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">22.2</span><span class="p">,</span> <span class="mf">23.4</span><span class="p">,</span> <span class="mf">24.2</span><span class="p">,</span> <span class="mf">16.1</span><span class="p">,</span> <span class="mf">9.4</span><span class="p">,</span> <span class="mf">12.5</span><span class="p">,</span> <span class="mf">18.6</span><span class="p">,</span> <span class="mf">32.2</span><span class="p">,</span> <span class="mf">8.8</span><span class="p">,</span> <span class="mf">7.6</span><span class="p">])</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="n">d2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">24.2</span><span class="p">,</span> <span class="mf">16.8</span><span class="p">,</span> <span class="mf">14.6</span><span class="p">,</span> <span class="mf">13.7</span><span class="p">,</span> <span class="mf">19.5</span><span class="p">,</span> <span class="mf">17.6</span><span class="p">,</span> <span class="mf">11.2</span><span class="p">,</span> <span class="mf">9.5</span><span class="p">,</span> <span class="mf">30.1</span><span class="p">,</span> <span class="mf">21.5</span><span class="p">])</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="n">F</span><span class="p">,</span> <span class="n">p_anova</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">f_oneway</span><span class="p">(</span><span class="n">d1</span><span class="p">,</span> <span class="n">d2</span><span class="p">)</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="n">t</span><span class="p">,</span> <span class="n">p_t</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">d1</span><span class="p">,</span> <span class="n">d2</span><span class="p">,</span> <span class="n">equal_var</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ANOVA F, p:&quot;</span><span class="p">,</span> <span class="n">F</span><span class="p">,</span> <span class="n">p_anova</span><span class="p">)</span>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;pooled t, p:&quot;</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">p_t</span><span class="p">)</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;F equals t^2:&quot;</span><span class="p">,</span> <span class="n">F</span><span class="p">,</span> <span class="n">t</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Welch:&quot;</span><span class="p">,</span> <span class="n">stats</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">d1</span><span class="p">,</span> <span class="n">d2</span><span class="p">,</span> <span class="n">equal_var</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</span></code></pre></div>
+</details>
+<h4 id="velse-4">Øvelse 4<a class="headerlink" href="#velse-4" title="Permanent link">&para;</a></h4>
+<p>Consider the following computer output for an experiment in which <strong>one factor was tested at four levels</strong>:</p>
+<div class="arithmatex">\[
+\begin{array}{lccccc}
+\text{Source} &amp; \text{DF} &amp; \text{SS} &amp; \text{MS} &amp; F &amp; P\text{-value} \\
+\hline
+\text{Factor} &amp; ? &amp; ? &amp; 330.4716 &amp; 4.42 &amp; ? \\
+\text{Error} &amp; ? &amp; ? &amp; ? &amp; &amp; \\
+\text{Total} &amp; 31 &amp; ? &amp; &amp; &amp;
+\end{array}
+\]</div>
+<p><strong>Recipe (fill gaps + <span class="arithmatex">\(P\)</span>-value):</strong> see <strong>Tutorial 10</strong>, <strong>§2.1</strong> (<em>Ufuldstændig ANOVA-tabel</em>), with the same numerical example in Python.</p>
+<ol>
+<li>How many observations (replicates) per factor level were used?</li>
+<li><strong>Fill in</strong> the missing entries in the ANOVA table. Give <strong>bounds</strong> for the <span class="arithmatex">\(P\)</span>-value (using <span class="arithmatex">\(F\)</span>-tables or software).</li>
+<li>What <strong>conclusions</strong> can you draw about differences among the factor-level means? (State <span class="arithmatex">\(H_0\)</span> and <span class="arithmatex">\(H_1\)</span>, and relate to a typical <span class="arithmatex">\(\alpha = 0.05\)</span>.)</li>
+</ol>
+<details class="answer">
+<summary>&nbsp;</summary>
+<p>One-way ANOVA with <strong><span class="arithmatex">\(a = 4\)</span></strong> factor levels (balanced layout).</p>
+<ol>
+<li>
+<p><strong>Replicates.</strong> Total df is <span class="arithmatex">\(N - 1 = 31\)</span>, so <strong><span class="arithmatex">\(N = 32\)</span></strong> observations. With four levels and a balanced design, observations per level are</p>
+<div class="arithmatex">\[r = \frac{N}{a} = \frac{32}{4} = 8.\]</div>
+<p>The experimenter used <strong>8 observations per factor level</strong>.</p>
+</li>
+<li>
+<p><strong>Completed table.</strong> <span class="arithmatex">\(\mathrm{DF}_{\text{Factor}} = a - 1 = 3\)</span>, <span class="arithmatex">\(\mathrm{DF}_{\text{Error}} = N - a = 28\)</span>.</p>
+<div class="arithmatex">\[SS_{\text{Factor}} = MS_{\text{Factor}} \cdot \mathrm{DF}_{\text{Factor}} = 330.4716 \times 3 = 991.4148.\]</div>
+<p>From <span class="arithmatex">\(F = MS_{\text{Factor}} / MS_{\text{Error}}\)</span>,</p>
+<div class="arithmatex">\[MS_{\text{Error}} = \frac{330.4716}{4.42} \approx 74.7673, \qquad SS_{\text{Error}} = MS_{\text{Error}} \times 28 \approx 2093.49.\]</div>
+<div class="arithmatex">\[SS_{\text{Total}} = SS_{\text{Factor}} + SS_{\text{Error}} \approx 3084.90.\]</div>
+<p>Completed table:</p>
+<div class="arithmatex">\[
+\begin{array}{lccccc}
+\text{Source} &amp; \text{DF} &amp; \text{SS} &amp; \text{MS} &amp; F &amp; P\text{-value} \\
+\hline
+\text{Factor} &amp; 3 &amp; 991.4148 &amp; 330.4716 &amp; 4.42 &amp; \approx 0.0115 \\
+\text{Error} &amp; 28 &amp; \approx 2093.49 &amp; \approx 74.7673 &amp; &amp; \\
+\text{Total} &amp; 31 &amp; \approx 3084.90 &amp; &amp; &amp;
+\end{array}
+\]</div>
+<p>For <span class="arithmatex">\(F = 4.42\)</span> with <span class="arithmatex">\((3,\,28)\)</span> df, the exact upper-tail <span class="arithmatex">\(p\)</span>-value is about <strong><span class="arithmatex">\(0.0115\)</span></strong> (e.g. <code>scipy.stats.f.sf(4.42, 3, 28)</code>). <strong>Bounds</strong> from <span class="arithmatex">\(F\)</span>-tables: <strong><span class="arithmatex">\(0.01 &lt; P\text{-value} &lt; 0.025\)</span></strong> (since <span class="arithmatex">\(4.42\)</span> lies between the critical values for <span class="arithmatex">\(\alpha = 0.025\)</span> and <span class="arithmatex">\(\alpha = 0.01\)</span> in the upper tail).</p>
+</li>
+<li>
+<p><strong>Conclusion.</strong> <span class="arithmatex">\(H_0\)</span>: <span class="arithmatex">\(\mu_1 = \mu_2 = \mu_3 = \mu_4\)</span>. <span class="arithmatex">\(H_1\)</span>: not all factor-level means are equal.</p>
+<p>Since <span class="arithmatex">\(P\text{-value} &lt; 0.05\)</span>, <strong>reject <span class="arithmatex">\(H_0\)</span></strong>. There is <strong>significant evidence</strong> at the 5% level that the factor-level means are <strong>not</strong> all equal.</p>
+<p>ANOVA does <strong>not</strong> say <strong>which</strong> means differ; use a multiple-comparison procedure (e.g. <strong>Tukey HSD</strong>) as a follow-up.</p>
+</li>
+</ol>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">stats</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">F</span><span class="p">,</span> <span class="n">dfn</span><span class="p">,</span> <span class="n">dfd</span> <span class="o">=</span> <span class="mf">4.42</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">28</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;P-value (upper tail):&quot;</span><span class="p">,</span> <span class="n">stats</span><span class="o">.</span><span class="n">f</span><span class="o">.</span><span class="n">sf</span><span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="n">dfn</span><span class="p">,</span> <span class="n">dfd</span><span class="p">))</span>
+</span></code></pre></div>
+</details>
 
 
 

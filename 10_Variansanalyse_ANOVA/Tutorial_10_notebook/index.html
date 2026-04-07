@@ -1248,6 +1248,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="2. $F$-test og ANOVA-tabel (Ross 10.2)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-ufuldstndig-anova-tabel-som-i-velse-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Ufuldstændig ANOVA-tabel (som i Øvelse 4)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1610,6 +1627,23 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="2. $F$-test og ANOVA-tabel (Ross 10.2)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-ufuldstndig-anova-tabel-som-i-velse-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 Ufuldstændig ANOVA-tabel (som i Øvelse 4)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2459,7 +2493,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </style>
 <!-- End of mermaid configuration --><div class="jupyter-wrapper">
 <div class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=dc820e02">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=aeea9103">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -2629,6 +2663,98 @@ print(f"F = {F_manual:.4f}, df = ({df_between}, {df_within})")
 </div>
 </div>
 </div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=anova-partial-table-md">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h3 id="21-ufuldstndig-anova-tabel-som-i-velse-4">2.1 Ufuldstændig ANOVA-tabel (som i <strong>Øvelse 4</strong>)<a class="anchor-link" href="#21-ufuldstndig-anova-tabel-som-i-velse-4">¶</a></h3><p>I afsnit <strong>2</strong> beregnede vi SS og MS <strong>ud fra rå observationer</strong>. I eksamenssæt kan I i stedet få en <strong>tabel med huller</strong> (kun nogle DF, MS, $F$ eller total-DF er angivet). Så bruger I <strong>samme definitioner baglæns</strong>:</p>
+<ol>
+<li><strong>Total DF</strong> $= N-1$ giver antal observationer $N$.</li>
+<li><strong>Antal faktor-niveauer</strong> $k$ giver $\mathrm{DF}_{\text{factor}} = k-1$ og $\mathrm{DF}_{\text{error}} = N-k$ (ensidig ANOVA, balanceret design: $N/k$ gentagelser pr. niveau).</li>
+<li><strong>$\mathrm{SS}_{\text{factor}} = \mathrm{MS}_{\text{factor}} \cdot \mathrm{DF}_{\text{factor}}$</strong> (fordi $\mathrm{MS} = \mathrm{SS}/\mathrm{DF}$).</li>
+<li><strong>$F = \mathrm{MS}_{\text{factor}}/\mathrm{MS}_{\text{error}}$</strong> giver $\mathrm{MS}_{\text{error}} = \mathrm{MS}_{\text{factor}}/F$, og <strong>$\mathrm{SS}_{\text{error}} = \mathrm{MS}_{\text{error}} \cdot \mathrm{DF}_{\text{error}}$</strong>.</li>
+<li><strong>$\mathrm{SS}_{\text{total}} = \mathrm{SS}_{\text{factor}} + \mathrm{SS}_{\text{error}}$</strong> (samme som $\mathrm{SST} = \mathrm{SSB} + \mathrm{SSW}$).</li>
+</ol>
+<p><strong>$P$-værdi</strong> når $F$ og begge DF er kendt: under $H_0$ er $F \sim F_{\mathrm{df}_1,\,\mathrm{df}_2}$ med $\mathrm{df}_1 = k-1$, $\mathrm{df}_2 = N-k$. Den <strong>øvre hale</strong> (omnibus-test) er</p>
+<p>$$P\bigl(F \ge F_{\text{obs}}\bigr) = 1 - F_{\mathrm{cdf}}(F_{\text{obs}}).$$</p>
+<p>I SciPy: <strong><code>scipy.stats.f.sf(F_obs, df1, df2)</code></strong> (<code>sf</code> = <em>survival function</em> = hale til højre, dvs. $P(F \ge F_{\text{obs}})$). Med $F$-tabeller angiver I ofte <strong>grænser</strong> for $P$-værdien (fx $0.01 &lt; P &lt; 0.025$) ved at sammenligne $F_{\text{obs}}$ med kritiske værdier for udvalgte $\alpha$.</p>
+<p>Nedenfor: <strong>samme tal</strong> som i Øvelse 4 (fire niveauer, total DF $=31$, $\mathrm{MS}_{\text{factor}} = 330.4716$, $F = 4.42$).</p>
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs" id="cell-id=anova-partial-table-code">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="CodeMirror cm-s-jupyter">
+<div class="zeroclipboard-container">
+<clipboard-copy for="cell-3">
+<div>
+<span class="notice" hidden="">Copied!</span>
+<svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
+<path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+<path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+</clipboard-copy>
+</div>
+<div class="highlight-ipynb hl-python"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">stats</span>
+
+<span class="c1"># Som Øvelse 4: a = 4 niveauer, total DF = 31 =&gt; N = 32, balanceret r = 8</span>
+<span class="n">k</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">df_total</span> <span class="o">=</span> <span class="mi">31</span>
+<span class="n">N</span> <span class="o">=</span> <span class="n">df_total</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="n">df_factor</span> <span class="o">=</span> <span class="n">k</span> <span class="o">-</span> <span class="mi">1</span>
+<span class="n">df_error</span> <span class="o">=</span> <span class="n">N</span> <span class="o">-</span> <span class="n">k</span>
+<span class="n">MS_factor</span> <span class="o">=</span> <span class="mf">330.4716</span>
+<span class="n">F_obs</span> <span class="o">=</span> <span class="mf">4.42</span>
+
+<span class="n">SS_factor</span> <span class="o">=</span> <span class="n">MS_factor</span> <span class="o">*</span> <span class="n">df_factor</span>
+<span class="n">MS_error</span> <span class="o">=</span> <span class="n">MS_factor</span> <span class="o">/</span> <span class="n">F_obs</span>
+<span class="n">SS_error</span> <span class="o">=</span> <span class="n">MS_error</span> <span class="o">*</span> <span class="n">df_error</span>
+<span class="n">SS_total</span> <span class="o">=</span> <span class="n">SS_factor</span> <span class="o">+</span> <span class="n">SS_error</span>
+<span class="n">p_upper</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">f</span><span class="o">.</span><span class="n">sf</span><span class="p">(</span><span class="n">F_obs</span><span class="p">,</span> <span class="n">df_factor</span><span class="p">,</span> <span class="n">df_error</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"N ="</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="s2">"  replicates per level (balanced):"</span><span class="p">,</span> <span class="n">N</span> <span class="o">//</span> <span class="n">k</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"DF factor, error:"</span><span class="p">,</span> <span class="n">df_factor</span><span class="p">,</span> <span class="n">df_error</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"SS factor, error, total:"</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">SS_factor</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="n">SS_error</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="n">SS_total</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"MS error:"</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">MS_error</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"P-value P(F &gt;= F_obs), df = (3, 28):"</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">p_upper</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+</pre></div>
+<div class="clipboard-copy-txt" id="cell-3">from scipy import stats
+
+# Som Øvelse 4: a = 4 niveauer, total DF = 31 =&gt; N = 32, balanceret r = 8
+k = 4
+df_total = 31
+N = df_total + 1
+df_factor = k - 1
+df_error = N - k
+MS_factor = 330.4716
+F_obs = 4.42
+
+SS_factor = MS_factor * df_factor
+MS_error = MS_factor / F_obs
+SS_error = MS_error * df_error
+SS_total = SS_factor + SS_error
+p_upper = stats.f.sf(F_obs, df_factor, df_error)
+
+print("N =", N, "  replicates per level (balanced):", N // k)
+print("DF factor, error:", df_factor, df_error)
+print("SS factor, error, total:", round(SS_factor, 4), round(SS_error, 4), round(SS_total, 4))
+print("MS error:", round(MS_error, 4))
+print("P-value P(F &gt;= F_obs), df = (3, 28):", round(p_upper, 6))
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=d948abec">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -2649,7 +2775,7 @@ print(f"F = {F_manual:.4f}, df = ({df_between}, {df_within})")
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
-<clipboard-copy for="cell-3">
+<clipboard-copy for="cell-4">
 <div>
 <span class="notice" hidden="">Copied!</span>
 <svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
@@ -2664,7 +2790,7 @@ print(f"F = {F_manual:.4f}, df = ({df_between}, {df_within})")
 <span class="n">F_stat</span><span class="p">,</span> <span class="n">p_value</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">f_oneway</span><span class="p">(</span><span class="n">g1</span><span class="p">,</span> <span class="n">g2</span><span class="p">,</span> <span class="n">g3</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"SciPy f_oneway: F=</span><span class="si">{</span><span class="n">F_stat</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">, p=</span><span class="si">{</span><span class="n">p_value</span><span class="si">:</span><span class="s2">.4e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-3">from scipy import stats
+<div class="clipboard-copy-txt" id="cell-4">from scipy import stats
 
 F_stat, p_value = stats.f_oneway(g1, g2, g3)
 print(f"SciPy f_oneway: F={F_stat:.4f}, p={p_value:.4e}")
@@ -2699,7 +2825,7 @@ print(f"SciPy f_oneway: F={F_stat:.4f}, p={p_value:.4e}")
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
-<clipboard-copy for="cell-4">
+<clipboard-copy for="cell-5">
 <div>
 <span class="notice" hidden="">Copied!</span>
 <svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
@@ -2725,7 +2851,7 @@ print(f"SciPy f_oneway: F={F_stat:.4f}, p={p_value:.4e}")
 <span class="nb">print</span><span class="p">(</span><span class="n">anova_tbl</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-4">import pandas as pd
+<div class="clipboard-copy-txt" id="cell-5">import pandas as pd
 import statsmodels.api as sm
 from statsmodels.formula.api import ols
 
@@ -2772,7 +2898,7 @@ print(model.summary())
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
-<clipboard-copy for="cell-5">
+<clipboard-copy for="cell-6">
 <div>
 <span class="notice" hidden="">Copied!</span>
 <svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
@@ -2787,7 +2913,7 @@ print(model.summary())
 <span class="n">tukey</span> <span class="o">=</span> <span class="n">pairwise_tukeyhsd</span><span class="p">(</span><span class="n">endog</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s2">"y"</span><span class="p">],</span> <span class="n">groups</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s2">"grp"</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">tukey</span><span class="p">)</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-5">from statsmodels.stats.multicomp import pairwise_tukeyhsd
+<div class="clipboard-copy-txt" id="cell-6">from statsmodels.stats.multicomp import pairwise_tukeyhsd
 
 tukey = pairwise_tukeyhsd(endog=df["y"], groups=df["grp"], alpha=0.05)
 print(tukey)
@@ -2817,7 +2943,7 @@ print(tukey)
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
-<clipboard-copy for="cell-6">
+<clipboard-copy for="cell-7">
 <div>
 <span class="notice" hidden="">Copied!</span>
 <svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
@@ -2832,7 +2958,7 @@ print(tukey)
 <span class="n">tukey_res</span> <span class="o">=</span> <span class="n">tukey_hsd</span><span class="p">(</span><span class="n">g1</span><span class="p">,</span> <span class="n">g2</span><span class="p">,</span> <span class="n">g3</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">tukey_res</span><span class="p">)</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-6">from scipy.stats import tukey_hsd
+<div class="clipboard-copy-txt" id="cell-7">from scipy.stats import tukey_hsd
 
 tukey_res = tukey_hsd(g1, g2, g3)
 print(tukey_res)
@@ -2868,7 +2994,7 @@ print(tukey_res)
 <div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
-<clipboard-copy for="cell-7">
+<clipboard-copy for="cell-8">
 <div>
 <span class="notice" hidden="">Copied!</span>
 <svg aria-hidden="true" class="clipboard-copy-icon" data-view-component="true" height="20" version="1.1" viewbox="0 0 16 16" width="20">
@@ -2883,7 +3009,7 @@ print(tukey_res)
 <span class="n">lev_stat</span><span class="p">,</span> <span class="n">lev_p</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">levene</span><span class="p">(</span><span class="n">g1</span><span class="p">,</span> <span class="n">g2</span><span class="p">,</span> <span class="n">g3</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Levene: stat=</span><span class="si">{</span><span class="n">lev_stat</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">, p=</span><span class="si">{</span><span class="n">lev_p</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
-<div class="clipboard-copy-txt" id="cell-7">from scipy import stats
+<div class="clipboard-copy-txt" id="cell-8">from scipy import stats
 
 lev_stat, lev_p = stats.levene(g1, g2, g3)
 print(f"Levene: stat={lev_stat:.4f}, p={lev_p:.4f}")
@@ -2894,7 +3020,7 @@ print(f"Levene: stat={lev_stat:.4f}, p={lev_p:.4f}")
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=2131a8fa">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=3004d5af">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -2980,6 +3106,12 @@ print(f"Levene: stat={lev_stat:.4f}, p={lev_p:.4f}")
 </tr>
 </tbody>
 </table>
+<ul>
+<li><strong>Øvelse 1:</strong> three resins, impurity concentration — <code>Resin_impurities.xlsx</code>.</li>
+<li><strong>Øvelse 2:</strong> oscilloscope filters / radar — <code>Scope_filter_intensity.xlsx</code>.</li>
+<li><strong>Øvelse 3:</strong> two diets, weight loss — <code>Diet_weight_loss.xlsx</code> (ANOVA with $k=2$ and $t$-test).</li>
+<li><strong>Øvelse 4:</strong> complete partial ANOVA table (four levels).</li>
+</ul>
 </div>
 </div>
 </div>
