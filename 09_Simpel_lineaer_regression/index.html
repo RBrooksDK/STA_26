@@ -18,7 +18,7 @@
         <link rel="prev" href="../08_Hypotesetest/Tutorial_8_notebook/">
       
       
-        <link rel="next" href="../10_Variansanalyse_ANOVA/">
+        <link rel="next" href="Tutorial_9_notebook/">
       
       
         
@@ -29,7 +29,7 @@
     
     
       
-        <title>09 Simpel lineær regression - Statistik og Dataanalyse for Softwareteknologi</title>
+        <title>Index - Statistik og Dataanalyse for Softwareteknologi</title>
       
     
     
@@ -131,7 +131,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              09 Simpel lineær regression
+              Index
             
           </span>
         </div>
@@ -1017,14 +1017,34 @@
   
   
   
-    <li class="md-nav__item md-nav__item--active">
+    
+    
       
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
+        
           
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_10" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="./" class="md-nav__link md-nav__link--active">
+              
   
   
   <span class="md-ellipsis">
@@ -1038,17 +1058,43 @@
   
   
 
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+            </a>
+            
+              
+              <label class="md-nav__link md-nav__link--active" for="__nav_2_10" id="__nav_2_10_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_10_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    09 Simpel lineær regression
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Tutorial_9_notebook/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    09 Simpel lineær regression
+    Tutorial – Session 9
   
 
     
@@ -1057,73 +1103,13 @@
   
 
       </a>
-      
-        
+    </li>
+  
 
-<nav class="md-nav md-nav--secondary" aria-label="Indholdsfortegnelse">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Indholdsfortegnelse
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#sessionsmateriale" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Sessionsmateriale:
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#sessionbeskrivelse" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Sessionbeskrivelse
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Sessionbeskrivelse">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#centrale-begreber" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Centrale begreber
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#velser" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Øvelser
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
+              
+            
+          </ul>
+        </nav>
       
     </li>
   
@@ -1136,9 +1122,35 @@
   
   
   
-    <li class="md-nav__item">
-      <a href="../10_Variansanalyse_ANOVA/" class="md-nav__link">
+    
+    
+      
         
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+      
+        
+        
+      
+    
+    <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+      
+        
+  
+  
+  
+    <a href="../10_Variansanalyse_ANOVA/" class="md-nav__link">
+      
   
   
   <span class="md-ellipsis">
@@ -1152,7 +1164,13 @@
   
   
 
-      </a>
+      
+        <span class="md-nav__icon md-icon"></span>
+      
+    </a>
+  
+
+      
     </li>
   
 
@@ -1426,36 +1444,483 @@
 <h1 align="center">Simpel lineær regression</h1>
 
 <h2 id="sessionsmateriale">Sessionsmateriale:<a class="headerlink" href="#sessionsmateriale" title="Permanent link">&para;</a></h2>
-<p>Pensum og materialer indsættes her.</p>
+<p>Ross: <strong>9.1</strong>–<strong>9.6</strong> (introduktion, MK-estimation, fordeling af estimatore, inferens om <span class="arithmatex">\(\beta_0\)</span> og <span class="arithmatex">\(\beta_1\)</span>, <span class="arithmatex">\(R^2\)</span> og <span class="arithmatex">\(r\)</span>, residualanalyse).</p>
+<p align="left">
+
+  <a href="Tutorial_9_notebook/">
+    <img src="../figures/Python-logo-notext.svg.png" alt="Python tutorial" width="100" />
+    <br>
+    <strong>Se Tutorial 9: Simpel lineær regression</strong>
+  </a>
+</p>
+
+<p><a href="Tutorial_9_notebook.ipynb" download>Download tutorial som notebook (.ipynb)</a></p>
+<p><a href="Tutorial_9/">Se tutorial som markdown</a> (genereret fra notebook — <strong>ret i <code>.ipynb</code></strong>, kør derefter <code>python sync_tutorial9_md.py</code> så siden opdateres).</p>
+<p><strong>Formler og metrics (engelsk, detaljeret):</strong> <a href="Calculating_metrics/">Calculating_metrics.md</a></p>
 <p><a href="">Recap og øvelser</a></p>
 <p><a href="">Sessionnoter</a></p>
 <p><a href="">Sessionsmateriale</a></p>
 <hr />
 <h2 id="sessionbeskrivelse">Sessionbeskrivelse<a class="headerlink" href="#sessionbeskrivelse" title="Permanent link">&para;</a></h2>
-<p>Kort akademisk beskrivelse indsættes her.</p>
+<p>I denne session arbejder vi med <strong>simpel lineær regression</strong> (Ross kap. 9): et respons <span class="arithmatex">\(Y\)</span> modelleres som en lineær funktion af én forklarende variabel <span class="arithmatex">\(x\)</span>. Vi estimerer <span class="arithmatex">\(\beta_0\)</span> og <span class="arithmatex">\(\beta_1\)</span> med <strong>mindste kvadraters metode</strong>, ser på fordelinger af estimatorer, <strong><span class="arithmatex">\(t\)</span>-tests</strong> og <strong>konfidensintervaller</strong> for koefficienterne, <strong><span class="arithmatex">\(R^2\)</span></strong> og <strong>Pearson <span class="arithmatex">\(r\)</span></strong>, og vurderer modellen med <strong>residual- og QQ-plots</strong>.</p>
+<p><strong>Øvelserne</strong> er alene opgaver i <strong>simpel lineær regression</strong> (MK-estimation, modeltilpasning, inferens, <span class="arithmatex">\(r\)</span>/<span class="arithmatex">\(R^2\)</span>, residualer og forudsigelse) hentet fra tidligere eksamen.</p>
+<ul>
+<li>Python-gennemgang: <strong>Tutorial 9</strong> (<strong>statsmodels</strong> og <strong>scikit-learn</strong>: <code>pip install …</code> eller celle 0 i notebook med <code>%pip</code>, hvis import fejler)</li>
+<li>Formler og metrics: <a href="Calculating_metrics/">Calculating_metrics.md</a>.</li>
+</ul>
 <h3 id="centrale-begreber">Centrale begreber<a class="headerlink" href="#centrale-begreber" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Begreb 1 (indsættes)</li>
-<li>Begreb 2 (indsættes)</li>
-<li>Begreb 3 (indsættes)</li>
+<li><strong>Den simple lineære model</strong> <span class="arithmatex">\(Y = \beta_0 + \beta_1 x + \varepsilon\)</span> og MK-estimaterne <span class="arithmatex">\(\hat{\beta}_0\)</span>, <span class="arithmatex">\(\hat{\beta}_1\)</span></li>
+<li><strong>Fittede værdier og residualer</strong>; <strong>SSE</strong>, <strong>MSE</strong> og skøn over <span class="arithmatex">\(\sigma^2\)</span></li>
+<li><strong>Standardfejl</strong> og <strong><span class="arithmatex">\(t\)</span>-fordeling</strong> med <span class="arithmatex">\(n-2\)</span> frihedsgrader til inferens om <span class="arithmatex">\(\beta_1\)</span> og <span class="arithmatex">\(\beta_0\)</span></li>
+<li><strong>Konfidensintervaller</strong> og tests for <span class="arithmatex">\(H_0\)</span>: <span class="arithmatex">\(\beta_1 = 0\)</span></li>
+<li><strong><span class="arithmatex">\(R^2\)</span></strong> og <strong>Pearson <span class="arithmatex">\(r\)</span></strong> — fortolkning og sammenhæng i simpel regression</li>
+<li><strong>Residualanalyse</strong> (linearitet, varians, normalitet)</li>
 </ul>
 <div class="admonition tip">
 <p class="admonition-title">Læringsmål</p>
 <ul>
-<li>Læringsmål indsættes.</li>
-<li>Læringsmål indsættes.</li>
-<li>Læringsmål indsættes.</li>
+<li>Kunne opskrive den simple lineære regressionsmodel og beregne mindste kvadraters estimater (inkl. formler med summationer som i lærebogen).</li>
+<li>Kunne fortolke fittede værdier, residualer, SSE og MSE.</li>
+<li>Kunne gennemføre og fortolke inferens om <span class="arithmatex">\(\beta_1\)</span> (og skitse <span class="arithmatex">\(\beta_0\)</span>): <span class="arithmatex">\(t\)</span>-test og konfidensintervaller.</li>
+<li>Kunne beregne og fortolke <span class="arithmatex">\(R^2\)</span> og <span class="arithmatex">\(r\)</span>, og relatere dem til modelvariation (SSR, SSE, SST).</li>
+<li>Kunne vurdere modelantagelser vha. residualplots og QQ-plots og relatere til Ross 9.6.</li>
 </ul>
 </div>
 <h2 id="velser">Øvelser<a class="headerlink" href="#velser" title="Permanent link">&para;</a></h2>
 <!--
-Indsæt bogreferencer og opgavelister her.
+Kun regression. Figurer i svar: src/ (ex6_*, ex8_*, ex11_* m.fl.).
 -->
 <style type="text/css">
     ol { list-style-type: lower-alpha; }
 </style>
 
-<p><em>Øvelser indsættes.</em></p>
+<h4 id="velse-1-tidligere-eksamensopgave">Øvelse 1 (Tidligere eksamensopgave)<a class="headerlink" href="#velse-1-tidligere-eksamensopgave" title="Permanent link">&para;</a></h4>
+<p>A professor in the School of Engineering in a university polled a dozen colleagues about the number of professional meetings they attended in the past five years <span class="arithmatex">\((x)\)</span> and the number of papers they submitted to refereed journals <span class="arithmatex">\((y)\)</span> during the same period. The summary data are given as follows:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+n &amp; =12, \quad \bar{x}=4, \quad \bar{y}=12 \\
+\sum_{i=1}^n x_i^2 &amp; =232, \quad \sum_{i=1}^n x_i y_i=318
+\end{aligned}
+\]</div>
+<p>Fit a simple linear regression model between <span class="arithmatex">\(x\)</span> and <span class="arithmatex">\(y\)</span> by finding out the estimates of intercept and slope. Hint: Use the Least Squares Estimates formula from the book.</p>
+<details class="answer">
+<summary>&nbsp;</summary>
+<div class="arithmatex">\[\begin{aligned}
+&amp;\text { From the data summary we get }\\
+&amp;\begin{aligned}
+&amp; \hat{B}_1=\frac{(12)(318)-[(4)(12)][(12)(12)]}{(12)(232)-[(4)(12)]^2}=-6.45 \\
+&amp; \hat{B}_0=12-(-6.45)(4)=37.8
+\end{aligned}
+\end{aligned}\]</div>
+</details>
+<h4 id="velse-2-tidligere-eksamensopgave">Øvelse 2 (Tidligere eksamensopgave)<a class="headerlink" href="#velse-2-tidligere-eksamensopgave" title="Permanent link">&para;</a></h4>
+<p>Data collected in 1960 from the National Cancer Institute provides the per capita numbers of cigarettes sold along with death rates for various forms of cancer (see <a href="SmokingandCancer.xlsx">Smoking and Cancer.xlsx</a>).</p>
+<ol>
+<li>Build regression models with cigarettes sold as the independent variable and each of the four cancer types as the dependent variable. Accompany each model with a scatterplot and a trend line as well as confidence intervals for the regression parameters.</li>
+<li>For each model, inspect the residuals to confirm that the assumptions about normality and non-patterns are met.</li>
+<li>Which of the four cancer types exhibit the best correlation with cigarettes sold? Assess using the correlation coefficient.</li>
+<li>In which data pairs is cigarettes sold a good predictor for the type of cancer? Assess using the correlation of determination and interpret the meaning of this number.</li>
+<li>For the model that has the best correlation, find the predicted value of deaths per 100 k for 40 and 50 cigarettes sold per capita. Feel free to include <span class="arithmatex">\(95 \%\)</span> prediction intervals to your predictions.</li>
+</ol>
+<details class="answer">
+<summary>&nbsp;</summary>
+<ol>
+<li>
+<p><img src="src/ex6_1.png" alt="Regression Models" width="80%"/>
+<img src="src/ex6_2.png" alt="Regression Models" width="80%"/><br />
+<img src="src/ex6_3.png" alt="Regression Models" width="80%"/>
+<img src="src/ex6_4.png" alt="Regression Models" width="80%"/>  </p>
+</li>
+<li>
+<p><img src="src/ex6_5.png" alt="Regression Models" width="80%"/>
+<img src="src/ex6_6.png" alt="Regression Models" width="80%"/><br />
+<img src="src/ex6_7.png" alt="Regression Models" width="80%"/>
+<img src="src/ex6_8.png" alt="Regression Models" width="80%"/>  </p>
+</li>
+<li>
+<p>Correlation coefficient for bladder cancer model: 0.703621859461442</p>
+</li>
+<li>
+<p>Correlation coefficient for bladder cancer model: 0.703621859461442</p>
+<p>R-squared for bladder cancer model: 0.4950837211119772</p>
+</li>
+<li>
+<p>Bladder cancer rate for cigarette sales of 40: 5.96</p>
+<p>Bladder cancer rate for cigarette sales of 50: 7.18</p>
+</li>
+</ol>
+</details>
+<h4 id="velse-3-tidligere-eksamensopgave">Øvelse 3 (Tidligere eksamensopgave)<a class="headerlink" href="#velse-3-tidligere-eksamensopgave" title="Permanent link">&para;</a></h4>
+<p>The data in <a href="Salary.xlsx">Salary.xlsx</a> show the (monthly) salary along with years of experience of 31 software developers.</p>
+<ol>
+<li>Create a complete regression analysis of the data mentioned above. Your analysis must include a plot of the data, considerations about outliers, estimates for the regression parameters and confidence intervals for these, considerations about the assumptions of the model, as well as an assessment of the adequacy of the model.</li>
+<li>According to the model, what salary can a newly graduated software developer with no experience expect?</li>
+<li>Assuming the developer starts his/her career at 27 and retires when he/she is 67 , what will be the salary of the developer when he/she retires? Does this sound plausible?</li>
+</ol>
+<details class="answer">
+<summary>&nbsp;</summary>
+<ol>
+<li>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">OLS Regression Results</th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">Dep. Variable:</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">Salary</td>
+<td style="text-align: center;">R-sq</td>
+<td style="text-align: center;">uared:</td>
+<td style="text-align: center;">0.936</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">Model:</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">OLS</td>
+<td style="text-align: center;">Adj. R-sq</td>
+<td style="text-align: center;">uared:</td>
+<td style="text-align: center;">0.934</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">Method:</td>
+<td style="text-align: center;">Least</td>
+<td style="text-align: center;">Squares</td>
+<td style="text-align: center;">F-st</td>
+<td style="text-align: center;">atistic:</td>
+<td style="text-align: center;">412.4</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">Date:</td>
+<td style="text-align: center;">Mon, 01 F</td>
+<td style="text-align: center;">eb 2021 Pr</td>
+<td style="text-align: center;">Prob (F-sta</td>
+<td style="text-align: center;">tistic):</td>
+<td style="text-align: center;"><span class="arithmatex">\(2.72 \mathrm{e}-18\)</span></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">Time:</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">14:20:57 L</td>
+<td style="text-align: center;">Log-Likel</td>
+<td style="text-align: center;">ihood:</td>
+<td style="text-align: center;">-296.40</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">No. Observations:</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">30</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">AIC:</td>
+<td style="text-align: center;">596.8</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">Df Residuals:</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">28</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">BIC:</td>
+<td style="text-align: center;">599.6</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">Df Model:</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">Covariance Type:</td>
+<td style="text-align: center;">: nonrobust</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">coef</td>
+<td style="text-align: center;">std err</td>
+<td style="text-align: center;">t</td>
+<td style="text-align: center;"><span class="arithmatex">\(\mathrm{P}&gt;\|\mathrm{t}\|\)</span></td>
+<td style="text-align: center;">[0.025</td>
+<td style="text-align: center;">0.975]</td>
+</tr>
+<tr>
+<td style="text-align: center;">const</td>
+<td style="text-align: center;"><span class="arithmatex">\(2.162 e+04\)</span></td>
+<td style="text-align: center;">1921.463</td>
+<td style="text-align: center;">11.254</td>
+<td style="text-align: center;">0.000</td>
+<td style="text-align: center;"><span class="arithmatex">\(1.77 \mathrm{e}+04\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(2.56 \mathrm{e}+04\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;">YearsExperience</td>
+<td style="text-align: center;">6501.7589</td>
+<td style="text-align: center;">320.170</td>
+<td style="text-align: center;">20.307</td>
+<td style="text-align: center;">0.000</td>
+<td style="text-align: center;">5845.921</td>
+<td style="text-align: center;">7157.597</td>
+</tr>
+<tr>
+<td style="text-align: center;">Omnibus:</td>
+<td style="text-align: center;">4.321 Du</td>
+<td style="text-align: center;">bin-Watson:</td>
+<td style="text-align: center;">n: 1.751</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">Prob(Omnibus):</td>
+<td style="text-align: center;">0.115 Jarq</td>
+<td style="text-align: center;">ue-Bera (JB):</td>
+<td style="text-align: center;">): 2.044</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">Skew:</td>
+<td style="text-align: center;">0.330</td>
+<td style="text-align: center;">Prob(JB):</td>
+<td style="text-align: center;">): 0.360</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">Kurtosis:</td>
+<td style="text-align: center;">1.905</td>
+<td style="text-align: center;">Cond. No.</td>
+<td style="text-align: center;">o. 13.2</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<p>Wrnings:</p>
+<p>[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.</p>
+<p><img src="src/ex8_1.png" alt="Regression Analysis" width="80%"/></p>
+<p><img src="src/ex8_2.png" alt="Regression Analysis" width="80%"/></p>
+<p><img src="src/ex8_3.png" alt="Regression Analysis" width="80%"/>        </p>
+<p>Skewness = 0.3305</p>
+<p>Kurtosis = -1.0946</p>
+<p><img src="src/ex8_4.png" alt="Regression Analysis" width="80%"/></p>
+</li>
+<li>
+<p>A newly employed developer can expect a monthly wage of kr. 21623.65</p>
+</li>
+<li>
+<p>If a software developer retires after 40 years, he or she will have a wage of kr. 281694.01</p>
+<p>(This sounds very unlikely!)</p>
+</li>
+</ol>
+</details>
+<h4 id="velse-4-tidligere-eksamensopgave">Øvelse 4 (Tidligere eksamensopgave)<a class="headerlink" href="#velse-4-tidligere-eksamensopgave" title="Permanent link">&para;</a></h4>
+<p>As part of their final project, two ICT students are working on a data warehouse support system. The major workload is the warehouse orders. Thus, the key business metric is identified as number of order lines. The students want to find a method to predict CPU utilization based on the number of order lines entered into the system and have collected 31 samples. The data are in <a href="CPU_order_lines.xlsx">CPU_order_lines.xlsx</a> (columns: <code>Sample</code>, <code>CPU_utilisation</code>, <code>Order_lines_per_day</code>).</p>
+<ol>
+<li>Create a complete regression analysis of the data in the spreadsheet. Your analysis must include a plot of the data, considerations about outliers, estimates for the regression parameters and confidence intervals for these, considerations about the assumptions of the model, as well as an assessment of the adequacy of the model.</li>
+</ol>
+<details class="answer">
+<summary>&nbsp;</summary>
+<ol>
+<li>
+<p><img src="src/ex11_1.png" alt="Regression Analysis" width="80%"/></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">OLS Regression Results</th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">Dep. Variable:</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">Unnan</td>
+<td style="text-align: center;">med: 1</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">R-squared:</td>
+<td style="text-align: center;">0.669</td>
+</tr>
+<tr>
+<td style="text-align: center;">Model:</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">OLS</td>
+<td style="text-align: center;">Adj.</td>
+<td style="text-align: center;">squared:</td>
+<td style="text-align: center;">0.658</td>
+</tr>
+<tr>
+<td style="text-align: center;">Method:</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">Least Sq</td>
+<td style="text-align: center;">quares</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">F-statistic:</td>
+<td style="text-align: center;">58.63</td>
+</tr>
+<tr>
+<td style="text-align: center;">Date:</td>
+<td style="text-align: center;">e: Tue, 27 Nov 2018</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">Prob (F-statistic):</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">1.92e-08</td>
+</tr>
+<tr>
+<td style="text-align: center;">Time:</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">14:45:20</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">Log-Likelihood:</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">-107.14</td>
+</tr>
+<tr>
+<td style="text-align: center;">No. Observations:</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">31</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">AIC:</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">218.3</td>
+</tr>
+<tr>
+<td style="text-align: center;">Df Residuals:</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">29</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">BIC:</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">221.1</td>
+</tr>
+<tr>
+<td style="text-align: center;">Df Model:</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">Covariance Type</td>
+<td style="text-align: center;">e: nonrobust</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">0.975]</td>
+</tr>
+<tr>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">coef</td>
+<td style="text-align: center;">std err</td>
+<td style="text-align: center;">t</td>
+<td style="text-align: center;"><span class="arithmatex">\(\mathrm{P}&gt;\|\mathrm{t}\|\)</span></td>
+<td style="text-align: center;">[0.025</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">const 4.</td>
+<td style="text-align: center;">6291</td>
+<td style="text-align: center;">2.652</td>
+<td style="text-align: center;">1.745</td>
+<td style="text-align: center;">0.092</td>
+<td style="text-align: center;">-0.796</td>
+<td style="text-align: center;">10.054</td>
+</tr>
+<tr>
+<td style="text-align: center;">Unnamed: 20.</td>
+<td style="text-align: center;">. 0019</td>
+<td style="text-align: center;">0.000</td>
+<td style="text-align: center;">7.657</td>
+<td style="text-align: center;">0.000</td>
+<td style="text-align: center;">0.001</td>
+<td style="text-align: center;">0.002</td>
+</tr>
+<tr>
+<td style="text-align: center;">Omnibus:</td>
+<td style="text-align: center;">3.065</td>
+<td style="text-align: center;">Durbin-Watson:</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">1.919</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">Prob(Omnibus):</td>
+<td style="text-align: center;">0.216</td>
+<td style="text-align: center;">Jarque-Bera (JB):</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">2.010</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">Skew:</td>
+<td style="text-align: center;">0.000</td>
+<td style="text-align: center;">Prob(JB):</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><span class="arithmatex">\(0.366\)</span></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">Kurtosis:</td>
+<td style="text-align: center;">4.248</td>
+<td style="text-align: center;">Cond. No. <span class="arithmatex">\(\quad 1.95 \mathrm{e}+04\)</span></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+<p>Warnings:</p>
+<p>[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.</p>
+<p>[2] The condition number is large, 1.95e+04. This might indicate that there are
+strong multicollinearity or other numerical problems.</p>
+<p><img src="src/ex11_2.png" alt="Regression Analysis" width="80%"/>
+<img src="src/ex11_3.png" alt="Regression Analysis" width="80%"/>
+<img src="src/ex11_4.png" alt="Regression Analysis" width="80%"/></p>
+<p>Skewness = 0.0004</p>
+<p>Kurtosis = 1.2476</p>
+<p><img src="src/ex11_5.png" alt="Regression Analysis" width="80%"/></p>
+</li>
+</ol>
+</details>
 
 
 
@@ -1513,13 +1978,13 @@ Indsæt bogreferencer og opgavelister her.
         
         
           
-          <a href="../10_Variansanalyse_ANOVA/" class="md-footer__link md-footer__link--next" aria-label="Næste: 10 Variansanalyse (ANOVA)">
+          <a href="Tutorial_9_notebook/" class="md-footer__link md-footer__link--next" aria-label="Næste: Tutorial – Session 9">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Næste
               </span>
               <div class="md-ellipsis">
-                10 Variansanalyse (ANOVA)
+                Tutorial – Session 9
               </div>
             </div>
             <div class="md-footer__button md-icon">
