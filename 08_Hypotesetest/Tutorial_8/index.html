@@ -742,10 +742,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#10-test-for-to-andele-ross-86-velse-7" class="md-nav__link">
+  <a href="#9-test-for-to-andele-ross-86-velse-7" class="md-nav__link">
     <span class="md-ellipsis">
       
-        10. Test for to andele (Ross 8.6, øvelse 7)
+        9. Test for to andele (Ross 8.6, øvelse 7)
       
     </span>
   </a>
@@ -764,13 +764,74 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#11-afsluttende-bemrkning" class="md-nav__link">
+  <a href="#11-oversigt-hypoteser-tests-og-python-scipy" class="md-nav__link">
     <span class="md-ellipsis">
       
-        11. Afsluttende bemærkning
+        11. Oversigt: hypoteser, tests og Python (SciPy)
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="11. Oversigt: hypoteser, tests og Python (SciPy)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#en-middelvrdi-t-eller-z-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Én middelværdi (\(t\)- eller \(z\)-test)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#to-uafhngige-middelvrdier-t-test" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        To uafhængige middelværdier (\(t\)-test)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#andele" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Andele
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#forudstninger-hjlp-ikke-automatisk-sandhed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Forudsætninger (hjælp, ikke “automatisk sandhed”)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#konfidensintervaller-supplerende" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Konfidensintervaller (supplerende)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -795,9 +856,9 @@
 
 
 <h1 id="tutorial-session-8">Tutorial – Session 8<a class="headerlink" href="#tutorial-session-8" title="Permanent link">&para;</a></h1>
+<p><strong>Notebook-version:</strong> <a href="../Tutorial_8_notebook/">Tutorial_8_notebook.ipynb</a></p>
 <h2 id="hypotesetest">Hypotesetest<a class="headerlink" href="#hypotesetest" title="Permanent link">&para;</a></h2>
 <p>Denne tutorial følger <strong>Ross, kapitel 8</strong>, afsnit <strong>8.1</strong>, <strong>8.2</strong>, <strong>8.3</strong>, <strong>8.4</strong> og <strong>8.6</strong> (jf. sessionbeskrivelsen). Afsnit <strong>8.5</strong> (test af varians med <span class="arithmatex">\(\chi^2\)</span>) og <strong>8.7</strong> (Poisson) er <strong>ikke</strong> med. For hvert emne gives først de centrale formler og fortolkninger, derefter <strong>Python</strong>-eksempler med <code>numpy</code>, <code>scipy.stats</code> og <code>matplotlib</code>.</p>
-<p><strong>Notebook-version:</strong> <a href="../Tutorial_8_notebook/">Tutorial_8_notebook.ipynb</a></p>
 <p><strong>Konfidensintervaller</strong> (én middelværdi, forskel mellem middelværdier, andele): se <strong>Tutorial 7</strong> — særligt afsnit <strong>3.2</strong> (<span class="arithmatex">\(t\)</span>-CI), <strong>6</strong> (<span class="arithmatex">\(\mu_1-\mu_2\)</span> pooled) og <strong>7</strong> (andel med Wald). Her supplerer vi med det, I typisk skal bruge <strong>sammen med hypotesetest</strong> i session 8’s øvelser.</p>
 <p><strong>Normal probability plot (QQ):</strong> udvidet teori og fortolkning i <strong>Tutorial 7, afsnit 2</strong> og <a href="../../07_Intervalestimation_og_konfidensintervaller/plot_normal_distribution/">plot_normal_distribution.ipynb</a>. Nedenfor er et minimalt kodeeksempel, så I kan plotte uden at skifte fil.</p>
 <hr />
@@ -915,7 +976,8 @@ T = \frac{\bar{X}_1-\bar{X}_2}{S_p\sqrt{1/n_1+1/n_2}} \sim t_{n_1+n_2-2} \text{ 
 </span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a>    <span class="n">diff</span> <span class="o">=</span> <span class="n">m1</span> <span class="o">-</span> <span class="n">m2</span>
 </span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a>    <span class="k">return</span> <span class="n">diff</span> <span class="o">-</span> <span class="n">tcrit</span> <span class="o">*</span> <span class="n">se</span><span class="p">,</span> <span class="n">diff</span> <span class="o">+</span> <span class="n">tcrit</span> <span class="o">*</span> <span class="n">se</span>
 </span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>
-</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;95% CI mu1-mu2:&quot;</span><span class="p">,</span> <span class="n">ci_diff_means_pooled</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">))</span>
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="n">ci_lower</span><span class="p">,</span> <span class="n">ci_upper</span> <span class="o">=</span> <span class="n">ci_diff_means_pooled</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;95% CI mu1-mu2: [</span><span class="si">{</span><span class="n">ci_lower</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">ci_upper</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
 </span></code></pre></div>
 <hr />
 <h2 id="7-parret-t-test-og-ci-for-middel-af-differenser-ross-84">7. Parret <span class="arithmatex">\(t\)</span>-test og CI for middel af differenser (Ross 8.4)<a class="headerlink" href="#7-parret-t-test-og-ci-for-middel-af-differenser-ross-84" title="Permanent link">&para;</a></h2>
@@ -957,7 +1019,7 @@ T = \frac{\bar{X}_1-\bar{X}_2}{S_p\sqrt{1/n_1+1/n_2}} \sim t_{n_1+n_2-2} \text{ 
 </span></code></pre></div>
 <p><strong>Ensidet nedre CI for <span class="arithmatex">\(p\)</span></strong> med <span class="arithmatex">\(\hat{p}\)</span> i standardfejl (som i øvelse 3, svar): <span class="arithmatex">\(\hat{p} - z_\alpha\sqrt{\hat{p}(1-\hat{p})/n}\)</span> — se <strong>Tutorial 7.7</strong> (<code>side="lower"</code>). <strong>Tosidet Wald-CI</strong> med <span class="arithmatex">\(\hat{p}\)</span> i SE: Tutorial 7.7 <code>side="two"</code>.</p>
 <hr />
-<h2 id="10-test-for-to-andele-ross-86-velse-7">10. Test for to andele (Ross 8.6, øvelse 7)<a class="headerlink" href="#10-test-for-to-andele-ross-86-velse-7" title="Permanent link">&para;</a></h2>
+<h2 id="9-test-for-to-andele-ross-86-velse-7">9. Test for to andele (Ross 8.6, øvelse 7)<a class="headerlink" href="#9-test-for-to-andele-ross-86-velse-7" title="Permanent link">&para;</a></h2>
 <p>Under <span class="arithmatex">\(H_0: p_1=p_2\)</span>: <span class="arithmatex">\(\hat{p} = (x_1+x_2)/(n_1+n_2)\)</span>,</p>
 <div class="arithmatex">\[Z = \frac{\hat{p}_1-\hat{p}_2}{\sqrt{\hat{p}(1-\hat{p})(1/n_1+1/n_2)}}.\]</div>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">x1</span><span class="p">,</span> <span class="n">n1</span> <span class="o">=</span> <span class="mi">92</span><span class="p">,</span> <span class="mi">98</span>
@@ -1039,16 +1101,146 @@ T = \frac{\bar{X}_1-\bar{X}_2}{S_p\sqrt{1/n_1+1/n_2}} \sim t_{n_1+n_2-2} \text{ 
 </span></code></pre></div>
 <p><strong>Hypotesetest for to uafhængige middelværdier</strong> på de to producentkolonner: <code>ttest_ind(..., equal_var=True)</code> som i øvelsens del (6).</p>
 <hr />
-<h2 id="11-afsluttende-bemrkning">11. Afsluttende bemærkning<a class="headerlink" href="#11-afsluttende-bemrkning" title="Permanent link">&para;</a></h2>
-<ul>
-<li><strong>Øvelse 1–2:</strong> <span class="arithmatex">\(t\)</span>-test (ensidet/tosidet), QQ-plot, <strong>konfidensinterval</strong> for <span class="arithmatex">\(\mu\)</span> (se Tutorial 7.3.2).</li>
-<li><strong>Øvelse 3–4:</strong> <span class="arithmatex">\(z\)</span> for én andel; <strong>CI for <span class="arithmatex">\(p\)</span></strong> (Tutorial 7.7).</li>
-<li><strong>Øvelse 5:</strong> <strong>parret</strong> test + evt. deskriptiv statistik (<code>np.mean</code>, <code>np.std</code>, <code>np.percentile</code> for IQR).</li>
-<li><strong>Øvelse 6:</strong> parret test, QQ på <strong>differenser</strong>, skew/kurtosis, KDE.</li>
-<li><strong>Øvelse 7:</strong> <strong>to andele</strong> (afsnit 9).</li>
-<li><strong>Øvelse 8:</strong> Excel, IQR-outliers, deskriptiv statistik, CI for hver middelværdi og for <strong>forskel</strong> (afsnit 6 + 10), <code>ttest_ind</code>.</li>
-</ul>
-<p><strong>Relation test ↔ CI:</strong> Tosidet test på niveau <span class="arithmatex">\(\alpha\)</span> svarer ofte til, at den hypotetiske værdi ligger uden for et <span class="arithmatex">\(100(1-\alpha)\,\%\)</span>-konfidensinterval for den tilsvarende parameter.</p>
+<h2 id="11-oversigt-hypoteser-tests-og-python-scipy">11. Oversigt: hypoteser, tests og Python (SciPy)<a class="headerlink" href="#11-oversigt-hypoteser-tests-og-python-scipy" title="Permanent link">&para;</a></h2>
+<p>Samlet reference til de cases, I har set i tutorialen. I <code>scipy.stats</code> fortolkes <strong><code>alternative</code></strong> ud fra <strong>første stikprøve</strong> i <code>ttest_ind(a, b, …)</code> (hypotese om <span class="arithmatex">\(\mu_a\)</span> vs. <span class="arithmatex">\(\mu_b\)</span>) og ud fra <strong>første minus anden</strong> i <code>ttest_rel(x, y, …)</code> (hypotese om middel af <span class="arithmatex">\(x-y\)</span>).</p>
+<h3 id="en-middelvrdi-t-eller-z-test">Én middelværdi (<span class="arithmatex">\(t\)</span>- eller <span class="arithmatex">\(z\)</span>-test)<a class="headerlink" href="#en-middelvrdi-t-eller-z-test" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Situation</th>
+<th>Typisk <span class="arithmatex">\(H_0\)</span></th>
+<th>Python / beregning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(\sigma\)</span> <strong>kendt</strong> (normalmodel)</td>
+<td><span class="arithmatex">\(\mu = \mu_0\)</span></td>
+<td>Manuel: <span class="arithmatex">\(z_{\mathrm{obs}} = (\bar x - \mu_0)/(\sigma/\sqrt n)\)</span>; <span class="arithmatex">\(p\)</span> med <code>norm.cdf</code> / <code>norm.sf</code> (tosidet som i afsnit 2).</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\sigma\)</span> <strong>ukendt</strong>, <strong>tosidet</strong></td>
+<td><span class="arithmatex">\(\mu = \mu_0\)</span></td>
+<td><code>ttest_1samp(x, mu0, alternative="two-sided")</code></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\sigma\)</span> ukendt, <strong><span class="arithmatex">\(\mu &gt; \mu_0\)</span></strong></td>
+<td><span class="arithmatex">\(\mu = \mu_0\)</span> (eller <span class="arithmatex">\(\mu \le \mu_0\)</span>)</td>
+<td><code>ttest_1samp(x, mu0, alternative="greater")</code></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\sigma\)</span> ukendt, <strong><span class="arithmatex">\(\mu &lt; \mu_0\)</span></strong></td>
+<td><span class="arithmatex">\(\mu = \mu_0\)</span> (eller <span class="arithmatex">\(\mu \ge \mu_0\)</span>)</td>
+<td><code>ttest_1samp(x, mu0, alternative="less")</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Parret</strong> design: brug <code>ttest_rel(x, y, alternative="two-sided" | "greater" | "less")</code> eller ækvivalent <code>ttest_1samp(x - y, 0, alternative=…)</code> (differenser <span class="arithmatex">\(x_i - y_i\)</span>).</p>
+<h3 id="to-uafhngige-middelvrdier-t-test">To uafhængige middelværdier (<span class="arithmatex">\(t\)</span>-test)<a class="headerlink" href="#to-uafhngige-middelvrdier-t-test" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Situation</th>
+<th>Typisk <span class="arithmatex">\(H_0\)</span></th>
+<th>Python / beregning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Pooled</strong> (lige varianser — vejledende tjek: <code>levene(a, b)</code>), <strong>tosidet</strong></td>
+<td><span class="arithmatex">\(\mu_a = \mu_b\)</span></td>
+<td><code>ttest_ind(a, b, equal_var=True, alternative="two-sided")</code></td>
+</tr>
+<tr>
+<td>Pooled, <strong><span class="arithmatex">\(\mu_a &gt; \mu_b\)</span></strong></td>
+<td><span class="arithmatex">\(\mu_a = \mu_b\)</span></td>
+<td><code>ttest_ind(a, b, equal_var=True, alternative="greater")</code></td>
+</tr>
+<tr>
+<td>Pooled, <strong><span class="arithmatex">\(\mu_a &lt; \mu_b\)</span></strong></td>
+<td><span class="arithmatex">\(\mu_a = \mu_b\)</span></td>
+<td><code>ttest_ind(a, b, equal_var=True, alternative="less")</code></td>
+</tr>
+<tr>
+<td><strong>Welch</strong> (ulige varianser tilladt), samme hypotesetyper</td>
+<td><span class="arithmatex">\(\mu_a = \mu_b\)</span></td>
+<td><code>ttest_ind(a, b, equal_var=False, alternative="two-sided" \| "greater" \| "less")</code></td>
+</tr>
+</tbody>
+</table>
+<p>Byt rækkefølgen af <code>a</code> og <code>b</code>, hvis I vil formulere alternativet med den anden gruppe som “første”.</p>
+<p><strong>95 %-CI for <span class="arithmatex">\(\mu_1 - \mu_2\)</span></strong> (pooled, som i afsnit 6): <code>ci_diff_means_pooled(x1, x2)</code>.</p>
+<h3 id="andele">Andele<a class="headerlink" href="#andele" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Situation</th>
+<th>Typisk <span class="arithmatex">\(H_0\)</span></th>
+<th>Python / beregning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Én andel</strong>, eksakt (binomialmodel)</td>
+<td><span class="arithmatex">\(p = p_0\)</span></td>
+<td><code>binomtest(k, n, p=p0, alternative="two-sided" \| "greater" \| "less")</code> (<span class="arithmatex">\(k\)</span> succeser ud af <span class="arithmatex">\(n\)</span>)</td>
+</tr>
+<tr>
+<td><strong>Én andel</strong>, normalapproksimation</td>
+<td><span class="arithmatex">\(p = p_0\)</span></td>
+<td>Manuel <span class="arithmatex">\(z\)</span>; <span class="arithmatex">\(p\)</span> med <code>norm</code> (afsnit 8)</td>
+</tr>
+<tr>
+<td><strong>To andele</strong> (stor stikprøve, pooled <span class="arithmatex">\(z\)</span>)</td>
+<td><span class="arithmatex">\(p_1 = p_2\)</span></td>
+<td><strong>Manuel</strong> <span class="arithmatex">\(z\)</span> og <span class="arithmatex">\(p\)</span> med <code>norm</code> (afsnit 9) — ikke en enkelt kernefunktion i SciPy til den klassiske test</td>
+</tr>
+</tbody>
+</table>
+<h3 id="forudstninger-hjlp-ikke-automatisk-sandhed">Forudsætninger (hjælp, ikke “automatisk sandhed”)<a class="headerlink" href="#forudstninger-hjlp-ikke-automatisk-sandhed" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Formål</th>
+<th>Funktion</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Afvigelser fra lige varianser (robust)</td>
+<td><code>levene(gruppe1, gruppe2)</code></td>
+</tr>
+<tr>
+<td>Normalitet (grafisk)</td>
+<td><code>probplot</code> (QQ) — afsnit 3 og 6</td>
+</tr>
+</tbody>
+</table>
+<h3 id="konfidensintervaller-supplerende">Konfidensintervaller (supplerende)<a class="headerlink" href="#konfidensintervaller-supplerende" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Python / idé</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(\mu\)</span> én stikprøve</td>
+<td><code>t.interval(confidence, n - 1, loc=mean, scale=SE)</code> (afsnit 10)</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\mu_1 - \mu_2\)</span> pooled</td>
+<td><code>ci_diff_means_pooled(x1, x2)</code></td>
+</tr>
+<tr>
+<td>Én andel <span class="arithmatex">\(p\)</span></td>
+<td>Se Tutorial 7.7 (fx Wilson); til hypotesetest bruges <code>binomtest</code> i denne tutorial</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Relation test ↔ CI:</strong> En <strong>tosidet</strong> test på niveau <span class="arithmatex">\(\alpha\)</span> svarer ofte til, at den hypotetiske værdi ligger <strong>uden for</strong> et <span class="arithmatex">\(100(1-\alpha)\,\%\)</span>-konfidensinterval for den tilsvarende parameter.</p>
+<p>Øvelsesopgaverne i session 8 bruger kombinationerne ovenfor; detaljer står i de enkelte afsnit og i øvelsesfilerne.</p>
 
 
 
