@@ -1383,6 +1383,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#video-materiale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Video Materiale:
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#sessionbeskrivelse" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1459,6 +1470,11 @@
 <p><a href="">Recap og øvelser</a></p>
 <p><a href="">Sessionnoter</a></p>
 <p><a href="">Sessionsmateriale</a></p>
+<h2 id="video-materiale">Video Materiale:<a class="headerlink" href="#video-materiale" title="Permanent link">&para;</a></h2>
+<p>Der er én playliste med 5 videoer. Videoerne gennemgår de grundlæggende begreber og metoder for variansanalyse.</p>
+<p><strong>One-way ANOVA</strong></p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?si=1BoXz_UIw58GL12F&amp;list=PLvxOuBpazmsNqPdvhkF_l55tHdDNW3z-7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 <hr />
 <h2 id="sessionbeskrivelse">Sessionbeskrivelse<a class="headerlink" href="#sessionbeskrivelse" title="Permanent link">&para;</a></h2>
 <p>Når vi skal sammenligne middelværdier for mere end to grupper, bliver mange separate <span class="arithmatex">\(t\)</span>-tests problematiske (øget risiko for type I-fejl). Ensidig variansanalyse (one-way ANOVA) samler spørgsmålet i én omnibus-<span class="arithmatex">\(F\)</span>-test: <span class="arithmatex">\(H_0\)</span>: alle gruppemiddelværdier er ens mod <span class="arithmatex">\(H_1\)</span>: mindst én gruppe adskiller sig.</p>
@@ -1468,16 +1484,16 @@
 <li><strong>Øvelse 1:</strong> three resin types, impurity concentration — <a href="Resin_impurities.xlsx">Resin_impurities.xlsx</a>.</li>
 <li><strong>Øvelse 2:</strong> three oscilloscope filters (radar operator) — <a href="Scope_filter_intensity.xlsx">Scope_filter_intensity.xlsx</a>.</li>
 <li><strong>Øvelse 3:</strong> two weight-loss diets (lb) — <a href="Diet_weight_loss.xlsx">Diet_weight_loss.xlsx</a>; ANOVA with <span class="arithmatex">\(k=2\)</span> plus an alternative test.</li>
-<li><strong>Øvelse 4:</strong> complete a partially given <strong>one-way ANOVA</strong> table (four factor levels); replicates, missing SS/MS/DF, <span class="arithmatex">\(P\)</span>-value bounds, conclusion.</li>
+<li><strong>Øvelse 4:</strong> complete a partially given one-way ANOVA table (four factor levels); replicates, missing SS/MS/DF, <span class="arithmatex">\(P\)</span>-value bounds, conclusion.</li>
 </ul>
 <h3 id="centrale-begreber">Centrale begreber<a class="headerlink" href="#centrale-begreber" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>Ensidet layout:</strong> én kategorisk faktor med <span class="arithmatex">\(k\)</span> niveauer (grupper)</li>
 <li><strong>Model:</strong> <span class="arithmatex">\(Y_{ij} = \mu_i + \varepsilon_{ij}\)</span> (Ross’ notation) / effektform med <span class="arithmatex">\(\mu + \alpha_i\)</span></li>
 <li><strong><span class="arithmatex">\(H_0\)</span>: <span class="arithmatex">\(\mu_1 = \cdots = \mu_k\)</span></strong> mod <strong><span class="arithmatex">\(H_1\)</span>:</strong> ikke alle <span class="arithmatex">\(\mu_i\)</span> ens</li>
-<li><strong>SST</strong>, <strong>SSW</strong> (indenfor), <strong>SSB</strong> (mellem), <strong>df</strong>, <strong>MSB</strong>, <strong>MSW</strong>, <strong><span class="arithmatex">\(F\)</span>-teststørrelse</strong></li>
-<li><strong>Antagelser:</strong> uafhængige observationer, ca. normalitet inden for hver gruppe, <strong>ens varians</strong> (<span class="arithmatex">\(\sigma^2\)</span>) på tværs af grupper</li>
-<li><strong>Efter ANOVA:</strong> justerede <strong>parvise sammenligninger</strong> (fx Tukey) for at undgå “datadyrkning”</li>
+<li>SST, SSW (indenfor), SSB (mellem), df, MSB, MSW, <span class="arithmatex">\(F\)</span>-teststørrelse</li>
+<li><strong>Antagelser:</strong> uafhængige observationer, ca. normalitet inden for hver gruppe, ens varians (<span class="arithmatex">\(\sigma^2\)</span>) på tværs af grupper</li>
+<li><strong>Efter ANOVA:</strong> justerede parvise sammenligninger (fx Tukey) for at undgå “datadyrkning”</li>
 </ul>
 <div class="admonition tip">
 <p class="admonition-title">Læringsmål</p>
@@ -1485,8 +1501,8 @@
 <li>Kunne forklare hvorfor ANOVA bruges ved <span class="arithmatex">\(k&gt;2\)</span> grupper i stedet for mange <span class="arithmatex">\(t\)</span>-tests.</li>
 <li>Kunne opstille <span class="arithmatex">\(H_0\)</span> og <span class="arithmatex">\(H_1\)</span> for en ensidig ANOVA og fortolke en <span class="arithmatex">\(F\)</span>-teststørrelse og tilhørende <span class="arithmatex">\(p\)</span>-værdi.</li>
 <li>Kunne skitsere opbygningen af ANOVA-tabellen (sumkvadrater, frihedsgrader, middelkvadrater).</li>
-<li>Kunne gennemføre one-way ANOVA i Python med <strong>SciPy</strong> (<code>f_oneway</code>) og <strong>statsmodels</strong> (<code>ols</code> + <code>anova_lm</code>).</li>
-<li>Kunne efter en signifikant ANOVA bruge <strong>Tukey HSD</strong> (eller tilsvarende) til parvise sammenligninger og fortolke output.</li>
+<li>Kunne gennemføre one-way ANOVA i Python med SciPy (<code>f_oneway</code>) og statsmodels (<code>ols</code> + <code>anova_lm</code>).</li>
+<li>Kunne efter en signifikant ANOVA bruge Tukey HSD (eller tilsvarende) til parvise sammenligninger og fortolke output.</li>
 </ul>
 </div>
 <h2 id="velser">Øvelser<a class="headerlink" href="#velser" title="Permanent link">&para;</a></h2>

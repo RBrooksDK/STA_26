@@ -1383,6 +1383,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#video-materiale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Video Materiale:
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#sessionbeskrivelse" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1444,7 +1455,7 @@
 <h1 align="center">Simpel lineær regression</h1>
 
 <h2 id="sessionsmateriale">Sessionsmateriale:<a class="headerlink" href="#sessionsmateriale" title="Permanent link">&para;</a></h2>
-<p>Ross: <strong>9.1</strong>–<strong>9.6</strong> (introduktion, MK-estimation, fordeling af estimatore, inferens om <span class="arithmatex">\(\beta_0\)</span> og <span class="arithmatex">\(\beta_1\)</span>, <span class="arithmatex">\(R^2\)</span> og <span class="arithmatex">\(r\)</span>, residualanalyse).</p>
+<p>Ross: 9.1–9.6</p>
 <p align="left">
 
   <a href="Tutorial_9_notebook/">
@@ -1455,27 +1466,32 @@
 </p>
 
 <p><a href="Tutorial_9_notebook.ipynb" download>Download tutorial som notebook (.ipynb)</a></p>
-<p><a href="Tutorial_9/">Se tutorial som markdown</a> (genereret fra notebook — <strong>ret i <code>.ipynb</code></strong>, kør derefter <code>python sync_tutorial9_md.py</code> så siden opdateres).</p>
+<p><a href="Tutorial_9/">Se tutorial som markdown</a></p>
 <p><strong>Formler og metrics (engelsk, detaljeret):</strong> <a href="Calculating_metrics/">Calculating_metrics.md</a></p>
 <p><a href="">Recap og øvelser</a></p>
 <p><a href="">Sessionnoter</a></p>
 <p><a href="">Sessionsmateriale</a></p>
+<h2 id="video-materiale">Video Materiale:<a class="headerlink" href="#video-materiale" title="Permanent link">&para;</a></h2>
+<p>Der er én playliste med 12 videoer. Videoerne gennemgår de grundlæggende begreber og metoder for regression.</p>
+<p><strong>Simple Linear Regression</strong></p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?si=oMz8DfBGWlDNUsv7&amp;list=PLvxOuBpazmsND0vmkP1ECjTloiVz-pXla" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 <hr />
 <h2 id="sessionbeskrivelse">Sessionbeskrivelse<a class="headerlink" href="#sessionbeskrivelse" title="Permanent link">&para;</a></h2>
-<p>I denne session arbejder vi med <strong>simpel lineær regression</strong> (Ross kap. 9): et respons <span class="arithmatex">\(Y\)</span> modelleres som en lineær funktion af én forklarende variabel <span class="arithmatex">\(x\)</span>. Vi estimerer <span class="arithmatex">\(\beta_0\)</span> og <span class="arithmatex">\(\beta_1\)</span> med <strong>mindste kvadraters metode</strong>, ser på fordelinger af estimatorer, <strong><span class="arithmatex">\(t\)</span>-tests</strong> og <strong>konfidensintervaller</strong> for koefficienterne, <strong><span class="arithmatex">\(R^2\)</span></strong> og <strong>Pearson <span class="arithmatex">\(r\)</span></strong>, og vurderer modellen med <strong>residual- og QQ-plots</strong>.</p>
-<p><strong>Øvelserne</strong> er alene opgaver i <strong>simpel lineær regression</strong> (MK-estimation, modeltilpasning, inferens, <span class="arithmatex">\(r\)</span>/<span class="arithmatex">\(R^2\)</span>, residualer og forudsigelse) hentet fra tidligere eksamen.</p>
+<p>I denne session arbejder vi med simpel lineær regression (Ross kap. 9): et respons <span class="arithmatex">\(Y\)</span> modelleres som en lineær funktion af én forklarende variabel <span class="arithmatex">\(x\)</span>. Vi estimerer <span class="arithmatex">\(\beta_0\)</span> og <span class="arithmatex">\(\beta_1\)</span> med mindste kvadraters metode, ser på fordelinger af estimatorer, <span class="arithmatex">\(t\)</span>-tests og konfidensintervaller for koefficienterne, <span class="arithmatex">\(R^2\)</span> og Pearson <span class="arithmatex">\(r\)</span>, og vurderer modellen med residual- og QQ-plots.</p>
+<p>Øvelserne er alene opgaver i simpel lineær regression (MK-estimation, modeltilpasning, inferens, <span class="arithmatex">\(r\)</span>/<span class="arithmatex">\(R^2\)</span>, residualer og forudsigelse) hentet fra tidligere eksamen.</p>
 <ul>
-<li>Python-gennemgang: <strong>Tutorial 9</strong> (<strong>statsmodels</strong> og <strong>scikit-learn</strong>: <code>pip install …</code> eller celle 0 i notebook med <code>%pip</code>, hvis import fejler)</li>
+<li>Python-gennemgang: Tutorial 9 (statsmodels og scikit-learn: <code>pip install …</code> eller celle 0 i notebook med <code>%pip</code>, hvis import fejler)</li>
 <li>Formler og metrics: <a href="Calculating_metrics/">Calculating_metrics.md</a>.</li>
 </ul>
 <h3 id="centrale-begreber">Centrale begreber<a class="headerlink" href="#centrale-begreber" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Den simple lineære model</strong> <span class="arithmatex">\(Y = \beta_0 + \beta_1 x + \varepsilon\)</span> og MK-estimaterne <span class="arithmatex">\(\hat{\beta}_0\)</span>, <span class="arithmatex">\(\hat{\beta}_1\)</span></li>
-<li><strong>Fittede værdier og residualer</strong>; <strong>SSE</strong>, <strong>MSE</strong> og skøn over <span class="arithmatex">\(\sigma^2\)</span></li>
-<li><strong>Standardfejl</strong> og <strong><span class="arithmatex">\(t\)</span>-fordeling</strong> med <span class="arithmatex">\(n-2\)</span> frihedsgrader til inferens om <span class="arithmatex">\(\beta_1\)</span> og <span class="arithmatex">\(\beta_0\)</span></li>
-<li><strong>Konfidensintervaller</strong> og tests for <span class="arithmatex">\(H_0\)</span>: <span class="arithmatex">\(\beta_1 = 0\)</span></li>
-<li><strong><span class="arithmatex">\(R^2\)</span></strong> og <strong>Pearson <span class="arithmatex">\(r\)</span></strong> — fortolkning og sammenhæng i simpel regression</li>
-<li><strong>Residualanalyse</strong> (linearitet, varians, normalitet)</li>
+<li>Den simple lineære model <span class="arithmatex">\(Y = \beta_0 + \beta_1 x + \varepsilon\)</span> og MK-estimaterne <span class="arithmatex">\(\hat{\beta}_0\)</span>, <span class="arithmatex">\(\hat{\beta}_1\)</span></li>
+<li>Fittede værdier og residualer; SSE, MSE og skøn over <span class="arithmatex">\(\sigma^2\)</span></li>
+<li>Standardfejl og <span class="arithmatex">\(t\)</span>-fordeling med <span class="arithmatex">\(n-2\)</span> frihedsgrader til inferens om <span class="arithmatex">\(\beta_1\)</span> og <span class="arithmatex">\(\beta_0\)</span></li>
+<li>Konfidensintervaller og tests for <span class="arithmatex">\(H_0\)</span>: <span class="arithmatex">\(\beta_1 = 0\)</span></li>
+<li><span class="arithmatex">\(R^2\)</span> og Pearson <span class="arithmatex">\(r\)</span> — fortolkning og sammenhæng i simpel regression</li>
+<li>Residualanalyse (linearitet, varians, normalitet)</li>
 </ul>
 <div class="admonition tip">
 <p class="admonition-title">Læringsmål</p>
