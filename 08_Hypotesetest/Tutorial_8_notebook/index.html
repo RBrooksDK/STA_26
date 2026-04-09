@@ -2563,6 +2563,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <li><code>scipy.stats</code> — tests, <code>probplot</code>, <code>skew</code>, <code>kurtosis</code>, <code>levene</code></li>
 <li><code>matplotlib.pyplot</code></li>
 </ul>
+<p><strong>Navne på teststørrelser:</strong> I tekst og kode bruges forskellige navne for den <strong>fra data beregnede</strong> værdi af teststørrelsen under $H_0$ — fx <code>z_obs</code>, <code>z_stat</code> og <code>z_test</code> for $z$-tests, og <code>t_stat</code>, <code>t_obs</code> og <code>t_test</code> for $t$-tests. Det <strong>betyder det samme</strong>: den observerede teststørrelse, som sammenlignes med en kritisk værdi eller bruges til $p$-værdi. Suffixet <code>_obs</code> understreger ofte "observeret fra stikprøve" (i modsætning til fx $z_{\alpha/2}$); <code>t_stat</code> bruges meget i kode fordi SciPy returnerer feltet <code>statistic</code>. I denne tutorial bruger vi bl.a. <code>z_obs</code> og <code>t_stat</code> — det er <strong>samme idé</strong>, kun <strong>forskellig notation</strong>.</p>
 </div>
 </div>
 </div>
@@ -2728,13 +2729,13 @@ plt.show()
 </div>
 <div class="highlight-ipynb hl-python"><pre><span></span><span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.05</span>
 <span class="n">z_crit</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">z_obs</span> <span class="o">=</span> <span class="mf">2.1</span>
+<span class="n">z_obs</span> <span class="o">=</span> <span class="mf">2.1</span>  <span class="c1"># samme som z_stat / z_test: observeret z-værdi under H0</span>
 <span class="n">p_two</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">z_obs</span><span class="p">)))</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Tosidet z: forkast |z| &gt; </span><span class="si">{</span><span class="n">z_crit</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">; p = </span><span class="si">{</span><span class="n">p_two</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 <div class="clipboard-copy-txt" id="cell-3">alpha = 0.05
 z_crit = norm.ppf(1 - alpha / 2)
-z_obs = 2.1
+z_obs = 2.1  # samme som z_stat / z_test: observeret z-værdi under H0
 p_two = 2 * (1 - norm.cdf(abs(z_obs)))
 print(f"Tosidet z: forkast |z| &gt; {z_crit:.3f}; p = {p_two:.4f}")
 </div>
@@ -2792,7 +2793,7 @@ print(f"Tosidet z: forkast |z| &gt; {z_crit:.3f}; p = {p_two:.4f}")
 <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="n">xbar</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="n">se</span> <span class="o">=</span> <span class="n">sigma</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-<span class="n">z_obs</span> <span class="o">=</span> <span class="p">(</span><span class="n">xbar</span> <span class="o">-</span> <span class="n">mu0</span><span class="p">)</span> <span class="o">/</span> <span class="n">se</span>
+<span class="n">z_obs</span> <span class="o">=</span> <span class="p">(</span><span class="n">xbar</span> <span class="o">-</span> <span class="n">mu0</span><span class="p">)</span> <span class="o">/</span> <span class="n">se</span>  <span class="c1"># også z_stat / z_test</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"z_obs=</span><span class="si">{</span><span class="n">z_obs</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">, p(tosidet)=</span><span class="si">{</span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">norm</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">z_obs</span><span class="p">)))</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 <div class="clipboard-copy-txt" id="cell-4">x = np.array([98.5, 101.2, 99.8, 100.4, 99.1])
@@ -2800,7 +2801,7 @@ mu0, sigma, alpha = 100.0, 2.0, 0.05
 n = len(x)
 xbar = np.mean(x)
 se = sigma / np.sqrt(n)
-z_obs = (xbar - mu0) / se
+z_obs = (xbar - mu0) / se  # også z_stat / z_test
 print(f"z_obs={z_obs:.4f}, p(tosidet)={2 * (1 - norm.cdf(abs(z_obs))):.4f}")
 </div>
 </div>
@@ -2861,7 +2862,7 @@ print(f"z_obs={z_obs:.4f}, p(tosidet)={2 * (1 - norm.cdf(abs(z_obs))):.4f}")
     <span class="p">]</span>
 <span class="p">)</span>
 <span class="n">mu0</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">25.0</span><span class="p">,</span> <span class="mf">0.01</span>
-<span class="n">t_stat</span><span class="p">,</span> <span class="n">p_greater</span> <span class="o">=</span> <span class="n">ttest_1samp</span><span class="p">(</span><span class="n">rain</span><span class="p">,</span> <span class="n">mu0</span><span class="p">,</span> <span class="n">alternative</span><span class="o">=</span><span class="s2">"greater"</span><span class="p">)</span>
+<span class="n">t_stat</span><span class="p">,</span> <span class="n">p_greater</span> <span class="o">=</span> <span class="n">ttest_1samp</span><span class="p">(</span><span class="n">rain</span><span class="p">,</span> <span class="n">mu0</span><span class="p">,</span> <span class="n">alternative</span><span class="o">=</span><span class="s2">"greater"</span><span class="p">)</span>  <span class="c1"># t_stat = samme som t_obs / t_test</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Ensidet H1 mu &gt; </span><span class="si">{</span><span class="n">mu0</span><span class="si">}</span><span class="s2">: t=</span><span class="si">{</span><span class="n">t_stat</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">, p=</span><span class="si">{</span><span class="n">p_greater</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 
 <span class="c1"># Tosidet (som øvelse 2)</span>
@@ -2872,7 +2873,7 @@ print(f"z_obs={z_obs:.4f}, p(tosidet)={2 * (1 - norm.cdf(abs(z_obs))):.4f}")
         <span class="mf">98.8</span><span class="p">,</span> <span class="mf">98.8</span><span class="p">,</span> <span class="mf">98.9</span><span class="p">,</span> <span class="mf">98.9</span><span class="p">,</span> <span class="mf">99.0</span><span class="p">,</span>
     <span class="p">]</span>
 <span class="p">)</span>
-<span class="n">t_stat2</span><span class="p">,</span> <span class="n">p_two</span> <span class="o">=</span> <span class="n">ttest_1samp</span><span class="p">(</span><span class="n">body</span><span class="p">,</span> <span class="mf">98.6</span><span class="p">,</span> <span class="n">alternative</span><span class="o">=</span><span class="s2">"two-sided"</span><span class="p">)</span>
+<span class="n">t_stat2</span><span class="p">,</span> <span class="n">p_two</span> <span class="o">=</span> <span class="n">ttest_1samp</span><span class="p">(</span><span class="n">body</span><span class="p">,</span> <span class="mf">98.6</span><span class="p">,</span> <span class="n">alternative</span><span class="o">=</span><span class="s2">"two-sided"</span><span class="p">)</span>  <span class="c1"># samme som t_obs / t_test</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Tosidet: t=</span><span class="si">{</span><span class="n">t_stat2</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">, p=</span><span class="si">{</span><span class="n">p_two</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 <div class="clipboard-copy-txt" id="cell-5"># Eksempel som øvelse 1 (regnemedregn: tilpas dine tal)
@@ -2883,7 +2884,7 @@ rain = np.array(
     ]
 )
 mu0, alpha = 25.0, 0.01
-t_stat, p_greater = ttest_1samp(rain, mu0, alternative="greater")
+t_stat, p_greater = ttest_1samp(rain, mu0, alternative="greater")  # t_stat = samme som t_obs / t_test
 print(f"Ensidet H1 mu &gt; {mu0}: t={t_stat:.4f}, p={p_greater:.4f}")
 
 # Tosidet (som øvelse 2)
@@ -2894,7 +2895,7 @@ body = np.array(
         98.8, 98.8, 98.9, 98.9, 99.0,
     ]
 )
-t_stat2, p_two = ttest_1samp(body, 98.6, alternative="two-sided")
+t_stat2, p_two = ttest_1samp(body, 98.6, alternative="two-sided")  # samme som t_obs / t_test
 print(f"Tosidet: t={t_stat2:.4f}, p={p_two:.4f}")
 </div>
 </div>
