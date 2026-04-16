@@ -150,6 +150,11 @@ To perform the test, group the data into the following four categories: 0–3, 4
     1. \(TS=19.295 \quad p\)-value \(=.0017\)
         With \(df=5\), we reject the null hypothesis and conclude that the sample distribution was not normal both at the 0.01 and 0.05 significance levels.
 
+        Note: These solutions are taken from the textbook's solutions, and I actually do not agree with him. I think he makes two mistakes: 1) He assumes that mu and sigma are known. 2) He forgets the "rule of 5". If one instead assumes that they are estimated from the data and follows the rule of 5, we get: \(TS=15.7602 \quad p\)-value \(=.0001\)
+   
+
+        
+
     2. \(T=5.3683 \quad p\)-value \(=.6151\)
         Using the estimated mean \(\hat{\lambda} \approx 4.5667\) and \(df=7\), we fail to reject the null hypothesis. There is no reason to doubt that the daily number of electrical power failures follows a Poisson distribution.
 
