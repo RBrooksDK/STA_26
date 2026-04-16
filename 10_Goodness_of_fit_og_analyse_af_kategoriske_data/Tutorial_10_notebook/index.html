@@ -2412,7 +2412,7 @@ p-værdi       : 0.4678
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
 <clipboard-copy for="cell-2">
@@ -2429,16 +2429,29 @@ p-værdi       : 0.4678
 <span class="c1"># Vi forventer en Poisson-fordeling med lambda = 3.5</span>
 <span class="c1"># Antal kunder: 0, 1, 2, 3, 4, 5, 6, 7 eller flere</span>
 <span class="c1"># Observerede timer (n = 100)</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">stats</span>
 <span class="n">obs_hours</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
 <span class="n">n_hours</span> <span class="o">=</span> <span class="n">obs_hours</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 <span class="n">k</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">obs_hours</span><span class="p">)</span>
 
 <span class="c1"># Forventede sandsynligheder under Poisson(3.5)</span>
 <span class="n">lam</span> <span class="o">=</span> <span class="mf">3.5</span>
-<span class="n">p_poisson</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">stats</span><span class="o">.</span><span class="n">poisson</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">lam</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="p">)])</span>
 
-<span class="c1"># Da den sidste kategori er "7 eller flere", samler vi resten af sandsynligheden her</span>
-<span class="n">p_poisson</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">p_poisson</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">p_poisson</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+    <span class="n">stats</span><span class="o">.</span><span class="n">poisson</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">lam</span><span class="p">),</span>                     <span class="c1"># Bin 0</span>
+    <span class="n">stats</span><span class="o">.</span><span class="n">poisson</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">lam</span><span class="p">)</span> <span class="o">-</span> <span class="n">stats</span><span class="o">.</span><span class="n">poisson</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">lam</span><span class="p">),</span> <span class="c1"># Bin 1</span>
+    <span class="n">stats</span><span class="o">.</span><span class="n">poisson</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">lam</span><span class="p">)</span> <span class="o">-</span> <span class="n">stats</span><span class="o">.</span><span class="n">poisson</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">lam</span><span class="p">),</span> <span class="c1"># Bin 2</span>
+    <span class="n">stats</span><span class="o">.</span><span class="n">poisson</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">lam</span><span class="p">)</span> <span class="o">-</span> <span class="n">stats</span><span class="o">.</span><span class="n">poisson</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">lam</span><span class="p">),</span> <span class="c1"># Bin 3</span>
+    <span class="n">stats</span><span class="o">.</span><span class="n">poisson</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">lam</span><span class="p">)</span> <span class="o">-</span> <span class="n">stats</span><span class="o">.</span><span class="n">poisson</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">lam</span><span class="p">),</span> <span class="c1"># Bin 4</span>
+    <span class="n">stats</span><span class="o">.</span><span class="n">poisson</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">lam</span><span class="p">)</span> <span class="o">-</span> <span class="n">stats</span><span class="o">.</span><span class="n">poisson</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">lam</span><span class="p">),</span> <span class="c1"># Bin 5</span>
+    <span class="n">stats</span><span class="o">.</span><span class="n">poisson</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="n">lam</span><span class="p">)</span> <span class="o">-</span> <span class="n">stats</span><span class="o">.</span><span class="n">poisson</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">lam</span><span class="p">),</span> <span class="c1"># Bin 6</span>
+    <span class="mi">1</span> <span class="o">-</span> <span class="n">stats</span><span class="o">.</span><span class="n">poisson</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="n">lam</span><span class="p">)</span>                  <span class="c1"># Bin 7 (Everything above 6)</span>
+<span class="p">])</span>
+
+<span class="c1"># Kan gøres kortere:</span>
+<span class="c1">#edges = [-1, 0, 1, 2, 3, 4, 5, 6, np.inf] # Brug -1 da vi gerne vil have 0 med</span>
+<span class="c1">#p_poisson = np.diff(stats.poisson.cdf(edges, lam))</span>
 
 <span class="n">exp_hours</span> <span class="o">=</span> <span class="n">n_hours</span> <span class="o">*</span> <span class="n">p_poisson</span>
 
@@ -2449,16 +2462,29 @@ p-værdi       : 0.4678
 # Vi forventer en Poisson-fordeling med lambda = 3.5
 # Antal kunder: 0, 1, 2, 3, 4, 5, 6, 7 eller flere
 # Observerede timer (n = 100)
+import numpy as np
+from scipy import stats
 obs_hours = np.array([3, 12, 20, 25, 18, 12, 7, 3])
 n_hours = obs_hours.sum()
 k = len(obs_hours)
 
 # Forventede sandsynligheder under Poisson(3.5)
 lam = 3.5
-p_poisson = np.array([stats.poisson.pmf(i, lam) for i in range(k)])
 
-# Da den sidste kategori er "7 eller flere", samler vi resten af sandsynligheden her
-p_poisson[-1] = 1 - p_poisson[:-1].sum()
+p_poisson = np.array([
+    stats.poisson.cdf(0, lam),                     # Bin 0
+    stats.poisson.cdf(1, lam) - stats.poisson.cdf(0, lam), # Bin 1
+    stats.poisson.cdf(2, lam) - stats.poisson.cdf(1, lam), # Bin 2
+    stats.poisson.cdf(3, lam) - stats.poisson.cdf(2, lam), # Bin 3
+    stats.poisson.cdf(4, lam) - stats.poisson.cdf(3, lam), # Bin 4
+    stats.poisson.cdf(5, lam) - stats.poisson.cdf(4, lam), # Bin 5
+    stats.poisson.cdf(6, lam) - stats.poisson.cdf(5, lam), # Bin 6
+    1 - stats.poisson.cdf(6, lam)                  # Bin 7 (Everything above 6)
+])
+
+# Kan gøres kortere:
+#edges = [-1, 0, 1, 2, 3, 4, 5, 6, np.inf] # Brug -1 da vi gerne vil have 0 med
+#p_poisson = np.diff(stats.poisson.cdf(edges, lam))
 
 exp_hours = n_hours * p_poisson
 
@@ -2489,7 +2515,7 @@ Forventede : [ 3.02 10.57 18.5  21.58 18.88 13.22  7.71  6.53]
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="CodeMirror cm-s-jupyter">
 <div class="zeroclipboard-container">
 <clipboard-copy for="cell-3">
