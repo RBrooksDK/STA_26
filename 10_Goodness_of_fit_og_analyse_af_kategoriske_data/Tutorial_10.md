@@ -58,23 +58,48 @@ Her tester vi om data følger en bestemt fordeling, f.eks. en Poisson-fordeling,
 # Vi forventer en Poisson-fordeling med lambda = 3.5
 # Antal kunder: 0, 1, 2, 3, 4, 5, 6, 7 eller flere
 # Observerede timer (n = 100)
+import numpy as np
+from scipy import stats
 obs_hours = np.array([3, 12, 20, 25, 18, 12, 7, 3])
 n_hours = obs_hours.sum()
 k = len(obs_hours)
 
 # Forventede sandsynligheder under Poisson(3.5)
 lam = 3.5
-p_poisson = np.array([stats.poisson.pmf(i, lam) for i in range(k)])
 
-# Da den sidste kategori er "7 eller flere", samler vi resten af sandsynligheden her
-p_poisson[-1] = 1 - p_poisson[:-1].sum()
+p_poisson = np.array([
+    stats.poisson.cdf(0, lam),                     # Bin 0
+    stats.poisson.cdf(1, lam) - stats.poisson.cdf(0, lam), # Bin 1
+    stats.poisson.cdf(2, lam) - stats.poisson.cdf(1, lam), # Bin 2
+    stats.poisson.cdf(3, lam) - stats.poisson.cdf(2, lam), # Bin 3
+    stats.poisson.cdf(4, lam) - stats.poisson.cdf(3, lam), # Bin 4
+    stats.poisson.cdf(5, lam) - stats.poisson.cdf(4, lam), # Bin 5
+    stats.poisson.cdf(6, lam) - stats.poisson.cdf(5, lam), # Bin 6
+    1 - stats.poisson.cdf(6, lam)                  # Bin 7 (Everything above 6)
+])
+
+# Kan gøres kortere:
+#edges = [-1, 0, 1, 2, 3, 4, 5, 6, np.inf] # Brug -1 da vi gerne vil have 0 med
+#p_poisson = np.diff(stats.poisson.cdf(edges, lam))
 
 exp_hours = n_hours * p_poisson
 
-chi2_stat, p_value = stats.chisquare(f_obs=obs_hours, f_exp=exp_hours)
-
 print(f"Observerede: {obs_hours}")
 print(f"Forventede : {np.round(exp_hours, 2)}")
+```
+
+
+```python
+# Vi ser at den første kategori er mindre end 5 og slår den sammen:
+
+obs_pooled = np.append([obs_hours[0] + obs_hours[1]], obs_hours[2:])
+exp_pooled = np.append([exp_hours[0] + exp_hours[1]], exp_hours[2:])
+
+# Calculate Chi2 with the pooled data
+chi2_stat, p_value = stats.chisquare(f_obs=obs_pooled, f_exp=exp_pooled)
+
+print(f"Pooled Observed: {obs_pooled}")
+print(f"Pooled Expected: {exp_pooled}")
 print(f"Chi2-statistik: {chi2_stat:.4f}")
 print(f"p-værdi       : {p_value:.4f}")
 ```
@@ -100,10 +125,12 @@ sigma_est = 20
 
 # Beregn forventede sandsynligheder for hvert interval
 edges = [-np.inf, 120, 140, 160, 180, np.inf]
-p_norm = np.zeros(5)
-for i in range(5):
-    p_norm[i] = stats.norm.cdf(edges[i+1], loc=mu_est, scale=sigma_est) - stats.norm.cdf(edges[i], loc=mu_est, scale=sigma_est)
 
+# Beregn alle CDF værdier på én gang
+cdf_values = stats.norm.cdf(edges, loc=mu_est, scale=sigma_est)
+
+# Find forskellen mellem hvert trin (p_norm[i] = cdf[i+1] - cdf[i])
+p_norm = np.diff(cdf_values)
 exp_counts = n_obs * p_norm
 
 # Vi estimerede 2 parametre (mu og sigma), så ddof = 2
