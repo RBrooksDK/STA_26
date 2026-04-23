@@ -11,7 +11,7 @@ Fokus i denne session er målrettet repetition af centrale metoder fra kurset og
 
 [Oversigt over eksamensformat](../pages/exam.md)
 
-[Sessionnoter]()
+[Eksamensprincipper](STA_Exam_principles.pdf)
 
 ---
 

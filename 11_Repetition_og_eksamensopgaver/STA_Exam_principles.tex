@@ -1,0 +1,65 @@
+\documentclass[11pt,english]{article}
+\usepackage[a4paper,
+            left=2 cm, right=2cm,top=2 cm,bottom=2cm,
+            footskip=.25in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}  % For \mathbb and other symbol fonts
+\usepackage{mathtools}
+\usepackage[shortlabels]{enumitem}
+\setlength\parindent{0pt}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks = true,
+    linkcolor = black,
+    urlcolor   = blue,
+    citecolor  = blue,
+}
+\usepackage{listings}
+
+\title{STA Eksamensprincipper}
+\author{VIA University College}
+\date{Forår, 2026}
+
+\begin{document}
+
+\maketitle
+
+\thispagestyle{empty}
+
+Eksamen består af to dele. Første del har en varighed på 3 timer, og anden del har en varighed på 1 time. Bedømmelsen er samlet. Der anvendes tre Flows: i) ét for Del 1, ii) ét for Del 2 og iii) ét for dokumentation. Ved angivelse af svar skal nedenstående retningslinjer overholdes:
+
+\subsection*{Afleveringsretningslinjer og dokumentation}
+
+\begin{itemize}
+    \item Alle besvarelser for begge dele af eksamen skal afleveres via WiseFlow. Besvarelser, der ikke er afleveret i WiseFlow, vil ikke blive bedømt.
+    \item Det er valgfrit at aflevere dokumentation for Del 1. Dokumentationen skal tydeligt vise, hvordan resultaterne er fremkommet, ved at inkludere manuelle beregninger. Hvis en opgave besvares forkert, og der ikke er vedlagt dokumentation, kan der ikke tildeles delpoint.
+    \item Manuelle beregninger skal samles i \textbf{ét} samlet PDF-dokument ved eksamens afslutning. Enkeltstående billeder må ikke uploades; eventuelle billeder skal samles i én PDF-fil.
+    \item Dokumentation for Del 2 er obligatorisk. Der kan ikke opnås point uden aflevering af dokumentation. Dokumentationen skal bestå af én Jupyter Notebook, hvori opgaverne er løst i Python. Manuelle beregninger accepteres ikke i Del 2.
+    \item Dokumentationsflowet er åbent i 30 minutter efter eksamens afslutning, så der er tid til at samle og uploade dokumentationen korrekt.
+    \item Ved samling af dokumentation for begge dele skal opgaverne præsenteres i numerisk rækkefølge (f.eks. Opgave 1 efterfulgt af Opgave 2, derefter Opgave 3 osv.). Opgaverne kan løses i vilkårlig rækkefølge, men afleveringen skal følge denne struktur.
+\end{itemize}
+
+\subsection*{Hjælpemidler}
+
+\begin{itemize}
+    \item Studerende må medbringe egen lommeregner til eksamen.
+    \item Studerende har adgang til \href{https://Wolframalpha.com}{https://Wolframalpha.com} samt \href{https://rbrooksdk.github.io/STA_26/}{https://rbrooksdk.github.io/STA\_26/} under Del 1.
+    \item \textbf{Del 1} gennemføres i FlowLock-miljøet, hvor studerende må anvende printede noter, bøger samt tilgå lokale PDF-filer.
+    \item \textbf{Del 2} gennemføres uden FlowLock, hvilket giver mulighed for at anvende et valgfrit programmeringsmiljø.
+    \item Internetadgang er i begge dele af eksamen udelukkende tilladt til WiseFlow og de sider, der er tilgængelige herigennem.
+    \item Anvendelse af AI-værktøjer er ikke tilladt i nogen del af eksamen. Overtrædelse medfører bortvisning fra eksamen.
+    \item Kommunikation med andre er strengt forbudt i begge dele af eksamen.
+\end{itemize}
+
+\subsection*{Indtastning af svar i WiseFlow}
+
+\begin{itemize}
+    \item Hvis resultatet er et tal, og der ikke er angivet et specifikt format, skal det angives som et positivt helt tal, en brøk eller en kombination heraf.
+    \item Alle fortegn er fortrykt. Hvis resultatet eksempelvis er \(-3\), skal kun værdien \(3\) indtastes, idet minustegnet allerede er angivet.
+    \item Brøker skal angives på reduceret form – i visse tilfælde vil tæller eller nævner være fortrykt.
+    \item Når der kræves decimalangivelse, vil opgaven specificere den nødvendige præcision. Hvis resultatet eksempelvis er \(3.485763283\), og der skal afrundes til fire decimaler, er det korrekte svar \(3.4858\).
+    \item Decimaltal skal altid angives med punktum som decimaltegn, f.eks. \(0.23\) og ikke \(0,23\).
+\end{itemize}
+
+\end{document}
