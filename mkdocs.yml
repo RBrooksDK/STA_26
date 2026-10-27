@@ -5,6 +5,8 @@ site_author: VIA University College
 site_description: Kursusside for Statistik og Dataanalyse for Softwareteknologi ved VIA University College
 docs_dir: .
 site_dir: ../site
+exclude_docs: |
+  CLAUDE.md
 # Repository information
 repo_name: Github
 repo_url: https://github.com/RBrooksDK/STA_26
