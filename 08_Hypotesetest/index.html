@@ -25,7 +25,7 @@
       
       
       <link rel="icon" href="../figures/vialogo_white.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -33,7 +33,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -1841,8 +1841,8 @@ z_0=\frac{x-n p_0}{\sqrt{n p_0\left(1-p_0\right)}}=\frac{289-350(0.78)}{\sqrt{35
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="n">machine_a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">119</span><span class="p">,</span> <span class="mi">130</span><span class="p">,</span> <span class="mi">141</span><span class="p">,</span> <span class="mi">123</span><span class="p">,</span> <span class="mi">149</span><span class="p">,</span> <span class="mi">156</span><span class="p">,</span> <span class="mi">134</span><span class="p">,</span> <span class="mi">108</span><span class="p">,</span> <span class="mi">123</span><span class="p">,</span> <span class="mi">138</span><span class="p">,</span> <span class="mi">119</span><span class="p">,</span> <span class="mi">156</span><span class="p">])</span>
 </span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">machine_b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">112</span><span class="p">,</span> <span class="mi">126</span><span class="p">,</span> <span class="mi">145</span><span class="p">,</span> <span class="mi">112</span><span class="p">,</span> <span class="mi">138</span><span class="p">,</span> <span class="mi">156</span><span class="p">,</span> <span class="mi">130</span><span class="p">,</span> <span class="mi">112</span><span class="p">,</span> <span class="mi">112</span><span class="p">,</span> <span class="mi">119</span><span class="p">,</span> <span class="mi">112</span><span class="p">,</span> <span class="mi">152</span><span class="p">])</span>
 </span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="n">t_stat</span><span class="p">,</span> <span class="n">p_two</span> <span class="o">=</span> <span class="n">ttest_rel</span><span class="p">(</span><span class="n">machine_a</span><span class="p">,</span> <span class="n">machine_b</span><span class="p">,</span> <span class="n">alternative</span><span class="o">=</span><span class="s2">&quot;two-sided&quot;</span><span class="p">)</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Paired t (H0: mean difference = 0): t = </span><span class="si">{</span><span class="n">t_stat</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">, p = </span><span class="si">{</span><span class="n">p_two</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="n">t_stat</span><span class="p">,</span> <span class="n">p_two</span> <span class="o">=</span> <span class="n">ttest_rel</span><span class="p">(</span><span class="n">machine_a</span><span class="p">,</span> <span class="n">machine_b</span><span class="p">,</span> <span class="n">alternative</span><span class="o">=</span><span class="s2">"two-sided"</span><span class="p">)</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Paired t (H0: mean difference = 0): t = </span><span class="si">{</span><span class="n">t_stat</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">, p = </span><span class="si">{</span><span class="n">p_two</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </span></code></pre></div>
 <p>Use a <strong>paired</strong> <span class="arithmatex">\(t\)</span>-test (<code>ttest_rel</code>), not <code>ttest_ind</code> on the two columns as independent samples (Tutorial 8, §7). The output gives <span class="arithmatex">\(p \approx 0.0117\)</span>; reject <span class="arithmatex">\(H_0\)</span> at <span class="arithmatex">\(\alpha = 0.05\)</span> and conclude that the machines differ on average.</p>
 </li>
@@ -1928,32 +1928,32 @@ z_0=\frac{x-n p_0}{\sqrt{n p_0\left(1-p_0\right)}}=\frac{289-350(0.78)}{\sqrt{35
 <div class="language-text highlight"><pre><span></span><code>Before = [30.5, 18.5, 24.5, 32, 16, 15, 23.5, 25.5, 28, 18]
 After = [23, 21, 22, 28.5, 14.5, 15.5, 24.5, 21, 23.5, 16.5]
 
-df = pd.DataFrame({&#39;Before&#39;: Before,
-                &#39;After&#39;: After})
-df[&#39;Difference&#39;] = df[&#39;Before&#39;]- df[&#39;After&#39;]
-meandiff = np.mean(df[&#39;Difference&#39;])
+df = pd.DataFrame({'Before': Before,
+                'After': After})
+df['Difference'] = df['Before']- df['After']
+meandiff = np.mean(df['Difference'])
 </code></pre></div>
 <p>We check for normality of the differences</p>
-<div class="language-text highlight"><pre><span></span><code>stats.probplot(df[&#39;Difference&#39;], plot=plt)
-plt.ylabel(&#39;Difference in Labor-hours&#39;)
+<div class="language-text highlight"><pre><span></span><code>stats.probplot(df['Difference'], plot=plt)
+plt.ylabel('Difference in Labor-hours')
 plt.show()
-print(&#39;Skewness = &#39; + repr(round(stats.skew(df[&#39;Difference&#39;]),4)))
-print(&#39;Kurtosis = &#39; + repr(round(stats.kurtosis(df[&#39;Difference&#39;]),4)))
+print('Skewness = ' + repr(round(stats.skew(df['Difference']),4)))
+print('Kurtosis = ' + repr(round(stats.kurtosis(df['Difference']),4)))
 fig, ax = plt.subplots()
-df[&#39;Difference&#39;].plot.kde(ax=ax, legend=False, title=&#39;Distribution&#39;);
+df['Difference'].plot.kde(ax=ax, legend=False, title='Distribution');
 </code></pre></div>
 <p><img src="src/ex8_1.png" width="80%"></p>
 <p>Skewness = 0.1328</p>
 <p>Kurtosis = -0.7163</p>
 <p><img src="src/ex8_2.png" width="80%"></p>
 <p>Plotting</p>
-<div class="language-text highlight"><pre><span></span><code>n1 = len(df[&#39;Before&#39;])
-SE1 = stats.sem(df[&#39;Before&#39;])
-mean1 = np.mean(df[&#39;Before&#39;])
+<div class="language-text highlight"><pre><span></span><code>n1 = len(df['Before'])
+SE1 = stats.sem(df['Before'])
+mean1 = np.mean(df['Before'])
 
-n2 = len(df[&#39;After&#39;])
-SE2 = stats.sem(df[&#39;After&#39;])
-mean2 = np.mean(df[&#39;After&#39;])
+n2 = len(df['After'])
+SE2 = stats.sem(df['After'])
+mean2 = np.mean(df['After'])
 
 x1 = np.linspace(mean1-4*SE1, mean1+4*SE1, 1000)
 x2 = np.linspace(mean2-4*SE2, mean2+4*SE2, 1000)
@@ -1961,8 +1961,8 @@ x2 = np.linspace(mean2-4*SE2, mean2+4*SE2, 1000)
 y1 = stats.t.pdf(x1, n1-1, mean1, SE1)
 y2 = stats.t.pdf(x2, n2-1, mean2, SE2)
 
-plt.plot(x1,y1, color=&#39;red&#39;)
-plt.plot(x2,y2, color=&#39;blue&#39;)
+plt.plot(x1,y1, color='red')
+plt.plot(x2,y2, color='blue')
 
 plt.show()
 </code></pre></div>
@@ -1970,13 +1970,13 @@ plt.show()
 <p><strong>Hypothesis test (paired <span class="arithmatex">\(t\)</span>, aligned with Tutorial 8):</strong></p>
 <div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">ttest_rel</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">t_stat</span><span class="p">,</span> <span class="n">p_two</span> <span class="o">=</span> <span class="n">ttest_rel</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;Before&quot;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;After&quot;</span><span class="p">],</span> <span class="n">alternative</span><span class="o">=</span><span class="s2">&quot;two-sided&quot;</span><span class="p">)</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">t_stat</span><span class="p">,</span> <span class="n">p_two</span> <span class="o">=</span> <span class="n">ttest_rel</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"Before"</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s2">"After"</span><span class="p">],</span> <span class="n">alternative</span><span class="o">=</span><span class="s2">"two-sided"</span><span class="p">)</span>
 </span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.05</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;t = </span><span class="si">{</span><span class="n">t_stat</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">, p (two-sided) = </span><span class="si">{</span><span class="n">p_two</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"t = </span><span class="si">{</span><span class="n">t_stat</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">, p (two-sided) = </span><span class="si">{</span><span class="n">p_two</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="k">if</span> <span class="n">p_two</span> <span class="o">&lt;</span> <span class="n">alpha</span><span class="p">:</span>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Reject H0 since p = </span><span class="si">{</span><span class="n">p_two</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> &lt; </span><span class="si">{</span><span class="n">alpha</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Reject H0 since p = </span><span class="si">{</span><span class="n">p_two</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> &lt; </span><span class="si">{</span><span class="n">alpha</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="k">else</span><span class="p">:</span>
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Fail to reject H0 since p = </span><span class="si">{</span><span class="n">p_two</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> &gt;= </span><span class="si">{</span><span class="n">alpha</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Fail to reject H0 since p = </span><span class="si">{</span><span class="n">p_two</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> &gt;= </span><span class="si">{</span><span class="n">alpha</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </span></code></pre></div>
 <p>Example output: <span class="arithmatex">\(t \approx 2.27\)</span>, <span class="arithmatex">\(p \approx 0.0497\)</span> — reject <span class="arithmatex">\(H_0\)</span> at <span class="arithmatex">\(\alpha = 0.05\)</span> (evidence of a change in mean labor-hours).</p>
 </li>
@@ -2015,11 +2015,11 @@ plt.show()
 </span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="n">z_obs</span> <span class="o">=</span> <span class="p">(</span><span class="n">p1h</span> <span class="o">-</span> <span class="n">p2h</span><span class="p">)</span> <span class="o">/</span> <span class="n">se</span>
 </span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="n">p_one</span> <span class="o">=</span> <span class="n">norm</span><span class="o">.</span><span class="n">sf</span><span class="p">(</span><span class="n">z_obs</span><span class="p">)</span>
 </span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.05</span>
-</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;z = </span><span class="si">{</span><span class="n">z_obs</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">, p (one-sided p1 &gt; p2) = </span><span class="si">{</span><span class="n">p_one</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"z = </span><span class="si">{</span><span class="n">z_obs</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">, p (one-sided p1 &gt; p2) = </span><span class="si">{</span><span class="n">p_one</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="k">if</span> <span class="n">p_one</span> <span class="o">&lt;</span> <span class="n">alpha</span><span class="p">:</span>
-</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Reject H0 since p = </span><span class="si">{</span><span class="n">p_one</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> &lt; </span><span class="si">{</span><span class="n">alpha</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Reject H0 since p = </span><span class="si">{</span><span class="n">p_one</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> &lt; </span><span class="si">{</span><span class="n">alpha</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="k">else</span><span class="p">:</span>
-</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Fail to reject H0 since p &gt;= </span><span class="si">{</span><span class="n">alpha</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Fail to reject H0 since p &gt;= </span><span class="si">{</span><span class="n">alpha</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </span></code></pre></div>
 <p>Example output: <span class="arithmatex">\(z \approx 1.71\)</span>, <span class="arithmatex">\(p \approx 0.0432\)</span> — reject <span class="arithmatex">\(H_0\)</span> at <span class="arithmatex">\(\alpha = 0.05\)</span>.</p>
 </li>
@@ -2043,7 +2043,7 @@ plt.show()
 <ol>
 <li>
 <div class="language-text highlight"><pre><span></span><code>df = pd.read_excel(
-    &#39;Batteries.xlsx&#39;
+    'Batteries.xlsx'
 )
 df.head()
 </code></pre></div>
@@ -2083,42 +2083,42 @@ df.head()
 </tr>
 </tbody>
 </table>
-<div class="language-text highlight"><pre><span></span><code>q3, q1 = np.percentile(df[&#39;Producer 1&#39;], [75,25])
+<div class="language-text highlight"><pre><span></span><code>q3, q1 = np.percentile(df['Producer 1'], [75,25])
 iqr = q3 - q1
 upper = q3+1.5*iqr
 lower = q1 - 1.5*iqr
-average = df.loc[(df[&#39;Producer 1&#39;] &lt; upper) &amp; (df[&#39;Producer 1&#39;] &gt; lower)  , &#39;Producer 1&#39;].mean()
-df[&#39;Producer 1&#39;] = np.where((df[&#39;Producer 1&#39;] &gt; upper) | (df[&#39;Producer 1&#39;] &lt; lower), average, df[&#39;Producer 1&#39;])
+average = df.loc[(df['Producer 1'] &lt; upper) &amp; (df['Producer 1'] &gt; lower)  , 'Producer 1'].mean()
+df['Producer 1'] = np.where((df['Producer 1'] &gt; upper) | (df['Producer 1'] &lt; lower), average, df['Producer 1'])
 
-q3, q1 = np.percentile(df[&#39;Producer 2&#39;], [75,25])
+q3, q1 = np.percentile(df['Producer 2'], [75,25])
 iqr = q3 - q1
 upper = q3+1.5*iqr
 lower = q1 - 1.5*iqr
-average = df.loc[(df[&#39;Producer 2&#39;] &lt; upper) &amp; (df[&#39;Producer 2&#39;] &gt; lower)  , &#39;Producer 2&#39;].mean()
-df[&#39;Producer 2&#39;] = np.where((df[&#39;Producer 2&#39;] &gt; upper) | (df[&#39;Producer 2&#39;] &lt; lower), average, df[&#39;Producer 2&#39;])
+average = df.loc[(df['Producer 2'] &lt; upper) &amp; (df['Producer 2'] &gt; lower)  , 'Producer 2'].mean()
+df['Producer 2'] = np.where((df['Producer 2'] &gt; upper) | (df['Producer 2'] &lt; lower), average, df['Producer 2'])
 </code></pre></div>
 </li>
 <li>
-<div class="language-text highlight"><pre><span></span><code>df1 = df[&#39;Producer 1&#39;]
-df2 = df[&#39;Producer 2&#39;]
+<div class="language-text highlight"><pre><span></span><code>df1 = df['Producer 1']
+df2 = df['Producer 2']
 
-print(&#39;Producer 1: &#39;)
-print(&#39;q1 = &#39;, round(df1.quantile(0.25), 4))
-print(&#39;q2 = &#39;, round(df1.quantile(0.5), 4))
-print(&#39;q3 = &#39;, round(df1.quantile(0.75), 4))
-print(&#39;q4 = &#39;, round(df1.quantile(1), 4))
-print(&#39;average = &#39;, round(df1.mean(), 4))
-print(&#39;std = &#39;, round(df1.std(), 4))
-print(&#39;std = &#39;, round(df1.var(), 4))
-print(&#39; &#39;)
-print(&#39;Producer 2: &#39;)
-print(&#39;q1 = &#39;, round(df2.quantile(0.25), 4))
-print(&#39;q2 = &#39;, round(df2.quantile(0.5), 4))
-print(&#39;q3 = &#39;, round(df2.quantile(0.75), 4))
-print(&#39;q4 = &#39;, round(df2.quantile(1), 4))
-print(&#39;average = &#39;, round(df2.mean(), 4))
-print(&#39;std = &#39;, round(df2.std(), 4))
-print(&#39;std = &#39;, round(df2.var(), 4))
+print('Producer 1: ')
+print('q1 = ', round(df1.quantile(0.25), 4))
+print('q2 = ', round(df1.quantile(0.5), 4))
+print('q3 = ', round(df1.quantile(0.75), 4))
+print('q4 = ', round(df1.quantile(1), 4))
+print('average = ', round(df1.mean(), 4))
+print('std = ', round(df1.std(), 4))
+print('std = ', round(df1.var(), 4))
+print(' ')
+print('Producer 2: ')
+print('q1 = ', round(df2.quantile(0.25), 4))
+print('q2 = ', round(df2.quantile(0.5), 4))
+print('q3 = ', round(df2.quantile(0.75), 4))
+print('q4 = ', round(df2.quantile(1), 4))
+print('average = ', round(df2.mean(), 4))
+print('std = ', round(df2.std(), 4))
+print('std = ', round(df2.var(), 4))
 </code></pre></div>
 <p>Producer 1: </p>
 <p>q1 =  1.1888</p>
@@ -2147,8 +2147,8 @@ Level = 0.95
 
 CI = stats.t.interval(Level, n-1, loc=mean, scale=SE)
 
-print(&#39;An &#39; + repr(Level*100) + &#39; % upper confidence interval for the sample mean is [&#39;
-    + repr(round(CI[0],2)) + &#39;; &#39; + repr(round(CI[1],2)) + &#39;]&#39;)
+print('An ' + repr(Level*100) + ' % upper confidence interval for the sample mean is ['
+    + repr(round(CI[0],2)) + '; ' + repr(round(CI[1],2)) + ']')
 </code></pre></div>
 <p>An 95.0 % upper confidence interval for the sample mean is [1.56; 2.24]</p>
 <div class="language-text highlight"><pre><span></span><code>import numpy as np
@@ -2177,19 +2177,19 @@ lower = mean - t_crit * std_error
 upper = mean + t_crit * std_error
 
 # Print the confidence interval
-print(&quot;95% Confidence Interval mean Producer 1: [{:.2f}, {:.2f}]&quot;.format(lower, upper))
+print("95% Confidence Interval mean Producer 1: [{:.2f}, {:.2f}]".format(lower, upper))
 
 # Plot the t-distribution with the rejection region shaded
 x = np.linspace(mean-4*std_error, mean+4*std_error, 1000)
 y = stats.t.pdf(x,dof, mean, std_error)
-plt.plot(x, y, &#39;k&#39;, linewidth=2)
+plt.plot(x, y, 'k', linewidth=2)
 shade = np.linspace(lower, upper, 300)
 plt.fill_between(shade, stats.t.pdf(shade, dof, mean, std_error), alpha=0.5)
-plt.axvline(x=lower, linestyle=&#39;--&#39;, color=&#39;k&#39;)
-plt.axvline(x=upper, linestyle=&#39;--&#39;, color=&#39;k&#39;)
-plt.title(&quot;t-Distribution with 95% Confidence Interval \n for the mean of batteries from producer 1&quot;)
-plt.xlabel(&quot;t-value&quot;)
-plt.ylabel(&quot;Probability density&quot;)
+plt.axvline(x=lower, linestyle='--', color='k')
+plt.axvline(x=upper, linestyle='--', color='k')
+plt.title("t-Distribution with 95% Confidence Interval \n for the mean of batteries from producer 1")
+plt.xlabel("t-value")
+plt.ylabel("Probability density")
 plt.show()
 
 # Using the formula
@@ -2214,19 +2214,19 @@ lower = mean - t_crit * std_error
 upper = mean + t_crit * std_error
 
 # Print the confidence interval
-print(&quot;95% Confidence Interval mean Producer 2: [{:.2f}, {:.2f}]&quot;.format(lower, upper))
+print("95% Confidence Interval mean Producer 2: [{:.2f}, {:.2f}]".format(lower, upper))
 
 # Plot the t-distribution with the rejection region shaded
 x = np.linspace(mean-4*std_error, mean+4*std_error, 1000)
 y = stats.t.pdf(x,dof, mean, std_error)
-plt.plot(x, y, &#39;k&#39;, linewidth=2)
+plt.plot(x, y, 'k', linewidth=2)
 shade = np.linspace(lower, upper, 300)
 plt.fill_between(shade, stats.t.pdf(shade, dof, mean, std_error), alpha=0.5)
-plt.axvline(x=lower, linestyle=&#39;--&#39;, color=&#39;k&#39;)
-plt.axvline(x=upper, linestyle=&#39;--&#39;, color=&#39;k&#39;)
-plt.title(&quot;t-Distribution with 95% Confidence Interval \n for the mean of batteries from producer 2&quot;)
-plt.xlabel(&quot;t-value&quot;)
-plt.ylabel(&quot;Probability density&quot;)
+plt.axvline(x=lower, linestyle='--', color='k')
+plt.axvline(x=upper, linestyle='--', color='k')
+plt.title("t-Distribution with 95% Confidence Interval \n for the mean of batteries from producer 2")
+plt.xlabel("t-value")
+plt.ylabel("Probability density")
 plt.show()
 </code></pre></div>
 <p>95% Confidence Interval mean Producer 1: [1.56, 2.24]</p>
@@ -2236,24 +2236,24 @@ plt.show()
 </li>
 <li>
 <div class="language-text highlight"><pre><span></span><code>stats.probplot(df1, plot=plt)
-plt.ylabel(&#39;Producer 1&#39;)
+plt.ylabel('Producer 1')
 plt.show()
-print(&#39;Skewness = &#39; + repr(round(stats.skew(df1),4)))
-print(&#39;Kurtosis = &#39; + repr(round(stats.kurtosis(df1),4)))
+print('Skewness = ' + repr(round(stats.skew(df1),4)))
+print('Kurtosis = ' + repr(round(stats.kurtosis(df1),4)))
 fig, ax = plt.subplots()
-df1.plot.kde(ax=ax, legend=False, title=&#39;Distribution of mean of Producer 1&#39;);
+df1.plot.kde(ax=ax, legend=False, title='Distribution of mean of Producer 1');
 </code></pre></div>
 <p><img src="src/ex10_3.png" width="80%"></p>
 <p>Skewness = 0.1134</p>
 <p>Kurtosis = -0.4326</p>
 <p><img src="src/ex10_4.png" width="80%"></p>
 <div class="language-text highlight"><pre><span></span><code>stats.probplot(df2, plot=plt)
-plt.ylabel(&#39;Producer 2&#39;)
+plt.ylabel('Producer 2')
 plt.show()
-print(&#39;Skewness = &#39; + repr(round(stats.skew(df2),4)))
-print(&#39;Kurtosis = &#39; + repr(round(stats.kurtosis(df2),4)))
+print('Skewness = ' + repr(round(stats.skew(df2),4)))
+print('Kurtosis = ' + repr(round(stats.kurtosis(df2),4)))
 fig, ax = plt.subplots()
-df2.plot.kde(ax=ax, legend=False, title=&#39;Distribution of mean of Producer 2&#39;);
+df2.plot.kde(ax=ax, legend=False, title='Distribution of mean of Producer 2');
 </code></pre></div>
 <p><img src="src/ex10_5.png" width="80%"></p>
 <p>Skewness = -0.1821</p>
@@ -2291,19 +2291,19 @@ lower = diff - t_crit * std_error
 upper = diff + t_crit * std_error
 
 # Print the confidence interval
-print(&quot;95% Confidence Interval for the Difference in Means: [{:.2f}, {:.2f}]&quot;.format(lower, upper))
+print("95% Confidence Interval for the Difference in Means: [{:.2f}, {:.2f}]".format(lower, upper))
 
 # Plot the t-distribution with the rejection region shaded
 x = np.linspace(-4, 4, 1000)
 y = stats.t.pdf(x, df)
-plt.plot(x, y, &#39;k&#39;, linewidth=2)
+plt.plot(x, y, 'k', linewidth=2)
 shade1 = np.linspace(-t_crit, t_crit, 300)
 plt.fill_between(shade1, stats.t.pdf(shade1, df), alpha=0.5)
-plt.axvline(x=t_crit, linestyle=&#39;--&#39;, color=&#39;k&#39;)
-plt.axvline(x=-t_crit, linestyle=&#39;--&#39;, color=&#39;k&#39;)
-plt.title(&quot;t-Distribution with 95% Confidence Interval for the Difference in Means&quot;)
-plt.xlabel(&quot;t-value&quot;)
-plt.ylabel(&quot;Probability density&quot;)
+plt.axvline(x=t_crit, linestyle='--', color='k')
+plt.axvline(x=-t_crit, linestyle='--', color='k')
+plt.title("t-Distribution with 95% Confidence Interval for the Difference in Means")
+plt.xlabel("t-value")
+plt.ylabel("Probability density")
 plt.show()
 </code></pre></div>
 <p>95% Confidence Interval for the Difference in Means: [-1.05, -0.10]</p>
@@ -2327,49 +2327,49 @@ plt.show()
 </span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.05</span>
 </span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="n">df_t</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data1</span><span class="p">)</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">data2</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2</span>
 </span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>
-</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="n">t_stat</span><span class="p">,</span> <span class="n">p_two</span> <span class="o">=</span> <span class="n">ttest_ind</span><span class="p">(</span><span class="n">data1</span><span class="p">,</span> <span class="n">data2</span><span class="p">,</span> <span class="n">equal_var</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">alternative</span><span class="o">=</span><span class="s2">&quot;two-sided&quot;</span><span class="p">)</span>
+</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="n">t_stat</span><span class="p">,</span> <span class="n">p_two</span> <span class="o">=</span> <span class="n">ttest_ind</span><span class="p">(</span><span class="n">data1</span><span class="p">,</span> <span class="n">data2</span><span class="p">,</span> <span class="n">equal_var</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">alternative</span><span class="o">=</span><span class="s2">"two-sided"</span><span class="p">)</span>
 </span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="n">p_value</span> <span class="o">=</span> <span class="n">p_two</span>
-</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Pooled t-test: t = </span><span class="si">{</span><span class="n">t_stat</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">, p (two-sided) = </span><span class="si">{</span><span class="n">p_two</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Pooled t-test: t = </span><span class="si">{</span><span class="n">t_stat</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">, p (two-sided) = </span><span class="si">{</span><span class="n">p_two</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>
 </span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="n">t_crit</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">df_t</span><span class="p">)</span>
 </span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="k">if</span> <span class="n">p_value</span> <span class="o">&lt;</span> <span class="n">alpha</span><span class="p">:</span>
-</span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Reject H0 since p = </span><span class="si">{</span><span class="n">p_value</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> &lt; </span><span class="si">{</span><span class="n">alpha</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-3-23"><a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Reject H0 since p = </span><span class="si">{</span><span class="n">p_value</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> &lt; </span><span class="si">{</span><span class="n">alpha</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </span><span id="__span-3-24"><a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="k">else</span><span class="p">:</span>
-</span><span id="__span-3-25"><a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Fail to reject H0 since p = </span><span class="si">{</span><span class="n">p_value</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> &gt;= </span><span class="si">{</span><span class="n">alpha</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</span><span id="__span-3-25"><a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Fail to reject H0 since p = </span><span class="si">{</span><span class="n">p_value</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2"> &gt;= </span><span class="si">{</span><span class="n">alpha</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </span><span id="__span-3-26"><a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>
 </span><span id="__span-3-27"><a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
 </span><span id="__span-3-28"><a id="__codelineno-3-28" name="__codelineno-3-28" href="#__codelineno-3-28"></a><span class="n">y</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">df_t</span><span class="p">)</span>
-</span><span id="__span-3-29"><a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</span><span id="__span-3-29"><a id="__codelineno-3-29" name="__codelineno-3-29" href="#__codelineno-3-29"></a><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s2">"k"</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 </span><span id="__span-3-30"><a id="__codelineno-3-30" name="__codelineno-3-30" href="#__codelineno-3-30"></a><span class="n">shade1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">t_crit</span><span class="p">,</span> <span class="n">t_crit</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
 </span><span id="__span-3-31"><a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a><span class="n">shade2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">t_crit</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
 </span><span id="__span-3-32"><a id="__codelineno-3-32" name="__codelineno-3-32" href="#__codelineno-3-32"></a><span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">shade1</span><span class="p">,</span> <span class="n">stats</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">shade1</span><span class="p">,</span> <span class="n">df_t</span><span class="p">),</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
 </span><span id="__span-3-33"><a id="__codelineno-3-33" name="__codelineno-3-33" href="#__codelineno-3-33"></a><span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">shade2</span><span class="p">,</span> <span class="n">stats</span><span class="o">.</span><span class="n">t</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">shade2</span><span class="p">,</span> <span class="n">df_t</span><span class="p">),</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
-</span><span id="__span-3-34"><a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a><span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">t_crit</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">)</span>
-</span><span id="__span-3-35"><a id="__codelineno-3-35" name="__codelineno-3-35" href="#__codelineno-3-35"></a><span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=-</span><span class="n">t_crit</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">)</span>
+</span><span id="__span-3-34"><a id="__codelineno-3-34" name="__codelineno-3-34" href="#__codelineno-3-34"></a><span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">t_crit</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">"--"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"k"</span><span class="p">)</span>
+</span><span id="__span-3-35"><a id="__codelineno-3-35" name="__codelineno-3-35" href="#__codelineno-3-35"></a><span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=-</span><span class="n">t_crit</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">"--"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"k"</span><span class="p">)</span>
 </span><span id="__span-3-36"><a id="__codelineno-3-36" name="__codelineno-3-36" href="#__codelineno-3-36"></a><span class="k">if</span> <span class="n">p_value</span> <span class="o">&lt;</span> <span class="n">alpha</span> <span class="o">/</span> <span class="mi">2</span><span class="p">:</span>
 </span><span id="__span-3-37"><a id="__codelineno-3-37" name="__codelineno-3-37" href="#__codelineno-3-37"></a>    <span class="n">plt</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span>
-</span><span id="__span-3-38"><a id="__codelineno-3-38" name="__codelineno-3-38" href="#__codelineno-3-38"></a>        <span class="s2">&quot;p = </span><span class="si">{:.4f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">p_value</span><span class="p">),</span>
+</span><span id="__span-3-38"><a id="__codelineno-3-38" name="__codelineno-3-38" href="#__codelineno-3-38"></a>        <span class="s2">"p = </span><span class="si">{:.4f}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">p_value</span><span class="p">),</span>
 </span><span id="__span-3-39"><a id="__codelineno-3-39" name="__codelineno-3-39" href="#__codelineno-3-39"></a>        <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">t_stat</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">),</span>
 </span><span id="__span-3-40"><a id="__codelineno-3-40" name="__codelineno-3-40" href="#__codelineno-3-40"></a>        <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="n">t_stat</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">),</span>
-</span><span id="__span-3-41"><a id="__codelineno-3-41" name="__codelineno-3-41" href="#__codelineno-3-41"></a>        <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="n">shrink</span><span class="o">=</span><span class="mf">0.05</span><span class="p">),</span>
+</span><span id="__span-3-41"><a id="__codelineno-3-41" name="__codelineno-3-41" href="#__codelineno-3-41"></a>        <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="s2">"green"</span><span class="p">,</span> <span class="n">shrink</span><span class="o">=</span><span class="mf">0.05</span><span class="p">),</span>
 </span><span id="__span-3-42"><a id="__codelineno-3-42" name="__codelineno-3-42" href="#__codelineno-3-42"></a>    <span class="p">)</span>
 </span><span id="__span-3-43"><a id="__codelineno-3-43" name="__codelineno-3-43" href="#__codelineno-3-43"></a><span class="k">elif</span> <span class="n">p_value</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span> <span class="o">/</span> <span class="mi">2</span><span class="p">:</span>
 </span><span id="__span-3-44"><a id="__codelineno-3-44" name="__codelineno-3-44" href="#__codelineno-3-44"></a>    <span class="n">plt</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span>
-</span><span id="__span-3-45"><a id="__codelineno-3-45" name="__codelineno-3-45" href="#__codelineno-3-45"></a>        <span class="s2">&quot;p = </span><span class="si">{:.4f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">p_value</span><span class="p">),</span>
+</span><span id="__span-3-45"><a id="__codelineno-3-45" name="__codelineno-3-45" href="#__codelineno-3-45"></a>        <span class="s2">"p = </span><span class="si">{:.4f}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">p_value</span><span class="p">),</span>
 </span><span id="__span-3-46"><a id="__codelineno-3-46" name="__codelineno-3-46" href="#__codelineno-3-46"></a>        <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">t_stat</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">),</span>
 </span><span id="__span-3-47"><a id="__codelineno-3-47" name="__codelineno-3-47" href="#__codelineno-3-47"></a>        <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="n">t_stat</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">),</span>
-</span><span id="__span-3-48"><a id="__codelineno-3-48" name="__codelineno-3-48" href="#__codelineno-3-48"></a>        <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="n">shrink</span><span class="o">=</span><span class="mf">0.05</span><span class="p">),</span>
+</span><span id="__span-3-48"><a id="__codelineno-3-48" name="__codelineno-3-48" href="#__codelineno-3-48"></a>        <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="s2">"green"</span><span class="p">,</span> <span class="n">shrink</span><span class="o">=</span><span class="mf">0.05</span><span class="p">),</span>
 </span><span id="__span-3-49"><a id="__codelineno-3-49" name="__codelineno-3-49" href="#__codelineno-3-49"></a>    <span class="p">)</span>
 </span><span id="__span-3-50"><a id="__codelineno-3-50" name="__codelineno-3-50" href="#__codelineno-3-50"></a><span class="k">else</span><span class="p">:</span>
 </span><span id="__span-3-51"><a id="__codelineno-3-51" name="__codelineno-3-51" href="#__codelineno-3-51"></a>    <span class="n">plt</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span>
-</span><span id="__span-3-52"><a id="__codelineno-3-52" name="__codelineno-3-52" href="#__codelineno-3-52"></a>        <span class="s2">&quot;p = </span><span class="si">{:.4f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">p_value</span><span class="p">),</span>
+</span><span id="__span-3-52"><a id="__codelineno-3-52" name="__codelineno-3-52" href="#__codelineno-3-52"></a>        <span class="s2">"p = </span><span class="si">{:.4f}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">p_value</span><span class="p">),</span>
 </span><span id="__span-3-53"><a id="__codelineno-3-53" name="__codelineno-3-53" href="#__codelineno-3-53"></a>        <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">t_stat</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">),</span>
 </span><span id="__span-3-54"><a id="__codelineno-3-54" name="__codelineno-3-54" href="#__codelineno-3-54"></a>        <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="n">t_stat</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">),</span>
-</span><span id="__span-3-55"><a id="__codelineno-3-55" name="__codelineno-3-55" href="#__codelineno-3-55"></a>        <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="n">shrink</span><span class="o">=</span><span class="mf">0.05</span><span class="p">),</span>
+</span><span id="__span-3-55"><a id="__codelineno-3-55" name="__codelineno-3-55" href="#__codelineno-3-55"></a>        <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="s2">"green"</span><span class="p">,</span> <span class="n">shrink</span><span class="o">=</span><span class="mf">0.05</span><span class="p">),</span>
 </span><span id="__span-3-56"><a id="__codelineno-3-56" name="__codelineno-3-56" href="#__codelineno-3-56"></a>    <span class="p">)</span>
-</span><span id="__span-3-57"><a id="__codelineno-3-57" name="__codelineno-3-57" href="#__codelineno-3-57"></a><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;t-Distribution with Hypothesis Test Results&quot;</span><span class="p">)</span>
-</span><span id="__span-3-58"><a id="__codelineno-3-58" name="__codelineno-3-58" href="#__codelineno-3-58"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;t-value&quot;</span><span class="p">)</span>
-</span><span id="__span-3-59"><a id="__codelineno-3-59" name="__codelineno-3-59" href="#__codelineno-3-59"></a><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Probability density&quot;</span><span class="p">)</span>
+</span><span id="__span-3-57"><a id="__codelineno-3-57" name="__codelineno-3-57" href="#__codelineno-3-57"></a><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"t-Distribution with Hypothesis Test Results"</span><span class="p">)</span>
+</span><span id="__span-3-58"><a id="__codelineno-3-58" name="__codelineno-3-58" href="#__codelineno-3-58"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"t-value"</span><span class="p">)</span>
+</span><span id="__span-3-59"><a id="__codelineno-3-59" name="__codelineno-3-59" href="#__codelineno-3-59"></a><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">"Probability density"</span><span class="p">)</span>
 </span><span id="__span-3-60"><a id="__codelineno-3-60" name="__codelineno-3-60" href="#__codelineno-3-60"></a><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </span></code></pre></div>
 <p>Reject since  0.0177  &lt;  0.05</p>
@@ -2520,7 +2520,7 @@ plt.show()
       <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["announce.dismiss", "content.code.annotate", "content.code.copy", "content.tooltips", "navigation.expand", "navigation.footer", "navigation.indexes", "navigation.instant", "navigation.instant.prefetch", "navigation.instant.progress", "navigation.prune", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Kopieret til udklipsholderen", "clipboard.copy": "Kopi\u00e9r til udklipsholderen", "search.result.more.one": "1 resultat mere p\u00e5 denne side", "search.result.more.other": "# resultater mere p\u00e5 denne side", "search.result.none": "Ingen resultater fundet", "search.result.one": "1 resultat", "search.result.other": "# resultater", "search.result.placeholder": "Indtast s\u00f8geord", "search.result.term.missing": "Mangler", "select.version": "V\u00e6lg version"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="../javascripts/mathjax.js"></script>
       
