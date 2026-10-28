@@ -1,6 +1,6 @@
 # STA_26 – Statistik og Dataanalyse for Softwareteknologi
 
-Dansk kursusside for statistik. Al tekst skrives på dansk (`language: da`, quiz `lang: da`); filnavne bruger ASCII-omskrivning (`oe`, `aa`, `ae`), fx `06_Fordelinger_af_stikproevestoerrelser_sampling_distributions`.
+Dansk kursusside for statistik, kørte i foråret 2026 (afsluttet). Det engelske valgfag STA1_26 er et separat kursus. Al tekst skrives på dansk (`language: da`, quiz `lang: da`); filnavne bruger ASCII-omskrivning (`oe`, `aa`, `ae`), fx `06_Fordelinger_af_stikproevestoerrelser_sampling_distributions`.
 
 ## Struktur
 
