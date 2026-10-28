@@ -37,6 +37,11 @@ jobs:
           pip install --upgrade pip
           pip install -r requirements.txt
 
+      - name: Build site (strict)
+        run: mkdocs build --strict
+        env:
+          DISABLE_MKDOCS_2_WARNING: "true"
+
       - name: Deploy
         run: mkdocs gh-deploy --force
         env:
