@@ -13,5 +13,4 @@ Dansk kursusside for statistik, kørte i foråret 2026 (afsluttet). Det engelske
 
 - `site_dir: ../site`, dvs. `C:\GitHub\site`, som deles med ALI1_26 og MSU1_26. Byg til en anden mappe (`mkdocs build --strict -d <mappe>`), hvis flere sites bygges efter hinanden.
 - `mkdocs-jupyter` uden indstillinger (standard: notebooks afvikles ikke). Gem output i notebooken.
-- Lokalt: den lokale `.venv` er i stykker (peger på en gammel OneDrive-sti), og den globale Python 3.14 kan ikke køre mkdocs-jupyter; `C:\GitHub\STA1_26\.venv\Scripts\mkdocs` virker (samme plugins).
 - `.gitignore` dækker kun LaTeX-hjælpefiler og OS-filer, ikke `.venv/` eller `_site/`. Commit kun de filer, opgaven handler om.
