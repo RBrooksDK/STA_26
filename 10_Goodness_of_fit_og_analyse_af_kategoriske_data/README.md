@@ -210,7 +210,7 @@ Is there sufficient evidence to conclude that screens and hue bias depend signif
 
 #### Øvelse 7 (Tidligere eksamensopgave)
 
-The dataset for this assignment is [Wages_and_Work_Hour.xlsx](Wages_and_Work_Hour.xlsx). This workbook contains data on fulltime workers in East North Central United States from the March 1999 CPS. The objective is to determine whether Education, Income, and Gender differ.
+The dataset for this assignment is [Wages_and_Work_Hours.xlsx](Wages_and_Work_Hours.xlsx). This workbook contains data on fulltime workers in East North Central United States from the March 1999 CPS. The objective is to determine whether Education, Income, and Gender differ.
 
 Variable notes:
 
